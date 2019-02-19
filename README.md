@@ -1,5 +1,5 @@
 # 2.-Semesterprojekt 
-Gruppe 13 bestående af: 
+Gruppe 13 bestående af:
 Mehmed Emin Øzer 	Meuze18@student.sdu.dk 
 Malthe Petersen 	Malpe18@student.sdu.dk
 Samir Alidrissi	Salid18@student.sdu.dk
