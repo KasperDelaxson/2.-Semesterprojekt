@@ -9,7 +9,7 @@ package semesterprojekt;
  *
  * @author Kenneth Haahr
  */
-public class Semesterprojekt {
+public class Main {
 
     /**
      * @param args the command line arguments
