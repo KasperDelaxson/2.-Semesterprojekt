@@ -13,16 +13,7 @@ import java.util.UUID;
  */
 public class User {
     
-    private UUID id;
-    private String username;
-    private int permission;
-    private String password;
-    
-    public User(UUID id, String username, String password, int permission) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.permission = permission;
+ 
     }
     
 }
