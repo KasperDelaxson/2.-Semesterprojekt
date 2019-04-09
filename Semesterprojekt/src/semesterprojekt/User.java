@@ -14,9 +14,10 @@ import sun.security.util.Password;
  */
 public class User {
     private String UUID; 
+    private String username; 
     private String Password; 
     private int Permission; 
-    private String username; 
+   
     
     
     
