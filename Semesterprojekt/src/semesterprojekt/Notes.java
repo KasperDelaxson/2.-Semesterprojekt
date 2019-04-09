@@ -21,5 +21,23 @@ public class Notes {
         this.date = date;
         
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    
     
 }
