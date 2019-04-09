@@ -5,10 +5,20 @@
  */
 package semesterprojekt;
 
+import java.util.UUID;
+import sun.security.util.Password;
+
 /**
  *
  * @author mehme
  */
 public class User {
+    private String UUID; 
+    private String Password; 
+    private int Permission; 
+    private String username; 
+    
+    
+    
     
 }
