@@ -7,13 +7,13 @@ package semesterprojekt;
 
 import java.security.Permission;
 import java.util.UUID;
-import sun.security.util.Password;
 
 /**
  *
  * @author mehme
  */
 public class User {
+    
     private UUID id;
    private String username; 
     private String password; 
@@ -56,8 +56,4 @@ public class User {
         this.permission = permission;
     }
    
-    
-    
-
-    
 }
