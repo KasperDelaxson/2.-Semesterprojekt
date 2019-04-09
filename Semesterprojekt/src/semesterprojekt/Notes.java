@@ -5,10 +5,21 @@
  */
 package semesterprojekt;
 
+import java.util.Date;
+
 /**
  *
  * @author mehme
  */
 public class Notes {
+    
+    private String name;
+    private Date date;
+    
+    public Notes(String name, Date date) {
+        this.name = name;
+        this.date = date;
+        
+    }
     
 }
