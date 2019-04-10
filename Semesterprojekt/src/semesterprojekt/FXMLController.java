@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Noterskrivning.samir.og;
+package semesterprojekt;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,11 +21,11 @@ import javafx.scene.input.MouseEvent;
  */
 public class FXMLController implements Initializable {
     @FXML
-    private TextArea textAreaNote;
+    private TextArea textArea;
     @FXML
-    private Button publishNote;
+    private Button publish;
     @FXML
-    private Button backFromNote;
+    private Button back;
 
     /**
      * Initializes the controller class.
@@ -35,17 +35,16 @@ public class FXMLController implements Initializable {
         // TODO
     }    
 
-
     @FXML
-    private void publishNote(ActionEvent event) {
+    private void textArea(MouseEvent event) {
     }
 
     @FXML
-    private void backFromNote(ActionEvent event) {
+    private void publish(ActionEvent event) {
     }
 
     @FXML
-    private void textAreaNote(MouseEvent event) {
+    private void back(ActionEvent event) {
     }
     
 }
