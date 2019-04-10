@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Noterskrivning.samir.og.FXMLController">
+   <children>
+      <TextArea fx:id="textArea" layoutX="69.0" layoutY="79.0" onDragDetected="#textArea" prefHeight="671.0" prefWidth="616.0" />
+      <Button fx:id="publish" layoutX="792.0" layoutY="696.0" mnemonicParsing="false" onAction="#publish" prefHeight="54.0" prefWidth="115.0" text="Udgiv" />
+      <Button fx:id="back" layoutX="23.0" layoutY="22.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="93.0" text="←Tilabge" />
+   </children>
+</AnchorPane>
