@@ -13,47 +13,50 @@ import java.util.UUID;
  * @author mehme
  */
 public class User {
-    
+
     private UUID id;
-   private String username; 
-    private String password; 
-    private int permission; 
-    
-    public User (UUID id, String username, String password, int permission) {
+    private String username;
+    private String password;
+    private int permission;
+
+    public User(UUID id, String username, String password, int permission) {
         this.id = id;
-        this.username = username; 
+        this.username = username;
         this.password = password;
         this.permission = permission;
-       
-        
+
     }
 
     public UUID getid() {
-        return this.id;
+        return id;
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getPermission() {
+        return permission;
+    }
+    
+    public void setid(final UUID id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getPermission() {
-        return this.permission;
     }
 
     public void setPermission(int permission) {
         this.permission = permission;
     }
-   
+
 }
