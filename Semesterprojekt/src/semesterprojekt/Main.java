@@ -5,17 +5,29 @@
  */
 package semesterprojekt;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Kenneth Haahr
+ * @author mehme
  */
-public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+//Jeg har lavet denne klasse fordi jeg tænkte vi havde brug for en klasse hvor
+//stort set alt vores kode skulle foregå
+public class Main {
+    
+    private ArrayList<User> users;
+   
+    public Main() {
+        users = new ArrayList<User>();
+    }
+    
+    public void createUser(User user, ArrayList<User> users) {
+        users.add(user);
+    }
+    
+    public void createUsers() {
+        
     }
     
 }
