@@ -49,6 +49,10 @@ public class FXMLController implements Initializable {
     private void textArea(MouseEvent event) {
     }
 
+    @FXML
+    private void newJournal(ActionEvent event) {
+    }
+
 
     
 }

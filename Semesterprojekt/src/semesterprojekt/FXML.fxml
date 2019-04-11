@@ -15,7 +15,7 @@
                <children>
                   <Label prefHeight="40.0" prefWidth="90.0" text="Journaler:" translateX="8.0" translateY="30.0" />
                   <ListView fx:id="journalList" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="150.0" translateX="5.0" translateY="30.0" />
-                  <Button mnemonicParsing="false" text="Ny journal" translateX="8.0" translateY="50.0" />
+                  <Button mnemonicParsing="false" onAction="#newJournal" text="Ny journal" translateX="8.0" translateY="50.0" />
                </children>
             </VBox>
          </left>
