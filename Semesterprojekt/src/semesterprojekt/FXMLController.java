@@ -10,9 +10,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import static javafx.scene.paint.Color.color;
+import static javafx.scene.paint.Color.color;
 
 /**
  * FXML Controller class
@@ -21,30 +25,30 @@ import javafx.scene.input.MouseEvent;
  */
 public class FXMLController implements Initializable {
     @FXML
+    private ListView<?> journalList;
+    @FXML
+    private ListView<?> patientList;
+    @FXML
+    private BorderPane borderPane;
+    @FXML
     private TextArea textArea;
-    @FXML
-    private Button publish;
-    @FXML
-    private Button back;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
+
+    @FXML
+    private void logOut(ActionEvent event) {
+    }
 
     @FXML
     private void textArea(MouseEvent event) {
     }
 
-    @FXML
-    private void publish(ActionEvent event) {
-    }
 
-    @FXML
-    private void back(ActionEvent event) {
-    }
     
 }
