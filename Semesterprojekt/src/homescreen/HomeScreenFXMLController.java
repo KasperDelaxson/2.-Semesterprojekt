@@ -62,10 +62,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        timeAndDate();
         ddImage.setImage(dd);
         velkommenLabel.setText("Velkommen: \"brugernavn\"");
-        dateTimeLabel.setText("10/04-2019 16:10");
-        informationArea.setVisible(false);
+        dateTimeLabel.setText(getDatoTid());
+        informationArea.setVisible(false); 
     }
 
     @FXML

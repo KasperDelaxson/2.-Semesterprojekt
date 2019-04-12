@@ -6,12 +6,14 @@
 package mainAndParent;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -19,7 +21,7 @@ import javafx.stage.Stage;
  * @author Kasper
  */
 public abstract class ParentController {
-
+    private String datoTid;
     private static Stage window;
 
     public void changeFXML(String fxml, Event event) {
@@ -34,7 +36,7 @@ public abstract class ParentController {
             System.out.println("changeFXML IO Exception");
         }
     }
-    
+
     public void closeWindow(Event event) {
         Node node = (Node) event.getSource();
         Stage window = (Stage) node.getScene().getWindow();
@@ -43,5 +45,25 @@ public abstract class ParentController {
         } catch (java.lang.NullPointerException e) {
             System.out.println("closeWindow IO exceptions");
         }
+    }
+    
+    /**
+     * @return the datoTid
+     */
+    public String getDatoTid() {
+        return datoTid;
+    }
+
+    /**
+     * @param datoTid the datoTid to set
+     */
+    public void setDatoTid(String datoTid) {
+        this.datoTid = datoTid;
+    }
+    
+    public void timeAndDate() {
+        LocalDateTime lokalDatoTid = LocalDateTime.now();
+        DateTimeFormatter datoformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        setDatoTid(lokalDatoTid.format(datoformat));
     }
 }
