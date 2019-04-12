@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
-
+import homescreen.Description;
 /**
  * FXML Controller class
  *
@@ -45,25 +45,12 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     /**
      * Initializes the controller class.
      */
-    //Pictures:
-    Image dd = new Image("/pictures/DIGI-DAGBOG.png");
-    Image blue = new Image("/pictures/homeScreenPictures/Blue.png");
-    Image blue2 = new Image("/pictures/homeScreenPictures/Blue2.png");
-    Image darkBlue = new Image("/pictures/homeScreenPictures/DarkBlue.png");
-    Image darkBlue2 = new Image("/pictures/homeScreenPictures/DarkBlue2.png");
-    Image green = new Image("/pictures/homeScreenPictures/Green.png");
-    Image green2 = new Image("/pictures/homeScreenPictures/Green2.png");
-    Image purple = new Image("/pictures/homeScreenPictures/Purple.png");
-    Image purple2 = new Image("/pictures/homeScreenPictures/Purple2.png");
-    Image red = new Image("/pictures/homeScreenPictures/Red.png");
-    Image red2 = new Image("/pictures/homeScreenPictures/Red2.png");
-    Image yellow = new Image("/pictures/homeScreenPictures/yellow.png");
-    Image yellow2 = new Image("/pictures/homeScreenPictures/yellow2.png");
-
+    Description description = new Description();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
-        ddImage.setImage(dd);
+        ddImage.setImage(description.dd);
         velkommenLabel.setText("Velkommen: \"brugernavn\"");
         dateTimeLabel.setText(getDatoTid());
         informationArea.setVisible(false); 
@@ -71,88 +58,75 @@ public class HomeScreenFXMLController extends ParentController implements Initia
 
     @FXML
     private void blueChangeToS(MouseEvent event) {
-        blueImage.setImage(blue);
+        blueImage.setImage(description.blue);
         informationArea.setText(null);
 
     }
 
     @FXML
     private void blueChangeToL(MouseEvent event) {
-        blueImage.setImage(blue2);
-        informationArea.setText("Her kan der: "
-                + "\n Skrives notater "
-                + "\n Se notater "
-                + "\n redigere notater");
+        blueImage.setImage(description.blue2);
+        informationArea.setText(description.features.get("Notater"));
     }
 
     @FXML
     private void greenChangeToS(MouseEvent event) {
-        greenImage.setImage(green);
+        greenImage.setImage(description.green);
         informationArea.setText(null);
     }
 
     @FXML
     private void greenChangeToL(MouseEvent event) {
-        greenImage.setImage(green2);
-        informationArea.setText("Her kan der: "
-                + "\n Skrives kommentar "
-                + "\n Se kommentar "
-                + "\n redigere kommentar");
+        greenImage.setImage(description.green2);
+        informationArea.setText(description.features.get("Kommentar"));
     }
 
     @FXML
     private void yellowChangeToS(MouseEvent event) {
-        yellowImage.setImage(yellow);
+        yellowImage.setImage(description.yellow);
         informationArea.setText(null);
     }
 
     @FXML
     private void yellowChangeToL(MouseEvent event) {
-        yellowImage.setImage(yellow2);
-        informationArea.setText("Her kan der: "
-                + "\n Se tildelt ydelser for borger");
+        yellowImage.setImage(description.yellow2);
+        informationArea.setText(description.features.get("Ydelser"));
     }
 
     @FXML
     private void purpleChangeToS(MouseEvent event) {
-        purpleImage.setImage(purple);
+        purpleImage.setImage(description.purple);
         informationArea.setText(null);
     }
 
     @FXML
     private void purpleChangeToL(MouseEvent event) {
-        purpleImage.setImage(purple2);
-        informationArea.setText("Her kan der: "
-                + "\n Se udleveret medicin for borger");
+        purpleImage.setImage(description.purple2);
+        informationArea.setText(description.features.get("Medicin"));
     }
 
     @FXML
     private void redChangeToS(MouseEvent event) {
-        redImage.setImage(red);
+        redImage.setImage(description.red);
         informationArea.setText(null);
     }
 
     @FXML
     private void redChangeToL(MouseEvent event) {
-        redImage.setImage(red2);
-        informationArea.setText("Her ses indstillinger af systemet");
+        redImage.setImage(description.red2);
+        informationArea.setText(description.features.get("Indstillinger"));
     }
 
     @FXML
     private void darkBlueChangeToS(MouseEvent event) {
-        darkBlueImage.setImage(darkBlue);
+        darkBlueImage.setImage(description.darkBlue);
         informationArea.setText(null);
     }
 
     @FXML
     private void darkBlueChangeToL(MouseEvent event) {
-        darkBlueImage.setImage(darkBlue2);
-        informationArea.setText("Kun adgang for Admin: "
-                + "\n Håndtere hvem der må se hvad "
-                + "\n Slette sagsakter "
-                + "\n Se/vise samlede borgers data "
-                + "\n Åbne/Lukke borgers sag "
-                + "\n Se hvem der har tilgået hvad");
+        darkBlueImage.setImage(description.darkBlue2);
+        informationArea.setText(description.features.get("Admin"));
     }
 
     @FXML
