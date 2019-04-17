@@ -18,8 +18,13 @@ public class Main {
     
     private ArrayList<User> users;
    
-    public Main() {
-        users = new ArrayList<User>();
+    public static void main(String args[]) {
+        //users = new ArrayList<User>();
+        SQLConnection con = new SQLConnection();
+        con.openConnection();
+        con.addEmployee(1,"Susan",12345678,"Susan@hotmail.com","Susan123","SusanErHot",5);
+        con.getEmployee("Susan");
+        con.closeConnection();
     }
     
     public void createUser(User user, ArrayList<User> users) {
