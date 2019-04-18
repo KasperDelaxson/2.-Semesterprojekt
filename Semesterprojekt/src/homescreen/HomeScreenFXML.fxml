@@ -18,14 +18,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.HomeScreenFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.HomeScreenFXMLController">
    <children>
       <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="23.0" prefHeight="50.0" prefWidth="302.0">
          <font>
             <Font name="TI-Nspire Regular" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="dateTimeLabel" layoutX="1151.0" layoutY="5.0" prefHeight="18.0" prefWidth="129.0" text="09-04-2019 23:05" />
+      <Label fx:id="dateTimeLabel" layoutX="1151.0" layoutY="5.0" prefHeight="18.0" prefWidth="129.0" text="09-04-2019 23:05" textFill="WHITE" />
       <ImageView fx:id="ddImage" fitHeight="171.0" fitWidth="178.0" layoutX="551.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pictures/DIGI-DAGBOG.PNG" />
@@ -114,12 +114,12 @@
       </TextArea>
       <HBox layoutX="43.0" layoutY="116.0" prefHeight="40.0" prefWidth="240.0">
          <children>
-            <RadioButton mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" prefWidth="120.0" text="Vis Hjælp">
+            <RadioButton mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" prefWidth="120.0" text="Vis Hjælp" textFill="WHITE">
                <toggleGroup>
                   <ToggleGroup fx:id="helpButtonGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" onAction="#hideHelp" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul Hjælp" toggleGroup="$helpButtonGroup" />
+            <RadioButton mnemonicParsing="false" onAction="#hideHelp" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul Hjælp" textFill="WHITE" toggleGroup="$helpButtonGroup" />
          </children>
       </HBox>
    </children>
