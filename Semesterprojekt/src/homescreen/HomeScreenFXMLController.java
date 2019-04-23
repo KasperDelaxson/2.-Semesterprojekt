@@ -136,6 +136,7 @@ public class HomeScreenFXMLController extends ParentController implements Initia
 
     @FXML
     private void logOffButton(ActionEvent event) {
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
 
     @FXML
@@ -151,6 +152,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     @FXML
     private void hideHelp(ActionEvent event) {
         informationArea.setVisible(false);
+    }
+
+    @FXML
+    private void changeToNotes(MouseEvent event) {
+        changeFXML("", event);
     }
 
 }

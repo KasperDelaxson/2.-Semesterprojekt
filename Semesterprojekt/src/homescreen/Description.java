@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
  */
 public class Description {
     //Pictures:
-    Image dd = new Image("/pictures/DIGI-DAGBOG.png");
+    public Image dd = new Image("/pictures/DIGI-DAGBOG.png");
     Image blue = new Image("/pictures/homeScreenPictures/Blue.png");
     Image blue2 = new Image("/pictures/homeScreenPictures/Blue2.png");
     Image darkBlue = new Image("/pictures/homeScreenPictures/DarkBlue.png");
