@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package journalWritingPage;
+package journalMaintancePage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +16,7 @@ import javafx.fxml.Initializable;
  *
  * @author mehme
  */
-public class JournalViewingPageController implements Initializable {
+public class JournalMaintancePageController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -28,11 +28,11 @@ public class JournalViewingPageController implements Initializable {
 
     @FXML
     private void goBack(ActionEvent event) {
-        changeFXML("journalMaintaincePageFXML.fxml", event);
+        changeFXML("HomeScreenFXML.fxml", event);
     }
 
-    private void changeFXML(String journalMaintaincePageFXMLfxml, ActionEvent event) {
-        throw new UnsupportedOperationException("Fejl i JournalViewingPageController//changeFXML"); //To change body of generated methods, choose Tools | Templates.
+    private void changeFXML(String homeScreenFXMLfxml, ActionEvent event) {
+        throw new UnsupportedOperationException("Fejl i NoteWritingPageController//changeFXML"); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
