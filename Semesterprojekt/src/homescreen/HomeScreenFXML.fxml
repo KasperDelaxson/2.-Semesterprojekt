@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.HomeScreenFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.HomeScreenFXMLController">
    <children>
       <AnchorPane layoutX="9.0" layoutY="8.0" prefHeight="706.0" prefWidth="1260.0" style="-fx-background-color: FFFFFF;" />
       <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" prefHeight="31.0" prefWidth="302.0">
@@ -118,6 +125,6 @@
             <RadioButton mnemonicParsing="false" onAction="#hideHelp" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul Hjælp" toggleGroup="$helpButtonGroup" />
          </children>
       </HBox>
-      <Line endX="1268.9998779296875" endY="50.50001525878906" startY="50.5" stroke="#c1381b" strokeWidth="10.0" />
+      <Line endX="1260.0" endY="50.0" layoutX="8.0" startY="50.0" stroke="#c1381b" strokeWidth="10.0" />
    </children>
 </AnchorPane>
