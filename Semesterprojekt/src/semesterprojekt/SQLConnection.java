@@ -39,14 +39,14 @@ public class SQLConnection {
         }
     }
     public void addEmployee(int employeeNumber, String name, int phone, String mail, String username, String password, int permission){
-        String sql = "INSERT INTO users(employeenumber,name,phone,mail,username,password,permission) VALUES (" + employeeNumber + ",'" + name + "'," + phone + ",'" + mail + "','" + username + "','" + password + "'," + permission + ");";
+        String sql = "INSERT INTO users(uuid,employeenumber,name,phone,mail,username,password,permission) VALUES ((select uuid_generate_v4()) ," + employeeNumber + ",'" + name + "'," + phone + ",'" + mail + "','" + username + "','" + password + "'," + permission + ");";
         try{
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println("Succes.");
         }
         catch(SQLException e){
-                System.out.println("fejl først");
+                System.out.println(e.getMessage());
         }
     }
     public void getEmployee(String name){
@@ -54,15 +54,20 @@ public class SQLConnection {
         try{
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                for(int i = 0; i < 7; i++){
-                String result = rs.getString(i);
-                System.out.println(result);
-                }
-            }
+                displayActor(rs);
+            
         }
         catch(SQLException e){
-            System.out.println("fejl");
+            System.out.println(e.getMessage());
+        }
+    }
+    private void displayActor(ResultSet rs) throws SQLException {
+        while(rs.next()){
+            System.out.println(rs.getString("uuid"));
+            System.out.println(rs.getString("employeenumber"));
+            System.out.println(rs.getString("name"));
+            System.out.println(rs.getInt("phone"));
+            System.out.println(rs.getString("mail"));
         }
     }
 }

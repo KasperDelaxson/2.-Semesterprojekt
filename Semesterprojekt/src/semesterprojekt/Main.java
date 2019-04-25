@@ -22,7 +22,7 @@ public class Main {
         //users = new ArrayList<User>();
         SQLConnection con = new SQLConnection();
         con.openConnection();
-        con.addEmployee(1,"Susan",12345678,"Susan@hotmail.com","Susan123","SusanErHot",5);
+        //con.addEmployee(1,"Susan",12345678,"Susan@hotmail.com","Susan123","SusanErHot",5);
         con.getEmployee("Susan");
         con.closeConnection();
     }
