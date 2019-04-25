@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
-import homescreen.Description;
+import pictures.homeScreenPictures.ImageMain;
 /**
  * FXML Controller class
  *
@@ -45,87 +45,88 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     /**
      * Initializes the controller class.
      */
+    ImageMain img = new ImageMain();
     Description description = new Description();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        timeAndDate();
-        ddImage.setImage(description.dd);
+        ddImage.setImage(img.dd);
         velkommenLabel.setText("Velkommen: \"brugernavn\"");
+        informationArea.setVisible(false);
+        timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-        informationArea.setVisible(false); 
     }
 
     @FXML
     private void blueChangeToS(MouseEvent event) {
-        blueImage.setImage(description.blue);
+        blueImage.setImage(img.blue);
         informationArea.setText(null);
 
     }
 
     @FXML
     private void blueChangeToL(MouseEvent event) {
-        blueImage.setImage(description.blue2);
-        informationArea.setText(description.features.get("Notater"));
+        blueImage.setImage(img.blue2);
+        informationArea.setText(description.features.get("Journal"));
     }
 
     @FXML
     private void greenChangeToS(MouseEvent event) {
-        greenImage.setImage(description.green);
+        greenImage.setImage(img.green);
         informationArea.setText(null);
     }
 
     @FXML
     private void greenChangeToL(MouseEvent event) {
-        greenImage.setImage(description.green2);
+        greenImage.setImage(img.green2);
         informationArea.setText(description.features.get("Kommentar"));
     }
 
     @FXML
     private void yellowChangeToS(MouseEvent event) {
-        yellowImage.setImage(description.yellow);
+        yellowImage.setImage(img.yellow);
         informationArea.setText(null);
     }
 
     @FXML
     private void yellowChangeToL(MouseEvent event) {
-        yellowImage.setImage(description.yellow2);
+        yellowImage.setImage(img.yellow2);
         informationArea.setText(description.features.get("Ydelser"));
     }
 
     @FXML
     private void purpleChangeToS(MouseEvent event) {
-        purpleImage.setImage(description.purple);
+        purpleImage.setImage(img.purple);
         informationArea.setText(null);
     }
 
     @FXML
     private void purpleChangeToL(MouseEvent event) {
-        purpleImage.setImage(description.purple2);
+        purpleImage.setImage(img.purple2);
         informationArea.setText(description.features.get("Medicin"));
     }
 
     @FXML
     private void redChangeToS(MouseEvent event) {
-        redImage.setImage(description.red);
+        redImage.setImage(img.red);
         informationArea.setText(null);
     }
 
     @FXML
     private void redChangeToL(MouseEvent event) {
-        redImage.setImage(description.red2);
+        redImage.setImage(img.red2);
         informationArea.setText(description.features.get("Indstillinger"));
     }
 
     @FXML
     private void darkBlueChangeToS(MouseEvent event) {
-        darkBlueImage.setImage(description.darkBlue);
+        darkBlueImage.setImage(img.darkBlue);
         informationArea.setText(null);
     }
 
     @FXML
     private void darkBlueChangeToL(MouseEvent event) {
-        darkBlueImage.setImage(description.darkBlue2);
+        darkBlueImage.setImage(img.darkBlue2);
         informationArea.setText(description.features.get("Admin"));
     }
 
@@ -156,7 +157,13 @@ public class HomeScreenFXMLController extends ParentController implements Initia
 
     @FXML
     private void changeToNotes(MouseEvent event) {
-        changeFXML("", event);
+        changeFXML("/homescreen/journal/journalFXML.fxml", event);
+    }
+
+    @FXML
+    private void updateTime(MouseEvent event) {
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
 }
