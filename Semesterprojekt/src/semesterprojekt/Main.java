@@ -22,8 +22,8 @@ public class Main {
         //users = new ArrayList<User>();
         SQLConnection con = new SQLConnection();
         con.openConnection();
-        con.addEmployee(1,"Susan",12345678,"Susan@hotmail.com","Susan123","SusanErHot",5);
-        con.getEmployee("Susan");
+        //con.addEmployee(2,"sanne",12345678,"sanne@hotmail.com","sanne123","sanneerhot",5);
+        con.getEmployee("sanne");
         con.closeConnection();
     }
     
