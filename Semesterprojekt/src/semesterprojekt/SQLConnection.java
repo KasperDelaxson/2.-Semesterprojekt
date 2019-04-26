@@ -73,7 +73,7 @@ public class SQLConnection {
         boolean loginCheck = false;
         try{
             
-            String pass = "";
+            String pass = "5rfbu7tggbnjuy67cbh7rdvbhytr23489098765432wdv";
             openConnection();
             String sql = "SELECT password FROM users WHERE username = '"+ username +"';";
             Statement st = con.createStatement();
