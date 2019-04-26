@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 package LoginPAGE;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import mainAndParent.ParentController;
@@ -22,6 +26,7 @@ import pictures.homeScreenPictures.ImageMain;
  * @author mehme
  */
 public class LoginPAGEController extends ParentController implements Initializable {
+
     @FXML
     private ImageView logInPicture;
     ImageMain img = new ImageMain();
@@ -29,6 +34,14 @@ public class LoginPAGEController extends ParentController implements Initializab
     private Label sloganLabel;
     @FXML
     private Label timeLabel;
+    @FXML
+    private TextField usernameLabel;
+    @FXML
+    private PasswordField passwordLabel;
+    @FXML
+    private AnchorPane fejlBox;
+    @FXML
+    private Label fejlLabel;
 
     /**
      * Initializes the controller class.
@@ -39,11 +52,12 @@ public class LoginPAGEController extends ParentController implements Initializab
         sloganLabel.setText("The digital diary, in your pocket");
         timeAndDate();
         timeLabel.setText(getDatoTid());
-    }    
+    }
 
     @FXML
     private void logIn(ActionEvent event) {
         changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+
     }
 
     @FXML
@@ -51,5 +65,5 @@ public class LoginPAGEController extends ParentController implements Initializab
         timeAndDate();
         timeLabel.setText(getDatoTid());
     }
-    
+
 }

@@ -41,7 +41,7 @@
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
             </ImageView>
-            <Label layoutX="578.0" layoutY="197.0" mouseTransparent="true" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" text="Skriv Journal" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="skrivJournalLabel" layoutX="578.0" layoutY="197.0" mouseTransparent="true" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

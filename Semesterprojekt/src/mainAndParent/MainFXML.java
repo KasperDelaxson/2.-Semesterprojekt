@@ -24,7 +24,6 @@ public class MainFXML extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/LoginPAGE/LoginPAGE.fxml"));
-        
         Scene scene = new Scene(root);
         stage.setTitle("DIGI-DAGBOG");
         stage.setScene(scene);

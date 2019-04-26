@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homescreen.journal;
+package homescreen.comment;
 
 import homescreen.Description;
 import java.net.URL;
@@ -22,7 +22,7 @@ import pictures.homeScreenPicturesSmall.ImageSecond;
  *
  * @author Kasper
  */
-public class JournalFXMLController extends ParentController implements Initializable {
+public class CommentFXMLController extends ParentController implements Initializable {
     @FXML
     private Label dateTimeLabel;
     @FXML
@@ -32,15 +32,14 @@ public class JournalFXMLController extends ParentController implements Initializ
     @FXML
     private ImageView greenImage;
     @FXML
-    private Label seJournalLabel;
+    private Label writeComentLabel;
     @FXML
-    private Label redigereJournalLabel;
+    private Label seeComentLabel;
+    @FXML
+    private Label editComentLabel;
     
-    Description des = new Description();
     ImageSecond img = new ImageSecond();
-    
-    @FXML
-    private Label skrivJournalLabel;
+    Description des = new Description();
 
     /**
      * Initializes the controller class.
@@ -49,24 +48,15 @@ public class JournalFXMLController extends ParentController implements Initializ
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-        skrivJournalLabel.setText(des.features.get("Skriv Journal"));
-        seJournalLabel.setText(des.features.get("Se Journal"));
-        redigereJournalLabel.setText(des.features.get("Rediger Journal"));
+        writeComentLabel.setText(des.features.get("Skriv Kommentar"));
+        seeComentLabel.setText(des.features.get("Se Kommentar"));
+        editComentLabel.setText(des.features.get("Rediger Kommentar"));
     }    
 
     @FXML
-    private void backToHomescreenButton(ActionEvent event) {
-        changeFXML("/homescreen/homeScreenFXML.fxml", event);
-    }
-
-    @FXML
-    private void logOffButton(ActionEvent event) {
-        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
-    }
-
-    @FXML
-    private void exitButton(ActionEvent event) {
-        closeWindow(event);
+    private void updateTime(MouseEvent event) {
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
     @FXML
@@ -80,7 +70,8 @@ public class JournalFXMLController extends ParentController implements Initializ
     }
 
     @FXML
-    private void changeToWriteJournal(MouseEvent event) {
+    private void changeToWriteComent(MouseEvent event) {
+        
     }
 
     @FXML
@@ -94,7 +85,7 @@ public class JournalFXMLController extends ParentController implements Initializ
     }
 
     @FXML
-    private void changeToEditJournal(MouseEvent event) {
+    private void changeToEditComent(MouseEvent event) {
     }
 
     @FXML
@@ -108,13 +99,22 @@ public class JournalFXMLController extends ParentController implements Initializ
     }
 
     @FXML
-    private void changeToSeeJournal(MouseEvent event) {
+    private void changeToSeeComent(MouseEvent event) {
     }
 
     @FXML
-    private void updateTime(MouseEvent event) {
-        timeAndDate();
-        dateTimeLabel.setText(getDatoTid());
+    private void backToHomescreenButton(ActionEvent event) {
+        changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+    }
+
+    @FXML
+    private void logOffButton(ActionEvent event) {
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
+    }
+
+    @FXML
+    private void exitButton(ActionEvent event) {
+        closeWindow(event);
     }
     
 }

@@ -166,4 +166,14 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         dateTimeLabel.setText(getDatoTid());
     }
 
+    @FXML
+    private void changeToComent(MouseEvent event) {
+        changeFXML("/homescreen/comment/commentFXML.fxml", event);
+    }
+
+    @FXML
+    private void changeToAdmin(MouseEvent event) {
+        changeFXML("/homescreen/admin/AdminFXML.fxml", event);
+    }
+
 }

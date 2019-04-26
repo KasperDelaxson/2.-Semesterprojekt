@@ -16,13 +16,18 @@
             <ImageView fx:id="logInPicture" fitHeight="276.0" fitWidth="298.0" layoutX="52.0" layoutY="89.0" onMouseMoved="#updateTime" opacity="0.72" pickOnBounds="true" preserveRatio="true" />
             <AnchorPane layoutX="389.0" layoutY="66.0" onMouseMoved="#updateTime" prefHeight="321.0" prefWidth="298.0" style="-fx-background-color: #9c2827;">
                <children>
-                  <TextField layoutX="14.0" layoutY="96.0" prefHeight="31.0" prefWidth="270.0" promptText="Brugernavn" />
-                  <PasswordField layoutX="14.0" layoutY="171.0" prefHeight="31.0" prefWidth="270.0" promptText="Adgangskode" />
+                  <TextField fx:id="usernameLabel" layoutX="14.0" layoutY="96.0" prefHeight="31.0" prefWidth="270.0" promptText="Brugernavn" />
+                  <PasswordField fx:id="passwordLabel" layoutX="14.0" layoutY="171.0" prefHeight="31.0" prefWidth="270.0" promptText="Adgangskode" />
                   <Button alignment="CENTER" layoutX="14.0" layoutY="236.0" mnemonicParsing="false" onAction="#logIn" prefWidth="270.0" style="-fx-background-color: #e45652;" text="Log ind" textFill="WHITE" />
                   <Label layoutX="94.0" layoutY="40.0" text="Velkommen" textFill="WHITE">
                      <font>
                         <Font size="21.0" />
                      </font></Label>
+                  <AnchorPane fx:id="fejlBox" layoutX="15.0" layoutY="276.0" prefHeight="31.0" prefWidth="270.0" style="-fx-background-color: ffffff;" visible="false">
+                     <children>
+                        <Label fx:id="fejlLabel" layoutX="16.0" layoutY="7.0" prefHeight="17.0" prefWidth="251.0" textFill="RED" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <Label fx:id="sloganLabel" layoutX="166.0" mouseTransparent="true" pickOnBounds="false">

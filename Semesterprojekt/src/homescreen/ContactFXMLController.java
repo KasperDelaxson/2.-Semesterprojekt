@@ -45,6 +45,7 @@ public class ContactFXMLController extends ParentController implements Initializ
 
     @FXML
     private void logOut(ActionEvent event) {
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
 
     @FXML

@@ -12,9 +12,7 @@ import java.util.UUID;
  * @author ahashmathivathan
  */
 public class Employee extends User {
-    
-    
-
+  
     public Employee(UUID id, String username, String password, int permission) {
         super(id, username, password, permission);
     }

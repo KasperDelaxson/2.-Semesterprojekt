@@ -15,7 +15,34 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1280.0" scaleShape="false" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.HomeScreenFXMLController">
    <children>
-      <AnchorPane layoutX="9.0" layoutY="8.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: FFFFFF;" />
+      <AnchorPane layoutX="9.0" layoutY="8.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <ImageView fx:id="yellowImage" fitHeight="190.0" fitWidth="260.0" layoutX="739.0" layoutY="255.0" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/homeScreenPictures/Yellow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blueImage" fitHeight="150.0" fitWidth="200.0" layoutX="384.0" layoutY="120.0" onMouseClicked="#changeToNotes" onMouseEntered="#blueChangeToL" onMouseExited="#blueChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/homeScreenPictures/Blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="purpleImage" fitHeight="190.0" fitWidth="260.0" layoutX="257.0" layoutY="255.0" onMouseEntered="#purpleChangeToL" onMouseExited="#purpleChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/homeScreenPictures/Purple.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="darkBlueImage" fitHeight="150.0" fitWidth="200.0" layoutX="391.0" layoutY="445.0" onMouseClicked="#changeToAdmin" onMouseEntered="#darkBlueChangeToL" onMouseExited="#darkBlueChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/homeScreenPictures/DarkBlue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redImage" fitHeight="150.0" fitWidth="200.0" layoutX="666.0" layoutY="445.0" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/homeScreenPictures/Red.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
       <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" prefHeight="31.0" prefWidth="302.0">
          <font>
             <Font name="TI-Nspire Regular" size="25.0" />
@@ -27,34 +54,9 @@
             <Image url="@../pictures/DIGI-DAGBOG.PNG" />
          </image>
       </ImageView>
-      <ImageView fx:id="greenImage" fitHeight="150.0" fitWidth="200.0" layoutX="649.0" layoutY="125.0" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="greenImage" fitHeight="150.0" fitWidth="200.0" layoutX="681.0" layoutY="124.0" onMouseClicked="#changeToComent" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pictures/homeScreenPictures/Green.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="blueImage" fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="125.0" onMouseClicked="#changeToNotes" onMouseEntered="#blueChangeToL" onMouseExited="#blueChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/homeScreenPictures/Blue.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="yellowImage" fitHeight="190.0" fitWidth="260.0" layoutX="696.0" layoutY="256.0" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/homeScreenPictures/Yellow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="purpleImage" fitHeight="190.0" fitWidth="260.0" layoutX="330.0" layoutY="256.0" onMouseEntered="#purpleChangeToL" onMouseExited="#purpleChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/homeScreenPictures/Purple.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="darkBlueImage" fitHeight="150.0" fitWidth="200.0" layoutX="423.0" layoutY="446.0" onMouseEntered="#darkBlueChangeToL" onMouseExited="#darkBlueChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/homeScreenPictures/DarkBlue.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="redImage" fitHeight="150.0" fitWidth="200.0" layoutX="640.0" layoutY="446.0" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/homeScreenPictures/Red.png" />
          </image>
       </ImageView>
       <Label layoutX="520.0" layoutY="177.0" mouseTransparent="true" pickOnBounds="false" text="Journal">
