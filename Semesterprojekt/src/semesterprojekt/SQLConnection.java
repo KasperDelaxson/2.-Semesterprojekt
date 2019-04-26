@@ -54,8 +54,7 @@ public class SQLConnection {
         try{
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-                displayActor(rs);
-            
+            displayActor(rs); 
         }
         catch(SQLException e){
             System.out.println(e.getMessage());
@@ -69,6 +68,32 @@ public class SQLConnection {
             System.out.println(rs.getInt("phone"));
             System.out.println(rs.getString("mail"));
         }
+    }
+    public boolean checkLogin(String username, String password)throws SQLException {
+        boolean loginCheck = false;
+        try{
+            openConnection();
+            String sql = "SELECT password FROM users WHERE username ='"+ username +"';";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            String pass = rs.getString("password");
+            System.out.println("fint");
+            
+            closeConnection();
+            
+            if(pass.equals(password))
+            {
+                System.out.println("check");
+                loginCheck = true;
+            }
+            else{
+                System.out.println("nå");
+            }
+        }
+        catch(SQLException e){
+            e.getMessage();
+        }
+        return loginCheck;
     }
 }
 

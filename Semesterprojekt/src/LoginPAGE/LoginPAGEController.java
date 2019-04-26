@@ -6,6 +6,7 @@
 package LoginPAGE;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -42,6 +44,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     private AnchorPane fejlBox;
     @FXML
     private Label fejlLabel;
+    
+    private final SQLConnection sql = new SQLConnection();
 
     /**
      * Initializes the controller class.
@@ -56,7 +60,19 @@ public class LoginPAGEController extends ParentController implements Initializab
 
     @FXML
     private void logIn(ActionEvent event) {
+        try{
+        boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
+        if(login){
         changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+        }
+        else{
+            fejlBox.setVisible(true);
+            fejlLabel.setText("Ugyldige loginoplysninger");
+        }
+        }
+        catch(SQLException e){
+            e.getMessage();
+        }
 
     }
 
