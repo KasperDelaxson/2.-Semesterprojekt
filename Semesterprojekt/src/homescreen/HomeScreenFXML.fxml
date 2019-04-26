@@ -43,12 +43,12 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" prefHeight="31.0" prefWidth="302.0">
+      <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="302.0">
          <font>
             <Font name="TI-Nspire Regular" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="dateTimeLabel" layoutX="1151.0" layoutY="5.0" prefHeight="18.0" prefWidth="129.0" />
+      <Label fx:id="dateTimeLabel" layoutX="1151.0" layoutY="5.0" onMousePressed="#updateTime" prefHeight="18.0" prefWidth="129.0" />
       <ImageView fx:id="ddImage" fitHeight="171.0" fitWidth="178.0" layoutX="551.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pictures/DIGI-DAGBOG.PNG" />
@@ -59,67 +59,67 @@
             <Image url="@../pictures/homeScreenPictures/Green.png" />
          </image>
       </ImageView>
-      <Label layoutX="520.0" layoutY="177.0" mouseTransparent="true" pickOnBounds="false" text="Journal">
+      <Label layoutX="520.0" layoutY="177.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Journal">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="702.0" layoutY="177.0" mouseTransparent="true" pickOnBounds="false" text="Kommentar">
+      <Label layoutX="702.0" layoutY="177.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Kommentar">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="433.0" layoutY="338.0" mouseTransparent="true" pickOnBounds="false" text="Medicin">
+      <Label layoutX="433.0" layoutY="338.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Medicin">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="800.0" layoutY="338.0" mouseTransparent="true" pickOnBounds="false" text="Ydelser">
+      <Label layoutX="800.0" layoutY="338.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Ydelser">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="524.0" layoutY="508.0" mouseTransparent="true" pickOnBounds="false" text="Admin">
+      <Label layoutX="524.0" layoutY="508.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Admin">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="701.0" layoutY="508.0" mouseTransparent="true" pickOnBounds="false" text="Indstillinger">
+      <Label layoutX="701.0" layoutY="508.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Indstillinger">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <HBox layoutX="1003.0" layoutY="670.0" prefHeight="31.0" prefWidth="263.0">
+      <HBox layoutX="1003.0" layoutY="670.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="263.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#contactButton" prefHeight="31.0" prefWidth="93.0" text="Kontakt">
+            <Button mnemonicParsing="false" onAction="#contactButton" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Kontakt">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#logOffButton" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
+            <Button mnemonicParsing="false" onAction="#logOffButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#exitButton" prefHeight="30.0" prefWidth="70.0" text="Afslut">
+            <Button mnemonicParsing="false" onAction="#exitButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin></Button>
          </children>
       </HBox>
-      <TextArea fx:id="informationArea" editable="false" layoutX="43.0" layoutY="164.0" prefHeight="300.0" prefWidth="277.0" promptText="Vælg en af de 6 valgmuligheder til højre">
+      <TextArea fx:id="informationArea" editable="false" layoutX="43.0" layoutY="164.0" onMousePressed="#updateTime" prefHeight="300.0" prefWidth="277.0" promptText="Vælg en af de 6 valgmuligheder til højre">
          <font>
             <Font size="17.0" />
          </font>
       </TextArea>
-      <HBox layoutX="43.0" layoutY="116.0" prefHeight="40.0" prefWidth="240.0">
+      <HBox layoutX="43.0" layoutY="116.0" onMousePressed="#updateTime" prefHeight="40.0" prefWidth="240.0">
          <children>
-            <RadioButton mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" prefWidth="120.0" text="Vis Hjælp">
+            <RadioButton mnemonicParsing="false" onAction="#showHelp" onMousePressed="#updateTime" prefHeight="40.0" prefWidth="120.0" text="Vis Hjælp">
                <toggleGroup>
                   <ToggleGroup fx:id="helpButtonGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" onAction="#hideHelp" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul Hjælp" toggleGroup="$helpButtonGroup" />
+            <RadioButton mnemonicParsing="false" onAction="#hideHelp" onMousePressed="#updateTime" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul Hjælp" toggleGroup="$helpButtonGroup" />
          </children>
       </HBox>
-      <Line endX="1260.0" endY="50.0" layoutX="8.0" startY="50.0" stroke="#c1381b" strokeWidth="10.0" />
+      <Line endX="1260.0" endY="50.0" layoutX="8.0" onMousePressed="#updateTime" startY="50.0" stroke="#c1381b" strokeWidth="10.0" />
    </children>
 </AnchorPane>

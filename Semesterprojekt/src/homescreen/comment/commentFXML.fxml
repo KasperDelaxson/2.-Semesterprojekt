@@ -14,7 +14,7 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: FFFFFF;">
          <children>
-            <Line endX="1247.0" layoutX="8.0" layoutY="58.0" startX="-8.0" stroke="#c1381b" strokeWidth="10.0" />
+            <Line endX="1247.0" layoutX="8.0" layoutY="58.0" onMouseMoved="#updateTime" startX="-8.0" stroke="#c1381b" strokeWidth="10.0" />
             <Label layoutX="562.0" layoutY="9.0" onMouseMoved="#updateTime" text="Kommentar">
                <font>
                   <Font size="25.0" />
@@ -41,12 +41,12 @@
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
             </ImageView>
-            <Label fx:id="writeComentLabel" layoutX="566.0" layoutY="199.0" mouseTransparent="true" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="writeComentLabel" layoutX="566.0" layoutY="199.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="seeComentLabel" layoutX="473.0" layoutY="377.0" mouseTransparent="true" pickOnBounds="false" prefHeight="96.0" prefWidth="104.0">
+            <Label fx:id="seeComentLabel" layoutX="473.0" layoutY="377.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="96.0" prefWidth="104.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -58,17 +58,17 @@
             </Label>
             <HBox layoutX="996.0" layoutY="655.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="263.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backToHomescreenButton" prefHeight="31.0" prefWidth="93.0" text="Tilbage">
+                  <Button mnemonicParsing="false" onAction="#backToHomescreenButton" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Tilbage">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logOffButton" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
+                  <Button mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#exitButton" prefHeight="30.0" prefWidth="70.0" text="Afslut">
+                  <Button mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
