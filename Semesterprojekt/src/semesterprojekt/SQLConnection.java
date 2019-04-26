@@ -72,22 +72,22 @@ public class SQLConnection {
     public boolean checkLogin(String username, String password)throws SQLException {
         boolean loginCheck = false;
         try{
+            
+            String pass = "";
             openConnection();
-            String sql = "SELECT password FROM users WHERE username ='"+ username +"';";
+            String sql = "SELECT password FROM users WHERE username = '"+ username +"';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            String pass = rs.getString("password");
-            System.out.println("fint");
+            
+            while(rs.next()){
+            pass = rs.getString("password");
+            }
             
             closeConnection();
             
             if(pass.equals(password))
             {
-                System.out.println("check");
                 loginCheck = true;
-            }
-            else{
-                System.out.println("nå");
             }
         }
         catch(SQLException e){
