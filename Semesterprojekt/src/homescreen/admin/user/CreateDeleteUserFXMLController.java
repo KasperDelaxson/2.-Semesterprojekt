@@ -31,8 +31,6 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     @FXML
     private TextArea awaitingActionArea;
     @FXML
-    private TextField idField;
-    @FXML
     private TextField usernameField;
     @FXML
     private TextField passwordField;
@@ -42,8 +40,6 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private ToggleGroup bruger;
     @FXML
     private ListView<?> userListView;
-    @FXML
-    private Label idLabel;
     @FXML
     private Label usernameLabel;
     @FXML
@@ -56,6 +52,22 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private Button createUserButton;
     @FXML
     private Label timeLabel;
+    @FXML
+    private Label employeeNumberLabel;
+    @FXML
+    private TextField employeeNumberField;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField phoneField;
+    @FXML
+    private TextField mailField;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label phoneNumberLabel;
+    @FXML
+    private Label mailLabel;
 
     /**
      * Initializes the controller class.
@@ -83,6 +95,12 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
         advarselLabel.setVisible(false);
         createUserButton.setVisible(true);
         deleteUserButton.setVisible(false);
+        employeeNumberLabel.setVisible(true);
+        employeeNumberField.setVisible(true);
+        mailLabel.setVisible(true);
+        mailField.setVisible(true);
+        permissionLabel.setVisible(true);
+        permissionField.setVisible(true);
     }
 
     @FXML
@@ -90,6 +108,12 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
         advarselLabel.setVisible(true);
         createUserButton.setVisible(false);
         deleteUserButton.setVisible(true);
+        employeeNumberLabel.setVisible(false);
+        employeeNumberField.setVisible(false);
+        mailLabel.setVisible(false);
+        mailField.setVisible(false);
+        permissionLabel.setVisible(false);
+        permissionField.setVisible(false);
     }
 
     @FXML
