@@ -12,56 +12,55 @@ import java.sql.*;
  * @author Malthe
  */
 public class SQLConnection {
-    
+
     private final String url = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cyxmirsh";
     private final String username = "cyxmirsh";
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
-    
-    
-    public void openConnection(){
-        
-        try{
+
+    public void openConnection() {
+
+        try {
             con = DriverManager.getConnection(url, username, password);
             System.out.println("Connected.");
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getErrorCode());
         }
     }
-    public void closeConnection(){
-        try{
-        con.close();
+
+    public void closeConnection() {
+        try {
+            con.close();
             System.out.println("Connection closed.");
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("No connection to close.");
         }
     }
-    public void addEmployee(int employeeNumber, String name, int phone, String mail, String username, String password, int permission){
+
+    public void addEmployee(int employeeNumber, String name, int phone, String mail, String username, String password, int permission) {
         String sql = "INSERT INTO users(uuid,employeenumber,name,phone,mail,username,password,permission) VALUES ((select uuid_generate_v4()) ," + employeeNumber + ",'" + name + "'," + phone + ",'" + mail + "','" + username + "','" + password + "'," + permission + ");";
-        try{
+        try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println("Succes.");
-        }
-        catch(SQLException e){
-                System.out.println(e.getMessage());
-        }
-    }
-    public void getEmployee(String name){
-        String sql = "SELECT * FROM users WHERE name = '" + name + "';";
-        try{
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            displayActor(rs); 
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
+    public void getEmployee(String name) {
+        String sql = "SELECT * FROM users WHERE name = '" + name + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            displayActor(rs);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private void displayActor(ResultSet rs) throws SQLException {
-        while(rs.next()){
+        while (rs.next()) {
             System.out.println(rs.getString("uuid"));
             System.out.println(rs.getString("employeenumber"));
             System.out.println(rs.getString("name"));
@@ -69,31 +68,39 @@ public class SQLConnection {
             System.out.println(rs.getString("mail"));
         }
     }
-    public boolean checkLogin(String username, String password)throws SQLException {
+
+    public boolean checkLogin(String username, String password) throws SQLException {
         boolean loginCheck = false;
-        try{
-            
+        try {
+
             String pass = "5rfbu7tggbnjuy67cbh7rdvbhytr23489098765432wdv";
             openConnection();
-            String sql = "SELECT password FROM users WHERE username = '"+ username +"';";
+            String sql = "SELECT password FROM users WHERE username = '" + username + "';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-            pass = rs.getString("password");
+
+            while (rs.next()) {
+                pass = rs.getString("password");
             }
-            
+
             closeConnection();
-            
-            if(pass.equals(password))
-            {
+
+            if (pass.equals(password)) {
                 loginCheck = true;
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.getMessage();
         }
         return loginCheck;
     }
-}
 
+    public void getJournals(String text, int employeeAssigned, String patientSocialSecurity, Date created) throws SQLException {
+        String sql = "SELECT * FROM journal WHERE * employeeassigned =" + employeeAssigned + ";";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
