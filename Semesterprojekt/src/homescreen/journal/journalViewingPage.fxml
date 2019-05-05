@@ -16,15 +16,15 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <TextArea layoutX="155.0" layoutY="62.0" prefHeight="592.0" prefWidth="620.0" />
-                        <Button layoutX="14.0" layoutY="54.0" mnemonicParsing="false" onAction="#goBack" text="Tilbage" />
+                        <Button layoutX="14.0" mnemonicParsing="false" onAction="#goBack" text="Tilbage" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ListView layoutX="33.0" layoutY="154.0" maxHeight="-Infinity" prefHeight="400.0" prefWidth="200.0" />
-                        <Label layoutX="14.0" layoutY="56.0" text="Patient information" />
-                        <Label layoutX="14.0" layoutY="77.0" text="Navn:" />
-                        <Label layoutX="14.0" layoutY="98.0" text="UUID:" />
+                        <ListView fx:id="journalList" layoutX="33.0" layoutY="154.0" maxHeight="-Infinity" prefHeight="400.0" prefWidth="200.0" />
+                        <Label layoutX="14.0" layoutY="56.0" prefHeight="21.0" prefWidth="267.0" text="Patient information" />
+                        <Label layoutX="14.0" layoutY="77.0" prefHeight="21.0" prefWidth="267.0" text="Navn:" />
+                        <Label layoutX="14.0" layoutY="98.0" prefHeight="21.0" prefWidth="267.0" text="UUID:" />
                      </children>
                   </AnchorPane>
               </items>
