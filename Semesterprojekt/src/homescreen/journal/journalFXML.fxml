@@ -36,7 +36,7 @@
                   <Image url="@../../pictures/homeScreenPicturesSmall/Yellow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenImage" fitHeight="200.0" fitWidth="250.0" layoutX="328.0" layoutY="309.0" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToSeeJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="greenImage" fitHeight="200.0" fitWidth="250.0" layoutX="328.0" layoutY="309.0" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToViewJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
