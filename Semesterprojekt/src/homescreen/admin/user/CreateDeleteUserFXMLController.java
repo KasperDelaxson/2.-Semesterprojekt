@@ -6,7 +6,14 @@
 package homescreen.admin.user;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -39,7 +47,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     @FXML
     private ToggleGroup bruger;
     @FXML
-    private ListView<?> userListView;
+    private TextArea userListView;
     @FXML
     private Label usernameLabel;
     @FXML
@@ -68,7 +76,9 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private Label phoneNumberLabel;
     @FXML
     private Label mailLabel;
-
+    SQLConnection sql = new SQLConnection();
+    ObservableList<String> userList;
+    Connection con;
     /**
      * Initializes the controller class.
      */
@@ -84,10 +94,30 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void showUsers(ActionEvent event) {
+        
     }
+    
 
     @FXML
     private void createUser(ActionEvent event) {
+        if (employeeNumberField.getText() == null || nameField.getText() == null 
+                || phoneField.getText() == null || mailField.getText() == null 
+                || usernameField.getText() == null || passwordField.getText() == null
+                || permissionField.getText() == null){
+            awaitingActionArea.setText("Ikke tilstrækkelig information givet");
+        }
+        else {
+            int employeeNumber = Integer.parseInt(employeeNumberField.getText());
+            int phone = Integer.parseInt(phoneField.getText());
+            int permission = Integer.parseInt(permissionField.getText());
+            try {
+                sql.addEmployee(employeeNumber, nameField.getText(), phone , mailField.getText(), usernameField.getText(), passwordField.getText(), permission);
+                awaitingActionArea.setText("Fuldført! Bruger Oprettet");
+            } catch(Exception e){
+                System.out.println("Error adding employee");
+            }
+            
+        }
     }
 
     @FXML
