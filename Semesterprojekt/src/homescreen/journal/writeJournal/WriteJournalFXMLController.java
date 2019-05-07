@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
 
@@ -32,6 +33,14 @@ public class WriteJournalFXMLController extends ParentController implements Init
      * Initializes the controller class.
      */
     private File journalFile;
+    @FXML
+    private Button BackButton;
+    @FXML
+    private Button LogOut;
+    @FXML
+    private Button SaveNote;
+    @FXML
+    private Button AttachFile;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -39,18 +48,13 @@ public class WriteJournalFXMLController extends ParentController implements Init
     }
 
     @FXML
-    private void goBackToNotesFromWrite(ActionEvent event) {
+    private void goBackToNotes(ActionEvent event) {
         changeFXML("/homescreen/journal/journalFXML.fxml", event);
     }
 
     @FXML
     private void logOffButton(ActionEvent event) {
-        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
-    }
-
-    @FXML
-    private void attachFile(ActionEvent event) {
-
+        changeFXML("/LoginPAGE.fxml/", event);
     }
 
     @FXML
@@ -63,16 +67,11 @@ public class WriteJournalFXMLController extends ParentController implements Init
             Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Couldn't create file.");
         }
-        
     }
 
     @FXML
-    private void seeClientList(ActionEvent event) {
-
+    private void attachFile(ActionEvent event) {
     }
 
-    @FXML
-    private void writeNote(ActionEvent event) {
-
-    }
+  
 }

@@ -51,11 +51,10 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="redigereJournalLabel" layoutX="676.0" layoutY="419.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0">
+            <Label fx:id="redigereJournalLabel" layoutX="677.0" layoutY="425.0" onMouseMoved="#updateTime">
                <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Label>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <HBox layoutX="1006.0" layoutY="669.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="263.0">

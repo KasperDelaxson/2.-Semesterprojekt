@@ -29,7 +29,15 @@ public class EditJournalFXMLController extends ParentController implements Initi
     }
 
     @FXML
-    private void goBackToNotesFromEdit(ActionEvent event) {
+    private void saveJournal(ActionEvent event) {
+    }
+
+    @FXML
+    private void attachFile(ActionEvent event) {
+    }
+
+    @FXML
+    private void goBackToNotesFromView(ActionEvent event) {
         changeFXML("/homescreen/journal/journalFXML.fxml", event);
     }
 
@@ -38,28 +46,4 @@ public class EditJournalFXMLController extends ParentController implements Initi
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
 
-    @FXML
-    private void attachFile(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void saveNote(ActionEvent event) {
-
-    }
-    
-        @FXML
-    private void seeClientList(ActionEvent event) {
-
-    }
-    
-        @FXML
-    private void seeClientReferenceByDate(ActionEvent event) {
-
-    }
-    
-        @FXML
-    private void editSelectedNote(ActionEvent event) {
-
-    }
 }
