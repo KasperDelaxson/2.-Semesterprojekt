@@ -56,6 +56,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+<<<<<<< HEAD
+            <HBox layoutX="996.0" layoutY="655.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="263.0" />
+            <Button layoutX="11.0" layoutY="13.0" mnemonicParsing="false" onAction="#backToHomescreenButton" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Tilbage" />
+            <Button layoutX="1160.0" layoutY="13.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+            <Button layoutX="1075.0" layoutY="13.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log ud" />
+=======
             <HBox layoutX="996.0" layoutY="655.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="263.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#backToHomescreenButton" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Tilbage">
@@ -75,6 +81,7 @@
                   </Button>
                </children>
             </HBox>
+>>>>>>> parent of ffc1210... Update commentFXML.fxml
          </children>
       </AnchorPane>
    </children>
