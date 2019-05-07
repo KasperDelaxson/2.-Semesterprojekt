@@ -111,7 +111,9 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
             int phone = Integer.parseInt(phoneField.getText());
             int permission = Integer.parseInt(permissionField.getText());
             try {
+                sql.openConnection();
                 sql.addEmployee(employeeNumber, nameField.getText(), phone , mailField.getText(), usernameField.getText(), passwordField.getText(), permission);
+                sql.closeConnection();
                 awaitingActionArea.setText("Fuldført! Bruger Oprettet");
             } catch(Exception e){
                 System.out.println("Error adding employee");
