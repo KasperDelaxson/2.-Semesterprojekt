@@ -14,22 +14,20 @@ import java.util.UUID;
  */
 public class User {
 
-    private UUID id;
+
     private String username;
     private String password;
     private int permission;
 
-    public User(UUID id, String username, String password, int permission) {
-        this.id = id;
+    public User(String username, String password, int permission) {
+ 
         this.username = username;
         this.password = password;
         this.permission = permission;
 
     }
 
-    public UUID getid() {
-        return id;
-    }
+
 
     public String getUsername() {
         return username;
@@ -43,9 +41,7 @@ public class User {
         return permission;
     }
     
-    public void setid(final UUID id) {
-        this.id = id;
-    }
+
 
     public void setUsername(String username) {
         this.username = username;

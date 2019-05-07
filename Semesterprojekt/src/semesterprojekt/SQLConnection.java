@@ -95,5 +95,17 @@ public class SQLConnection {
         }
         return loginCheck;
     }
+    public Connection getCon(){
+                        
+//        try{
+//            con = DriverManager.getConnection(url, username, password);
+//            System.out.println("Connected.");
+//        }
+//        catch(SQLException e){
+//            System.out.println(e.getErrorCode());
+//            System.out.println("hej");
+//        }
+        return con;
+    }
 }
 

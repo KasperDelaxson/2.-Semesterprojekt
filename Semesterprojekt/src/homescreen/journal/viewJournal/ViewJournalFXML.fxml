@@ -15,11 +15,11 @@
          <children>
             <Line endX="1156.928955078125" layoutX="98.0" layoutY="77.0" startX="-100.0" stroke="#c1381b" strokeWidth="10.0" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBackToNotesFromView" onMouseClicked="#goBackToNotesFromView" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
-            <ListView layoutX="14.0" layoutY="169.0" prefHeight="517.0" prefWidth="229.0">
+            <ListView fx:id="patientList" layoutX="14.0" layoutY="169.0" prefHeight="517.0" prefWidth="229.0">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></ListView>
-            <ListView layoutX="272.0" layoutY="169.0" prefHeight="517.0" prefWidth="229.0">
+            <ListView fx:id="referalDatelist" layoutX="272.0" layoutY="169.0" prefHeight="517.0" prefWidth="229.0">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></ListView>

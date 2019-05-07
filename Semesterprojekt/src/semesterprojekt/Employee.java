@@ -12,23 +12,39 @@ import java.util.UUID;
  * @author ahashmathivathan
  */
 public class Employee extends User {
-  
-    public Employee(UUID id, String username, String password, int permission) {
-        super(id, username, password, permission);
+
+    private static Employee e;
+    private String username;
+    private String password;
+    private int employeeNumber;
+
+    private Employee(String username, String password, int employeeNumber) {
+        super(username, password, employeeNumber);
+        this.username = username;
+        this.password = password;
+        this.employeeNumber = employeeNumber;
     }
-    
-    public boolean isPedagogue()
-    {
+
+    public static void setEmployee(String username, String password, int employeeNumber) {
+        e = new Employee(username, password, employeeNumber);
+    }
+    public static Employee getEmployee(){
+        return e;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public boolean isPedagogue() {
         return true;
     }
-    
-    public boolean isSocialWorker()
-    {
+
+    public boolean isSocialWorker() {
         return false;
-    }  
-    
-    public boolean isDoctor()
-    {
+    }
+
+    public boolean isDoctor() {
         return false;
     }
 }

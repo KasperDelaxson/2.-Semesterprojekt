@@ -6,7 +6,7 @@
 package LoginPAGE;
 
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.Employee;
 import semesterprojekt.SQLConnection;
 
 /**
@@ -44,8 +45,10 @@ public class LoginPAGEController extends ParentController implements Initializab
     private AnchorPane fejlBox;
     @FXML
     private Label fejlLabel;
-    
+
+    private int employeeNumber;
     private final SQLConnection sql = new SQLConnection();
+    private Connection con;
 
     /**
      * Initializes the controller class.
@@ -60,26 +63,48 @@ public class LoginPAGEController extends ParentController implements Initializab
 
     @FXML
     private void logIn(ActionEvent event) {
-        try{
-        boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
-        if(login){
-        changeFXML("/homescreen/HomeScreenFXML.fxml", event);
-        }
-        else{
-            fejlBox.setVisible(true);
-            fejlLabel.setText("Ugyldige loginoplysninger");
-        }
-        }
-        catch(SQLException e){
+        try {
+            boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
+            if (login) {
+                changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+            } else {
+                fejlBox.setVisible(true);
+                fejlLabel.setText("Ugyldige loginoplysninger");
+            }
+        } catch (SQLException e) {
+            
             e.getMessage();
+            
         }
-
+        Employee.setEmployee(usernameLabel.getText(), passwordLabel.getText(), setEmployeeNumber(usernameLabel.getText()));
+        
     }
 
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();
         timeLabel.setText(getDatoTid());
+    }
+
+    public int setEmployeeNumber(String name) {
+        String sqlString = "SELECT employeeNumber FROM users WHERE username = '" + name + "';";
+
+        try {
+            sql.openConnection();
+            con = sql.getCon();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                employeeNumber = rs.getInt(1);
+                
+            }
+            sql.closeConnection();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            
+        }
+        return employeeNumber;
     }
 
 }
