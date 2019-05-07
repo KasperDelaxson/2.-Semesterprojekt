@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.journal.writeJournal.WriteJournalFXMLController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Line endX="1156.928955078125" layoutX="98.0" layoutY="77.0" startX="-100.0" stroke="#c1381b" strokeWidth="10.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

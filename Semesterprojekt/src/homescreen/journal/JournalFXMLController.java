@@ -96,7 +96,8 @@ public class JournalFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToEditJournal(MouseEvent event) {
-        changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
+        
+         changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
     }
 
     @FXML

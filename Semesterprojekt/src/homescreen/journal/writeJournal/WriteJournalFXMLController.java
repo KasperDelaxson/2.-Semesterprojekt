@@ -5,8 +5,16 @@
  */
 package homescreen.journal.writeJournal;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,6 +31,8 @@ public class WriteJournalFXMLController extends ParentController implements Init
     /**
      * Initializes the controller class.
      */
+    private File journalFile;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -37,21 +47,31 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private void logOffButton(ActionEvent event) {
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
-    
+
     @FXML
-    private void attachFile (ActionEvent event){
+    private void attachFile(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void saveNote(ActionEvent event) {
+        journalFile = new File("note" + Date.valueOf(LocalDate.MAX) + ".txt");
+        
+        try {
+            journalFile.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Couldn't create file.");
+        }
         
     }
-       
+
     @FXML
-    private void saveNote (ActionEvent event){
-        
-    }
-        @FXML
     private void seeClientList(ActionEvent event) {
 
     }
-        @FXML
+
+    @FXML
     private void writeNote(ActionEvent event) {
 
     }

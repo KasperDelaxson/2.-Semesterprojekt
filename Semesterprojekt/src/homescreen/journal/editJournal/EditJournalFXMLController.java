@@ -18,7 +18,7 @@ import mainAndParent.ParentController;
  *
  * @author Kenneth Haahr
  */
-public class EditJournalController extends ParentController implements Initializable {
+public class EditJournalFXMLController extends ParentController implements Initializable {
 
     /**
      * Initializes the controller class.

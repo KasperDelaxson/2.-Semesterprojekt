@@ -26,12 +26,12 @@
                   <Image url="@../../pictures/DIGI-DAGBOG.PNG" />
                </image>
             </ImageView>
-            <ImageView fx:id="redImage" fitHeight="200.0" fitWidth="250.0" layoutX="502.0" layoutY="87.0" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToWriteJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="redImage" fitHeight="200.0" fitWidth="250.0" layoutX="502.0" layoutY="87.0" onMouseClicked="#changeToWriteJournal" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToWriteJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Red.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="yellowImage" fitHeight="200.0" fitWidth="250.0" layoutX="670.0" layoutY="309.0" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToEditJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="yellowImage" fitHeight="200.0" fitWidth="250.0" layoutX="670.0" layoutY="309.0" onMouseClicked="#changeToEditJournal" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToEditJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Yellow.png" />
                </image>
