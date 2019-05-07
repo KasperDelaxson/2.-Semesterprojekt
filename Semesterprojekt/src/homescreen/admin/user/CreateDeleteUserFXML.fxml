@@ -19,7 +19,7 @@
       <AnchorPane layoutX="9.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
          <children>
             <Line endX="1147.0" layoutX="110.0" layoutY="68.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
-            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" text="Opret &amp; Slet Bruger af Systemet">
+            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" text="Opret &amp; slet bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
@@ -34,12 +34,12 @@
                   <Insets />
                </opaqueInsets>
             </TextArea>
-            <Button layoutX="877.0" layoutY="143.0" mnemonicParsing="false" onAction="#showUsers" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Vis Bruger af systemet" />
-            <Button fx:id="createUserButton" layoutX="254.0" layoutY="515.0" mnemonicParsing="false" onAction="#createUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Opret Bruger" />
+            <Button layoutX="877.0" layoutY="143.0" mnemonicParsing="false" onAction="#showUsers" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="185.0" text="Vis bruger af systemet" />
+            <Button fx:id="createUserButton" layoutX="254.0" layoutY="515.0" mnemonicParsing="false" onAction="#createUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Opret bruger" />
             <VBox layoutX="351.0" layoutY="232.0" onMouseMoved="#updateTime" prefHeight="183.0" prefWidth="149.0" />
-            <HBox layoutX="178.0" layoutY="143.0" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="302.0">
+            <HBox layoutX="141.0" layoutY="143.0" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="340.0">
                <children>
-                  <RadioButton mnemonicParsing="false" onAction="#showCreateUser" onMouseMoved="#updateTime" selected="true" text="Opret Bruger">
+                  <RadioButton mnemonicParsing="false" onAction="#showCreateUser" onMouseMoved="#updateTime" prefHeight="21.0" prefWidth="175.0" selected="true" text="Opret bruger">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
@@ -47,41 +47,41 @@
                         <ToggleGroup fx:id="bruger" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#showDeleteUser" onMouseMoved="#updateTime" text="Slet Bruger" toggleGroup="$bruger">
+                  <RadioButton mnemonicParsing="false" onAction="#showDeleteUser" onMouseMoved="#updateTime" prefHeight="21.0" prefWidth="164.0" text="Slet bruger" toggleGroup="$bruger">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
                   </RadioButton>
                </children>
             </HBox>
-            <Label layoutX="758.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se Bruger af Systemet">
+            <Label layoutX="758.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label layoutX="276.0" layoutY="-2.0" onMouseMoved="#updateTime" text="Admin Rettigheder for Bruger af Systemet">
+            <Label layoutX="276.0" layoutY="-2.0" onMouseMoved="#updateTime" text="Admin rettigheder for bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Button layoutX="9.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBack" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
+            <Button layoutX="9.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
             <VBox layoutX="28.0" layoutY="222.0" prefHeight="260.0" prefWidth="543.0">
                <children>
                   <HBox prefHeight="260.0" prefWidth="320.0">
                      <children>
                         <VBox prefHeight="260.0" prefWidth="298.0">
                            <children>
-                              <Label fx:id="employeeNumberLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast Medarbejder Nummer">
+                              <Label fx:id="employeeNumberLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast medarbejdernummer">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="nameLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast Navn:">
+                              <Label fx:id="nameLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast navn:">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="phoneNumberLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="271.0" text="Indtast Telefon Nummer:">
+                              <Label fx:id="phoneNumberLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="271.0" text="Indtast telefonnummer:">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
@@ -91,17 +91,17 @@
                                     <Insets top="18.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="usernameLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="268.0" text="Indtast Brugernavn:">
+                              <Label fx:id="usernameLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="268.0" text="Indtast brugernavn:">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="passwordLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast Adgangskode:">
+                              <Label fx:id="passwordLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="269.0" text="Indtast adgangskode:">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="permissionLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="283.0" text="Indtast Tilladelse:">
+                              <Label fx:id="permissionLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="283.0" text="Indtast tilladelse:">
                                  <VBox.margin>
                                     <Insets top="15.0" />
                                  </VBox.margin>
