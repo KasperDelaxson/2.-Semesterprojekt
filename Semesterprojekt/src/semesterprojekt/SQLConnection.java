@@ -58,6 +58,17 @@ public class SQLConnection {
             System.out.println(e.getMessage());
         }
     }
+    public void deleteEmployee(int employeenumber, String name, int phoneNumber, String username, String password){
+        String sql = "DELETE FROM users WHERE employeenumber = '" + employeenumber + "' AND name = '" + name + "'"
+                + "AND phone = '" + phoneNumber + "' AND username = '" + username + "' AND password = '" + password + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            displayActor(rs);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void getUsers() {
         String sql = "SELECT name FROM users;";
