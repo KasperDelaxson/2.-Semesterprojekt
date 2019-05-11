@@ -17,15 +17,15 @@
             <AnchorPane layoutX="389.0" layoutY="66.0" onMouseMoved="#updateTime" prefHeight="321.0" prefWidth="298.0" style="-fx-background-color: #9c2827;">
                <children>
                   <TextField fx:id="usernameLabel" layoutX="14.0" layoutY="96.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" promptText="Brugernavn" />
-                  <PasswordField fx:id="passwordLabel" layoutX="14.0" layoutY="171.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" promptText="Adgangskode" />
-                  <Button alignment="CENTER" layoutX="14.0" layoutY="236.0" mnemonicParsing="false" onAction="#logIn" onMouseMoved="#updateTime" prefWidth="270.0" style="-fx-background-color: #e45652;" text="Log ind" textFill="WHITE" />
+                  <PasswordField fx:id="passwordLabel" layoutX="14.0" layoutY="161.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" promptText="Adgangskode" />
+                  <Button alignment="CENTER" layoutX="15.0" layoutY="220.0" mnemonicParsing="false" onAction="#logIn" onMouseMoved="#updateTime" prefWidth="270.0" style="-fx-background-color: #e45652;" text="Log ind" textFill="WHITE" />
                   <Label layoutX="94.0" layoutY="40.0" onMouseMoved="#updateTime" text="Velkommen" textFill="WHITE">
                      <font>
                         <Font size="21.0" />
                      </font></Label>
-                  <AnchorPane fx:id="fejlBox" layoutX="15.0" layoutY="276.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" style="-fx-background-color: ffffff;" visible="false">
+                  <AnchorPane fx:id="fejlBox" layoutX="15.0" layoutY="265.0" onMouseMoved="#updateTime" prefHeight="39.0" prefWidth="270.0" style="-fx-background-color: ffffff;" visible="false">
                      <children>
-                        <Label fx:id="fejlLabel" layoutX="16.0" layoutY="7.0" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="251.0" textFill="RED" />
+                        <Label fx:id="fejlLabel" layoutX="16.0" layoutY="-7.0" onMouseMoved="#updateTime" prefHeight="49.0" prefWidth="251.0" textFill="RED" />
                      </children>
                   </AnchorPane>
                </children>
