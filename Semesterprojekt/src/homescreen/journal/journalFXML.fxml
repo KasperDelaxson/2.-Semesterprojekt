@@ -25,17 +25,17 @@
                   <Image url="@../../pictures/DIGI-DAGBOG.PNG" />
                </image>
             </ImageView>
-            <ImageView fx:id="redImage" fitHeight="200.0" fitWidth="250.0" layoutX="502.0" layoutY="87.0" onMouseClicked="#changeToWriteJournal" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToWriteJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="redImage" fitHeight="200.0" fitWidth="250.0" layoutX="502.0" layoutY="87.0" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToWriteJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Red.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="yellowImage" fitHeight="200.0" fitWidth="250.0" layoutX="670.0" layoutY="309.0" onMouseClicked="#changeToEditJournal" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToEditJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="yellowImage" fitHeight="200.0" fitWidth="250.0" layoutX="670.0" layoutY="309.0" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToEditJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Yellow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenImage" fitHeight="200.0" fitWidth="250.0" layoutX="328.0" layoutY="309.0" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToViewJournal" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="greenImage" fitHeight="200.0" fitWidth="250.0" layoutX="328.0" layoutY="309.0" onMouseEntered="#greenChangeToL" onMouseExited="#greenChangeToS" onMouseMoved="#updateTime" onMousePressed="#changeToSeeJournal" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
@@ -50,10 +50,10 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="redigereJournalLabel" layoutX="677.0" layoutY="425.0" onMouseMoved="#updateTime">
+            <Label fx:id="redigereJournalLabel" layoutX="676.0" layoutY="419.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0">
                <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
+                  <Font name="System Bold" size="17.0" />
+               </font>
             </Label>
             <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHomescreenButton" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Tilbage" />
             <Button layoutX="1165.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
