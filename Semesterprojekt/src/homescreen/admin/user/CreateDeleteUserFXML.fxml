@@ -33,7 +33,7 @@
             <VBox layoutX="351.0" layoutY="232.0" onMouseMoved="#updateTime" prefHeight="183.0" prefWidth="149.0" />
             <HBox layoutX="137.0" layoutY="146.0" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="368.0">
                <children>
-                  <RadioButton mnemonicParsing="false" onAction="#showCreateUser" onMouseMoved="#updateTime" selected="true" text="Opret Bruger">
+                  <RadioButton mnemonicParsing="false" onAction="#showCreateUser" onMouseMoved="#updateTime" prefHeight="21.0" prefWidth="175.0" selected="true" text="Opret bruger">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
@@ -41,24 +41,24 @@
                         <ToggleGroup fx:id="bruger" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#showDeleteUser" onMouseMoved="#updateTime" text="Slet Bruger" toggleGroup="$bruger">
+                  <RadioButton mnemonicParsing="false" onAction="#showDeleteUser" onMouseMoved="#updateTime" prefHeight="21.0" prefWidth="164.0" text="Slet bruger" toggleGroup="$bruger">
                      <padding>
                         <Insets left="30.0" right="30.0" />
                      </padding>
                   </RadioButton>
                </children>
             </HBox>
-            <Label layoutX="758.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se Bruger af Systemet">
+            <Label layoutX="758.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label layoutX="276.0" layoutY="-2.0" onMouseMoved="#updateTime" text="Admin Rettigheder for Bruger af Systemet">
+            <Label layoutX="276.0" layoutY="-2.0" onMouseMoved="#updateTime" text="Admin rettigheder for bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Button layoutX="9.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBack" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
+            <Button layoutX="9.0" layoutY="19.0" mnemonicParsing="false" onAction="#goBack" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
             <VBox layoutX="28.0" layoutY="222.0" prefHeight="260.0" prefWidth="543.0">
                <children>
                   <HBox prefHeight="260.0" prefWidth="320.0">
