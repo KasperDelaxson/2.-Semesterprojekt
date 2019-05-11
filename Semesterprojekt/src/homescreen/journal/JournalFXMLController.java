@@ -81,7 +81,6 @@ public class JournalFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToWriteJournal(MouseEvent event) {
-        changeFXML("/homescreen/journal/writeJournal/WriteJournalFXML.fxml", event);
     }
 
     @FXML
@@ -96,7 +95,6 @@ public class JournalFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToEditJournal(MouseEvent event) {
-         changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
     }
 
     @FXML
@@ -110,9 +108,8 @@ public class JournalFXMLController extends ParentController implements Initializ
     }
 
     @FXML
-    private void changeToViewJournal(MouseEvent event) {
-         changeFXML("/homescreen/journal/viewJournal/ViewJournalFXML.fxml", event);
-   }
+    private void changeToSeeJournal(MouseEvent event) {
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {

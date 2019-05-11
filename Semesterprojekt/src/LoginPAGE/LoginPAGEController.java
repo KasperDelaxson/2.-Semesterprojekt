@@ -44,7 +44,7 @@ public class LoginPAGEController extends ParentController implements Initializab
     private AnchorPane fejlBox;
     @FXML
     private Label fejlLabel;
-
+    
     private final SQLConnection sql = new SQLConnection();
 
     /**
@@ -60,22 +60,18 @@ public class LoginPAGEController extends ParentController implements Initializab
 
     @FXML
     private void logIn(ActionEvent event) {
-        if (usernameLabel.getText().isEmpty()||passwordLabel.getText().isEmpty()) {
+        try{
+        boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
+        if(login){
+        changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+        }
+        else{
             fejlBox.setVisible(true);
-            fejlLabel.setText("Brugernavn eller Adgangskode ikke angivet!");
-        } else {
-            try {
-                boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
-                if (login) {
-                    changeFXML("/homescreen/HomeScreenFXML.fxml", event);
-                } else {
-                    fejlBox.setVisible(true);
-                    fejlLabel.setText("Ugyldige loginoplysninger. "
-                            + "\n Brugernavn eller Adgangskode forkert!");
-                }
-            } catch (SQLException e) {
-                e.getMessage();
-            }
+            fejlLabel.setText("Ugyldige loginoplysninger");
+        }
+        }
+        catch(SQLException e){
+            e.getMessage();
         }
 
     }
@@ -84,10 +80,6 @@ public class LoginPAGEController extends ParentController implements Initializab
     private void updateTime(MouseEvent event) {
         timeAndDate();
         timeLabel.setText(getDatoTid());
-    }
-
-    @FXML
-    private void exitButton(ActionEvent event) {
     }
 
 }
