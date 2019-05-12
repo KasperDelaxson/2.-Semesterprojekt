@@ -80,10 +80,6 @@ public class JournalFXMLController extends ParentController implements Initializ
     }
 
     @FXML
-    private void changeToWriteJournal(MouseEvent event) {
-    }
-
-    @FXML
     private void yellowChangeToS(MouseEvent event) {
         yellowImage.setImage(img.yellow);
     }
@@ -91,10 +87,6 @@ public class JournalFXMLController extends ParentController implements Initializ
     @FXML
     private void yellowChangeToL(MouseEvent event) {
         yellowImage.setImage(img.yellow2);
-    }
-
-    @FXML
-    private void changeToEditJournal(MouseEvent event) {
     }
 
     @FXML
@@ -109,8 +101,19 @@ public class JournalFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToSeeJournal(MouseEvent event) {
+        changeFXML("/homescreen/journal/viewJournal/ViewJournalFXML.fxml", event);
+    }
+    
+    @FXML
+    private void changeToWriteJournal(MouseEvent event) {
+        changeFXML("/homescreen/journal/writeJournal/WriteJournalFXML.fxml", event);
     }
 
+    @FXML
+    private void changeToEditJournal(MouseEvent event) {
+        changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
+    }
+    
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();
