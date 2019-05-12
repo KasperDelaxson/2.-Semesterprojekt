@@ -14,7 +14,7 @@
       <AnchorPane layoutX="11.0" layoutY="11.0" onMouseMoved="#updateTime" prefHeight="401.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <ImageView fx:id="logInPicture" fitHeight="276.0" fitWidth="298.0" layoutX="52.0" layoutY="89.0" onMouseMoved="#updateTime" opacity="0.72" pickOnBounds="true" preserveRatio="true" />
-            <AnchorPane layoutX="389.0" layoutY="66.0" onMouseMoved="#updateTime" prefHeight="321.0" prefWidth="298.0" style="-fx-background-color: #9c2827;">
+            <AnchorPane layoutX="389.0" layoutY="52.0" onMouseMoved="#updateTime" prefHeight="315.0" prefWidth="298.0" style="-fx-background-color: #9c2827;">
                <children>
                   <TextField fx:id="usernameLabel" layoutX="14.0" layoutY="96.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" promptText="Brugernavn" />
                   <PasswordField fx:id="passwordLabel" layoutX="14.0" layoutY="171.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="270.0" promptText="Adgangskode" />
@@ -35,8 +35,8 @@
                   <Font name="System Italic" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" layoutX="601.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="17.0" prefWidth="96.0" />
-            <Button layoutX="613.0" layoutY="4.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+            <Label fx:id="timeLabel" layoutX="599.0" layoutY="379.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="17.0" prefWidth="96.0" />
+            <Button layoutX="625.0" layoutY="5.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
          </children>
       </AnchorPane>
       <Line endX="710.0" endY="53.5" onMouseMoved="#updateTime" startX="5.0" startY="53.5" stroke="#c1381b" strokeWidth="10.0" />

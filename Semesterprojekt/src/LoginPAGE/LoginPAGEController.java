@@ -82,4 +82,9 @@ public class LoginPAGEController extends ParentController implements Initializab
         timeLabel.setText(getDatoTid());
     }
 
+    @FXML
+    private void exitButton(ActionEvent event) {
+        closeWindow(event);
+    }
+
 }
