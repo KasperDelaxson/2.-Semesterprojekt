@@ -66,15 +66,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     @FXML
     private void logIn(ActionEvent event) {
         if (usernameLabel.getText().isEmpty() || passwordLabel.getText().isEmpty()) {
-            try {
                 fejlBox.setVisible(true);
                 fejlLabel.setText("Ikke tilstrækkelig information givet!");
-                Thread.sleep(3000);
-                fejlLabel.setText("Prøv venligst igen!");
-            } catch (InterruptedException ex) {
-                System.out.println("Error on logIn timeWait");
-            }
-
         } else {
             try {
                 boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());

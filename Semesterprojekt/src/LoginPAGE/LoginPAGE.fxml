@@ -36,7 +36,7 @@
                </font>
             </Label>
             <Label fx:id="timeLabel" layoutX="599.0" layoutY="379.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="17.0" prefWidth="96.0" />
-            <Button layoutX="625.0" layoutY="5.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+            <Button layoutX="625.0" layoutY="3.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
          </children>
       </AnchorPane>
       <Line endX="710.0" endY="53.5" onMouseMoved="#updateTime" startX="5.0" startY="53.5" stroke="#c1381b" strokeWidth="10.0" />

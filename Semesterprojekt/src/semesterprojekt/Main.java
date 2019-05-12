@@ -23,7 +23,8 @@ public class Main {
         SQLConnection con = new SQLConnection();
         con.openConnection();
         //con.addEmployee(2,"sanne",12345678,"sanne@hotmail.com","sanne123","sanneerhot",5);
-        con.getEmployee("sanne");
+//        con.getEmployee("sanne");
+        con.getUsers();
         con.closeConnection();
     }
     
