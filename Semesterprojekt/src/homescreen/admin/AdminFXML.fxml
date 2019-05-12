@@ -17,7 +17,7 @@
                   <Font name="TI-Nspire Regular" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="dateTimeLabel" layoutX="1129.0" layoutY="677.0" onMouseMoved="#updateTime" prefHeight="18.0" prefWidth="129.0" />
+            <Label fx:id="dateTimeLabel" layoutX="1153.0" layoutY="677.0" onMouseMoved="#updateTime" prefHeight="18.0" prefWidth="99.0" />
             <ImageView fx:id="ddImage" fitHeight="171.0" fitWidth="178.0" layoutX="551.0" layoutY="275.0" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/DIGI-DAGBOG.PNG" />

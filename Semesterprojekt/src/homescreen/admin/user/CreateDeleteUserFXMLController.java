@@ -6,7 +6,9 @@
 package homescreen.admin.user;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -68,6 +71,9 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private Label phoneNumberLabel;
     @FXML
     private Label mailLabel;
+    SQLConnection sql = new SQLConnection();
+    ObservableList<String> userList;
+    Connection con;
 
     /**
      * Initializes the controller class.
@@ -80,6 +86,21 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void deleteUser(ActionEvent event) {
+        if (nameField.getText().isEmpty() || phoneField.getText().isEmpty()
+                || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+        } else {
+            try {
+                int employeeNumber = Integer.parseInt(employeeNumberField.getText());
+                int phone = Integer.parseInt(phoneField.getText());
+                sql.openConnection();
+                sql.deleteEmployee(employeeNumber, nameField.getText(), phone, usernameField.getText(), passwordField.getText());
+                sql.closeConnection();
+                awaitingActionArea.setText("Fuldført! Bruger Slettet!");
+            } catch (Exception e) {
+                awaitingActionArea.setText("Fejl ved slet af Bruger");
+            }
+        }
     }
 
     @FXML
@@ -88,6 +109,25 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void createUser(ActionEvent event) {
+        if (employeeNumberField.getText().isEmpty() || nameField.getText().isEmpty()
+                || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
+                || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()
+                || permissionField.getText().isEmpty()) {
+            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+        } else {
+            int employeeNumber = Integer.parseInt(employeeNumberField.getText());
+            int phone = Integer.parseInt(phoneField.getText());
+            int permission = Integer.parseInt(permissionField.getText());
+            try {
+                sql.openConnection();
+                sql.addEmployee(employeeNumber, nameField.getText(), phone, mailField.getText(), usernameField.getText(), passwordField.getText(), permission);
+                sql.closeConnection();
+                awaitingActionArea.setText("Fuldført! Bruger Oprettet");
+            } catch (Exception e) {
+                awaitingActionArea.setText("Fejl ved opret af Bruger!");
+            }
+
+        }
     }
 
     @FXML
@@ -134,7 +174,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void logOffButton(ActionEvent event) {
-        changeFXML("/LoginPAGE/LoginPAGE.fxml",event);
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
 
 }

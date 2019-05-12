@@ -33,6 +33,9 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </TextArea>
             <Button layoutX="877.0" layoutY="143.0" mnemonicParsing="false" onAction="#showUsers" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="185.0" text="Vis bruger af systemet" />
             <Button fx:id="createUserButton" layoutX="254.0" layoutY="515.0" mnemonicParsing="false" onAction="#createUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Opret bruger" />
