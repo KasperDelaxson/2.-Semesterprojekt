@@ -6,6 +6,7 @@
 package semesterprojekt;
 
 import java.sql.*;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,6 +18,7 @@ public class SQLConnection {
     private final String username = "cyxmirsh";
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
+    private ObservableList<String> nameList;
     
     
     public void openConnection(){
@@ -94,6 +96,50 @@ public class SQLConnection {
             e.getMessage();
         }
         return loginCheck;
+    }
+    public Connection getCon(){
+                        
+        try{
+            con = DriverManager.getConnection(url, username, password);
+            System.out.println("Connected.");
+        }
+        catch(SQLException e){
+            System.out.println(e.getErrorCode());
+        }
+        return con;
+    }
+    
+    public ObservableList seeClientList() {
+
+        Employee e = Employee.getEmployee();
+        String sqlString = "SELECT patientsocialsecurity FROM journal WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
+        String social;
+        System.out.println();
+        try {
+            openConnection();
+            Connection con = getCon();
+            int i = 1;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            System.out.println(i);
+            while (rs.next()) { 
+                social = rs.getString(i);
+                String sqlString2 = "SELECT name FROM patient WHERE socialsecurity='" + social + "';";
+                Statement st2 = con.createStatement();
+                ResultSet rt = st2.executeQuery(sqlString2);
+                nameList.add(rt.getString(i));
+                System.out.println(i);
+                i++;
+                
+            }
+            closeConnection();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            
+            
+        }
+        return nameList;
     }
 }
 
