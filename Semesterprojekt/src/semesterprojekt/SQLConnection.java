@@ -74,11 +74,16 @@ public class SQLConnection {
     }
 
     public void getUsers() {
+        openConnection();
         String sql = "SELECT name FROM users;";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            displayActor(rs);
+//            displayActor(rs);
+            while (rs.next()){
+                System.out.println(rs.getString("name"));
+            }
+            closeConnection();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -86,11 +91,7 @@ public class SQLConnection {
 
     private void displayActor(ResultSet rs) throws SQLException {
         while (rs.next()) {
-            System.out.println(rs.getString("uuid"));
-            System.out.println(rs.getString("employeenumber"));
             System.out.println(rs.getString("name"));
-            System.out.println(rs.getInt("phone"));
-            System.out.println(rs.getString("mail"));
         }
     }
 
