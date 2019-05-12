@@ -42,7 +42,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     @FXML
     private ToggleGroup bruger;
     @FXML
-    private TextArea userListView;
+    private ListView<?> userListView;
     @FXML
     private Label usernameLabel;
     @FXML
@@ -105,7 +105,6 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void showUsers(ActionEvent event) {
-        
     }
 
     @FXML

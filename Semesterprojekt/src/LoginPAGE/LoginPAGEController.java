@@ -66,35 +66,42 @@ public class LoginPAGEController extends ParentController implements Initializab
     @FXML
     private void logIn(ActionEvent event) {
         if (usernameLabel.getText().isEmpty() || passwordLabel.getText().isEmpty()) {
-            fejlBox.setVisible(true);
-            fejlLabel.setText("Ikke tilstrækkelig information givet!");
-        } else{
             try {
-            boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
-            if (login) {
-                changeFXML("/homescreen/HomeScreenFXML.fxml", event);
-            } else {
                 fejlBox.setVisible(true);
-                fejlLabel.setText("Ugyldige loginoplysninger");
+                fejlLabel.setText("Ikke tilstrækkelig information givet!");
+                Thread.sleep(3000);
+                fejlLabel.setText("Prøv venligst igen!");
+            } catch (InterruptedException ex) {
+                System.out.println("Error on logIn timeWait");
             }
-        } catch (SQLException e) {
 
-            e.getMessage();
+        } else {
+            try {
+                boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
+                if (login) {
+                    changeFXML("/homescreen/HomeScreenFXML.fxml", event);
+                } else {
+                    fejlBox.setVisible(true);
+                    fejlLabel.setText("Ugyldige loginoplysninger");
+                }
+            } catch (SQLException e) {
 
+                e.getMessage();
+
+            }
+            Employee.setEmployee(usernameLabel.getText(), passwordLabel.getText(), setEmployeeNumber(usernameLabel.getText()));
         }
-        Employee.setEmployee(usernameLabel.getText(), passwordLabel.getText(), setEmployeeNumber(usernameLabel.getText()));
+
     }
 
-}
-
-@FXML
-        private void updateTime(MouseEvent event) {
+    @FXML
+    private void updateTime(MouseEvent event) {
         timeAndDate();
         timeLabel.setText(getDatoTid());
     }
 
     @FXML
-        private void exitButton(ActionEvent event) {
+    private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
 
