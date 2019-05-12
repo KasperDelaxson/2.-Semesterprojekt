@@ -127,4 +127,14 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
         timeLabel.setText(getDatoTid());
     }
 
+    @FXML
+    private void exitButton(ActionEvent event) {
+        closeWindow(event);
+    }
+
+    @FXML
+    private void logOffButton(ActionEvent event) {
+        changeFXML("/LoginPAGE/LoginPAGE.fxml",event);
+    }
+
 }
