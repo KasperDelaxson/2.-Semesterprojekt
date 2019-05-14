@@ -176,4 +176,18 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         changeFXML("/homescreen/admin/AdminFXML.fxml", event);
     }
 
+    @FXML
+    private void changeToServices(MouseEvent event) {
+        changeFXML("/homescreen/service/ServiceFXML.fxml", event);
+    }
+
+    @FXML
+    private void changeToMedicin(MouseEvent event) {
+        changeFXML("/homescreen/medicin/MedicinFXML.fxml", event);
+    }
+
+    @FXML
+    private void changeToSettings(MouseEvent event) {
+    }
+
 }

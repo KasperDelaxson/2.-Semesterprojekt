@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
 
@@ -41,10 +42,13 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private Button SaveNote;
     @FXML
     private Button AttachFile;
+    @FXML
+    private Label dateTimeLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
     @FXML
@@ -71,6 +75,12 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void attachFile(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateTime(MouseEvent event) {
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
   

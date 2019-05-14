@@ -39,17 +39,17 @@
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
             </ImageView>
-            <Label fx:id="skrivJournalLabel" layoutX="578.0" layoutY="197.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="skrivJournalLabel" layoutX="578.0" layoutY="197.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="seJournalLabel" layoutX="494.0" layoutY="415.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0">
+            <Label fx:id="seJournalLabel" layoutX="494.0" layoutY="415.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="redigereJournalLabel" layoutX="676.0" layoutY="419.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0">
+            <Label fx:id="redigereJournalLabel" layoutX="676.0" layoutY="419.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="60.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

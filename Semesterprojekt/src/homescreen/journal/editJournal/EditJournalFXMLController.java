@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
 
@@ -19,13 +20,16 @@ import mainAndParent.ParentController;
  * @author Kenneth Haahr
  */
 public class EditJournalFXMLController extends ParentController implements Initializable {
+    @FXML
+    private Label dateTimeLabel;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
     @FXML
@@ -44,6 +48,11 @@ public class EditJournalFXMLController extends ParentController implements Initi
     @FXML
     private void logOffButton(ActionEvent event) {
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
+    }
+    @FXML
+    private void updateTime(MouseEvent event) {
+        timeAndDate();
+        dateTimeLabel.setText(getDatoTid());
     }
 
 }

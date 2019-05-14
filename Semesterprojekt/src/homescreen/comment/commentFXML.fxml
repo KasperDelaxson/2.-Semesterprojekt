@@ -39,17 +39,17 @@
                   <Image url="@../../pictures/homeScreenPicturesSmall/Green.png" />
                </image>
             </ImageView>
-            <Label fx:id="writeComentLabel" layoutX="566.0" layoutY="199.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="writeComentLabel" layoutX="566.0" layoutY="199.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" style="-fx-text-overrun: FFFFFF;" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="seeComentLabel" layoutX="473.0" layoutY="377.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="96.0" prefWidth="104.0">
+            <Label fx:id="seeComentLabel" layoutX="473.0" layoutY="377.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="96.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="editComentLabel" layoutX="673.0" layoutY="416.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="76.0" prefWidth="104.0">
+            <Label fx:id="editComentLabel" layoutX="673.0" layoutY="416.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="76.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

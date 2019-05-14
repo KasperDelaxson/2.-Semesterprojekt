@@ -17,7 +17,7 @@
    <children>
       <AnchorPane layoutX="9.0" layoutY="8.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: FFFFFF;">
          <children>
-            <ImageView fx:id="yellowImage" fitHeight="190.0" fitWidth="260.0" layoutX="739.0" layoutY="255.0" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="yellowImage" fitHeight="190.0" fitWidth="260.0" layoutX="739.0" layoutY="255.0" onMouseClicked="#changeToServices" onMouseEntered="#yellowChangeToL" onMouseExited="#yellowChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../pictures/homeScreenPictures/Yellow.png" />
                </image>
@@ -27,7 +27,7 @@
                   <Image url="@../pictures/homeScreenPictures/Blue.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="purpleImage" fitHeight="190.0" fitWidth="260.0" layoutX="257.0" layoutY="255.0" onMouseEntered="#purpleChangeToL" onMouseExited="#purpleChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="purpleImage" fitHeight="190.0" fitWidth="260.0" layoutX="257.0" layoutY="255.0" onMouseClicked="#changeToMedicin" onMouseEntered="#purpleChangeToL" onMouseExited="#purpleChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../pictures/homeScreenPictures/Purple.png" />
                </image>
@@ -37,12 +37,12 @@
                   <Image url="@../pictures/homeScreenPictures/DarkBlue.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redImage" fitHeight="150.0" fitWidth="200.0" layoutX="666.0" layoutY="445.0" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="redImage" fitHeight="150.0" fitWidth="200.0" layoutX="666.0" layoutY="445.0" onMouseClicked="#changeToSettings" onMouseEntered="#redChangeToL" onMouseExited="#redChangeToS" onMouseMoved="#updateTime" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../pictures/homeScreenPictures/Red.png" />
                </image>
             </ImageView>
-            <Button layoutX="10.0" layoutY="3.0" mnemonicParsing="false" onAction="#contactButton" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Kontakt" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#contactButton" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="93.0" text="Kontakt" />
             <Label layoutX="490.0" layoutY="180.0" mouseTransparent="true" onMousePressed="#updateTime" pickOnBounds="false" text="Journal" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -69,6 +69,20 @@
                </font>
             </Label>
             <Label fx:id="dateTimeLabel" layoutX="1133.0" layoutY="677.0" onMousePressed="#updateTime" prefHeight="21.0" prefWidth="127.0" />
+            <HBox layoutX="1091.0" layoutY="11.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="155.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#logOffButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#exitButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children></AnchorPane>
       <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="302.0">
          <font>
@@ -90,18 +104,6 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <HBox layoutX="1101.0" layoutY="11.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="155.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#logOffButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#exitButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin></Button>
-         </children>
-      </HBox>
       <TextArea fx:id="informationArea" editable="false" layoutX="43.0" layoutY="164.0" onMousePressed="#updateTime" prefHeight="300.0" prefWidth="277.0" promptText="Vælg en af de 6 valgmuligheder til højre">
          <font>
             <Font size="17.0" />
@@ -117,6 +119,6 @@
             <RadioButton mnemonicParsing="false" onAction="#hideHelp" onMousePressed="#updateTime" prefHeight="40.0" prefWidth="120.0" selected="true" text="Skjul hjælp" toggleGroup="$helpButtonGroup" />
          </children>
       </HBox>
-      <Line endX="1260.0" endY="50.0" layoutX="8.0" onMousePressed="#updateTime" startY="50.0" stroke="#c1381b" strokeWidth="10.0" />
+      <Line endX="1260.0" endY="50.0" layoutX="8.0" layoutY="20.0" onMousePressed="#updateTime" startY="50.0" stroke="#c1381b" strokeWidth="10.0" />
    </children>
 </AnchorPane>
