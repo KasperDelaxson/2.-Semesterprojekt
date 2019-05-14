@@ -20,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
 import semesterprojekt.Employee;
@@ -51,6 +52,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     private int employeeNumber;
     private final SQLConnection sql = new SQLConnection();
     private Connection con;
+    @FXML
+    private Text forgotUserText;
 
     /**
      * Initializes the controller class.
@@ -117,6 +120,11 @@ public class LoginPAGEController extends ParentController implements Initializab
 
         }
         return employeeNumber;
+    }
+
+    @FXML
+    private void forgotPasswordUsername(MouseEvent event) {
+        forgotUserText.setText("Kontakt: sdu.dk");
     }
 
 }
