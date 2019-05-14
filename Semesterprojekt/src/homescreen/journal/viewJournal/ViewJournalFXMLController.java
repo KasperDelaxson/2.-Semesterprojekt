@@ -26,7 +26,8 @@ import semesterprojekt.SQLConnection;
 public class ViewJournalFXMLController extends ParentController implements Initializable {
 
     @FXML
-    private ListView<String> patientList;
+    private ListView patientList;
+    private ObservableList<String> namesList = FXCollections.observableArrayList();
     @FXML
     private ListView<?> referalDatelist;
     private SQLConnection sql = new SQLConnection();
@@ -38,15 +39,19 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        try{
+        nameList = sql.seeClientList();
+        patientList.setItems(namesList);
+        for(int i = 0;i<nameList.size();i++){
+        namesList.add(nameList.get(i));}}
+        catch(Exception e){}
     }    
 
     @FXML
     private void goBackToNotesFromView(ActionEvent event) {
-        //changeFXML("/homescreen/journal/JournalFXML.fxml", event);
+        changeFXML("/homescreen/journal/JournalFXML.fxml", event);
         
-        nameList = sql.seeClientList();
-        ObservableList<String> observableList = FXCollections.observableArrayList();
-        patientList.setItems(observableList);
+        
     }
 
     @FXML
