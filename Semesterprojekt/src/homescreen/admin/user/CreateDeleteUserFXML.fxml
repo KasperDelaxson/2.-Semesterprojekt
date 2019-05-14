@@ -18,12 +18,12 @@
       <AnchorPane layoutX="9.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
          <children>
             <Line endX="1147.0" layoutX="110.0" layoutY="68.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
-            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" text="Opret &amp; slet bruger af systemet">
+            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" text="Opret eller slet bruger af systemet">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" layoutX="1162.0" layoutY="678.0" onMouseMoved="#updateTime" />
+            <Label fx:id="timeLabel" layoutX="1139.0" layoutY="676.0" onMouseMoved="#updateTime" />
             <Line endX="1147.0" layoutX="110.0" layoutY="124.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
             <Line endX="-100.0" endY="520.0" layoutX="731.0" layoutY="175.0" onMouseMoved="#updateTime" startX="-100.0" startY="-51.0" stroke="#c1381b" strokeWidth="10.0" />
             <Button fx:id="deleteUserButton" layoutX="254.0" layoutY="548.0" mnemonicParsing="false" onAction="#deleteUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Slet Bruger" visible="false" />

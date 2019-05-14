@@ -50,8 +50,6 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     @FXML
     private void goBackToNotesFromView(ActionEvent event) {
         changeFXML("/homescreen/journal/JournalFXML.fxml", event);
-        
-        
     }
 
     @FXML
