@@ -139,7 +139,6 @@ public class SQLConnection {
 
         try {
             openConnection();
-            ObservableList<String> observableList = FXCollections.observableList(nameList);
             Connection con = getCon();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sqlString);
@@ -147,7 +146,6 @@ public class SQLConnection {
             while (rs.next()) {
                 socials.add(rs.getString(i));
             }
-            System.out.println(socials.get(2));
             
             i = 0;
             while(i < socials.size()) {
@@ -156,15 +154,27 @@ public class SQLConnection {
             ResultSet rs2 = st2.executeQuery(sqlString2);
             
             while(rs2.next()){
-                System.out.println("uendelig");
                 nameList.add(rs2.getString(1));
                 }
+            i++;
             }
             closeConnection();
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return nameList;
+        ArrayList<String> sortedNameList = removeDuplicates(nameList);
+        
+        return sortedNameList;
     }
+     private <T> ArrayList <T> removeDuplicates(ArrayList<T> list) 
+    { 
+        ArrayList<T> newList = new ArrayList<T>(); 
+        for (T element : list) { 
+            if (!newList.contains(element)) { 
+                newList.add(element); 
+            } 
+        } 
+        return newList; 
+    } 
 }
