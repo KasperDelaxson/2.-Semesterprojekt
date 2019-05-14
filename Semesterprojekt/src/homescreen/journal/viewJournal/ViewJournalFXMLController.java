@@ -42,12 +42,12 @@ public class ViewJournalFXMLController extends ParentController implements Initi
 
     @FXML
     private void goBackToNotesFromView(ActionEvent event) {
-        super.changeFXML("/homescreen/journal/JournalFXML.fxml", event);
+        changeFXML("/homescreen/journal/JournalFXML.fxml", event);
     }
 
     @FXML
     private void logOffButton(ActionEvent event) {
-        super.changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     
     }
 }

@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="dateTimeLabel" layoutX="1153.0" layoutY="677.0" onMousePressed="#updateTime" prefHeight="18.0" prefWidth="107.0" />
+            <Label fx:id="dateTimeLabel" layoutX="1133.0" layoutY="677.0" onMousePressed="#updateTime" prefHeight="21.0" prefWidth="127.0" />
          </children></AnchorPane>
       <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="302.0">
          <font>
