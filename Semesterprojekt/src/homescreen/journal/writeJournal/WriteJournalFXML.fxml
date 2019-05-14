@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.journal.writeJournal.WriteJournalFXMLController">
@@ -21,10 +22,15 @@
             <Text layoutX="662.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Journal" />
             <ButtonBar layoutX="1036.0" layoutY="646.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="SaveNote" mnemonicParsing="false" onAction="#saveNote" text="Gem" />
+                <Button fx:id="SaveNote" mnemonicParsing="false" onAction="#saveNote" prefHeight="31.0" prefWidth="102.0" text="Gem" />
               </buttons>
             </ButtonBar>
-            <Button fx:id="AttachFile" layoutX="1162.0" layoutY="621.0" mnemonicParsing="false" onAction="#attachFile" text="Vedhæft fil" />
+            <Button fx:id="AttachFile" layoutX="1136.0" layoutY="608.0" mnemonicParsing="false" onAction="#attachFile" prefHeight="31.0" prefWidth="98.0" text="Vedhæft fil" />
+            <Text layoutX="519.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skriv Journal indlæg" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
