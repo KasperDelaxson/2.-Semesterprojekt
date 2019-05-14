@@ -6,7 +6,9 @@
 package homescreen.journal.viewJournal;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -26,13 +28,14 @@ import semesterprojekt.SQLConnection;
 public class ViewJournalFXMLController extends ParentController implements Initializable {
 
     @FXML
-    private ListView<?> patientList;
+    private ListView patientList;
+    private ObservableList<String> namesList = FXCollections.observableArrayList();
     @FXML
     private ListView<?> referalDatelist;
     private SQLConnection sql = new SQLConnection();
-    private ObservableList<String> nameList;
     @FXML
     private Label dateTimeLabel;
+    private ArrayList <String> nameList = new ArrayList<String>();
 
     /**
      * Initializes the controller class.
@@ -40,10 +43,13 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        try{
         nameList = sql.seeClientList();
-        System.out.println("hellooo");
-        timeAndDate();
-        dateTimeLabel.setText(getDatoTid());
+        patientList.setItems(namesList);
+        for(int i = 0;i<nameList.size();i++){
+        namesList.add(nameList.get(i));}}
+        catch(Exception e){}
+
     }    
 
     @FXML

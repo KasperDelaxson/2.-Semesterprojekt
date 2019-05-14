@@ -6,6 +6,10 @@
 package semesterprojekt;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
 
 /**
@@ -18,7 +22,7 @@ public class SQLConnection {
     private final String username = "cyxmirsh";
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
-    private ObservableList<String> nameList;
+    private ArrayList<String> nameList = new ArrayList<String>();
 
     public void openConnection() {
 
@@ -127,35 +131,50 @@ public class SQLConnection {
         return con;
     }
 
-    public ObservableList seeClientList() {
+    public ArrayList seeClientList() {
 
         Employee e = Employee.getEmployee();
         String sqlString = "SELECT patientsocialsecurity FROM journal WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
-        String social;
-        System.out.println();
+        ArrayList<String> socials = new ArrayList<String>();
+
         try {
             openConnection();
             Connection con = getCon();
-            int i = 1;
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sqlString);
-            System.out.println(i);
+            int i = 1;
             while (rs.next()) {
-                social = rs.getString(i);
-                String sqlString2 = "SELECT name FROM patient WHERE socialsecurity='" + social + "';";
-                Statement st2 = con.createStatement();
-                ResultSet rt = st2.executeQuery(sqlString2);
-                nameList.add(rt.getString(i));
-                System.out.println(i);
-                i++;
-
+                socials.add(rs.getString(i));
+            }
+            
+            i = 0;
+            while(i < socials.size()) {
+            String sqlString2 = "SELECT name FROM patient WHERE socialSecurity = '" + socials.get(i) + "';";
+            Statement st2 = con.createStatement();
+            ResultSet rs2 = st2.executeQuery(sqlString2);
+            
+            while(rs2.next()){
+                nameList.add(rs2.getString(1));
+                }
+            i++;
             }
             closeConnection();
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-
         }
-        return nameList;
+        ArrayList<String> sortedNameList = removeDuplicates(nameList);
+        
+        return sortedNameList;
     }
+     private <T> ArrayList <T> removeDuplicates(ArrayList<T> list) 
+    { 
+        ArrayList<T> newList = new ArrayList<T>(); 
+        for (T element : list) { 
+            if (!newList.contains(element)) { 
+                newList.add(element); 
+            } 
+        } 
+        return newList; 
+    } 
 }
