@@ -6,7 +6,9 @@
 package homescreen.journal.viewJournal;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -24,11 +26,11 @@ import semesterprojekt.SQLConnection;
 public class ViewJournalFXMLController extends ParentController implements Initializable {
 
     @FXML
-    private ListView<?> patientList;
+    private ListView<String> patientList;
     @FXML
     private ListView<?> referalDatelist;
     private SQLConnection sql = new SQLConnection();
-    private ObservableList<String> nameList;
+    private ArrayList <String> nameList = new ArrayList<String>();
 
     /**
      * Initializes the controller class.
@@ -36,18 +38,20 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        nameList = sql.seeClientList();
-        System.out.println("hellooo");
     }    
 
     @FXML
     private void goBackToNotesFromView(ActionEvent event) {
-        super.changeFXML("/homescreen/journal/JournalFXML.fxml", event);
+        //changeFXML("/homescreen/journal/JournalFXML.fxml", event);
+        
+        nameList = sql.seeClientList();
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        patientList.setItems(observableList);
     }
 
     @FXML
     private void logOffButton(ActionEvent event) {
-        super.changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
+        changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     
     }
 }
