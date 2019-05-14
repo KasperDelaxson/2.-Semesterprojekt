@@ -49,6 +49,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     private Label fejlLabel;
 
     private int employeeNumber;
+    private int employeePermission;
+    private int patientPermission;
     private final SQLConnection sql = new SQLConnection();
     private Connection con;
 
@@ -66,8 +68,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     @FXML
     private void logIn(ActionEvent event) {
         if (usernameLabel.getText().isEmpty() || passwordLabel.getText().isEmpty()) {
-                fejlBox.setVisible(true);
-                fejlLabel.setText("Ikke tilstrækkelig information givet!");
+            fejlBox.setVisible(true);
+            fejlLabel.setText("Ikke tilstrækkelig information givet!");
         } else {
             try {
                 boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
@@ -82,7 +84,10 @@ public class LoginPAGEController extends ParentController implements Initializab
                 e.getMessage();
 
             }
-            Employee.setEmployee(usernameLabel.getText(), passwordLabel.getText(), setEmployeeNumber(usernameLabel.getText()));
+            Employee.setEmployee(usernameLabel.getText(), 
+                    passwordLabel.getText(), 
+                    setEmployeeNumber(usernameLabel.getText()),
+                    setEmployeePermission(usernameLabel.getText()));
         }
 
     }
@@ -117,6 +122,27 @@ public class LoginPAGEController extends ParentController implements Initializab
 
         }
         return employeeNumber;
+    }
+
+    public int setEmployeePermission(String name) {
+        String sqlString = "SELECT * FROM users.permission WHERE username = '" + name + "';";
+
+        try {
+            sql.openConnection();
+            con = sql.getCon();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                employeePermission = rs.getInt("permission");
+
+            }
+            sql.closeConnection();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+        return employeePermission;
     }
 
 }

@@ -38,6 +38,17 @@ public class SQLConnection {
             System.out.println("No connection to close.");
         }
     }
+    
+     public void getPermission(String name) {
+        String sql = "SELECT permission FROM users WHERE name = '" + name + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            displayActor(rs);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void addEmployee(int employeeNumber, String name, int phone, String mail, String username, String password, int permission) {
         String sql = "INSERT INTO users(uuid,employeenumber,name,phone,mail,username,password,permission) VALUES ((select uuid_generate_v4()) ," + employeeNumber + ",'" + name + "'," + phone + ",'" + mail + "','" + username + "','" + password + "'," + permission + ");";

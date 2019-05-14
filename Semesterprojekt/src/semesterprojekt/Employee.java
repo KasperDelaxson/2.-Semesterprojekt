@@ -17,16 +17,18 @@ public class Employee extends User {
     private String username;
     private String password;
     private int employeeNumber;
+    private int permission;
 
-    private Employee(String username, String password, int employeeNumber) {
+    private Employee(String username, String password, int employeeNumber, int permission) {
         super(username, password, employeeNumber);
         this.username = username;
         this.password = password;
         this.employeeNumber = employeeNumber;
+        this.permission = permission;
     }
 
-    public static void setEmployee(String username, String password, int employeeNumber) {
-        e = new Employee(username, password, employeeNumber);
+    public static void setEmployee(String username, String password, int employeeNumber, int permission) {
+        e = new Employee(username, password, employeeNumber, permission);
     }
     public static Employee getEmployee(){
         return e;
