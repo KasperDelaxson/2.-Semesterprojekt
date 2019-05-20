@@ -16,7 +16,7 @@
             <Line endX="1150.0" layoutX="105.0" layoutY="77.0" onMouseMoved="#updateTime" startX="-100.0" stroke="#c1381b" strokeWidth="10.0" />
             <TextArea layoutX="520.0" layoutY="161.0" onMouseMoved="#updateTime" prefHeight="517.0" prefWidth="620.0" />
             <Text layoutX="819.0" layoutY="139.0" onMouseMoved="#updateTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Journal" />
-            <Button layoutX="1159.0" layoutY="636.0" mnemonicParsing="false" onAction="#saveJournal" onMouseMoved="#updateTime" text="Gem kommentar" />
+            <Button layoutX="1159.0" layoutY="636.0" mnemonicParsing="false" onAction="#saveJournal" onMouseMoved="#updateTime" text="Gem " />
             <Button layoutX="1159.0" layoutY="596.0" mnemonicParsing="false" onAction="#attachFile" onMouseMoved="#updateTime" text="Vedhæft fil" />
             <Label fx:id="dateTimeLabel" layoutX="1137.0" layoutY="679.0" onMouseMoved="#updateTime" />
             <ListView layoutX="266.0" layoutY="161.0" onMouseMoved="#updateTime" prefHeight="517.0" prefWidth="229.0">
