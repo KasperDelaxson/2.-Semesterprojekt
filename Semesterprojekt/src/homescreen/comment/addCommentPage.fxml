@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
+<AnchorPane id="AnchorPane" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.journal.editJournal.EditJournalFXMLController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Line endX="1150.0" layoutX="105.0" layoutY="77.0" onMouseMoved="#updateTime" startX="-100.0" stroke="#c1381b" strokeWidth="10.0" />
+            <TextArea layoutX="520.0" layoutY="161.0" onMouseMoved="#updateTime" prefHeight="517.0" prefWidth="620.0" />
+            <Text layoutX="819.0" layoutY="139.0" onMouseMoved="#updateTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Journal" />
+            <Button layoutX="1159.0" layoutY="636.0" mnemonicParsing="false" onAction="#saveJournal" onMouseMoved="#updateTime" text="Gem kommentar" />
+            <Button layoutX="1159.0" layoutY="596.0" mnemonicParsing="false" onAction="#attachFile" onMouseMoved="#updateTime" text="Vedhæft fil" />
+            <Label fx:id="dateTimeLabel" layoutX="1137.0" layoutY="679.0" onMouseMoved="#updateTime" />
+            <ListView layoutX="266.0" layoutY="161.0" onMouseMoved="#updateTime" prefHeight="517.0" prefWidth="229.0">
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </ListView>
+            <Text layoutX="102.0" layoutY="136.0" onMouseMoved="#updateTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Borger" />
+            <Text layoutX="356.0" layoutY="139.0" onMouseMoved="#updateTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Dato" />
+         </children>
+      </AnchorPane>
+      <ListView layoutX="24.0" layoutY="169.0" onMouseMoved="#updateTime" prefHeight="517.0" prefWidth="229.0">
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </ListView>
+      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#goBackToNotesFromView" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
+      <Button layoutX="1164.0" layoutY="24.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="92.0" text="Log Ud" />
+   </children>
 </AnchorPane>
