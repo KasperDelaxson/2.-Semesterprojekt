@@ -5,6 +5,7 @@
  */
 package homescreen.journal.writeJournal;
 
+import fileIo.IoFacade;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,7 +21,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import mainAndParent.ParentController;
 
 /**
@@ -44,6 +47,13 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private Button AttachFile;
     @FXML
     private Label dateTimeLabel;
+    @FXML
+    private TextArea textAreajournal;
+    
+    private IoFacade facade;
+    private File inFile;
+    private FileChooser fileChooser;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -75,6 +85,15 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void attachFile(ActionEvent event) {
+        textAreajournal.clear();
+        File inFile;
+        try {
+        inFile = fileChooser.showOpenDialog(null);
+        String txt = facade.readFile(inFile);
+        textAreajournal.setText(txt);
+        } catch (NullPointerException ex) {
+            textAreajournal.setText("Can't open file");
+        }
     }
 
     @FXML
