@@ -98,7 +98,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
 //        try {
 //            journalFile.createNewFile();
 //        } catch (IOException ex) {
-//            Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(WriteJournalFXMLController.class.getNameForList()).log(Level.SEVERE, null, ex);
 //            System.err.println("Couldn't create file.");
 //        }
     }
