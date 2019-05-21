@@ -132,7 +132,7 @@ public class SQLConnection {
     public ArrayList seeClientList() {
 
         Employee e = Employee.getEmployee();
-        String sqlString = "SELECT patientsocialsecurity FROM journal WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
+        String sqlString = "SELECT socialsecurity FROM patient WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
         ArrayList<String> socials = new ArrayList<String>();
 
         try {
