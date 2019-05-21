@@ -12,16 +12,21 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -44,11 +49,23 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private Button AttachFile;
     @FXML
     private Label dateTimeLabel;
+    @FXML
+    private ListView clientList;
+    private ArrayList<String> clients = new ArrayList<String>();
+    private ObservableList<String> obsClient = FXCollections.observableArrayList();
+    private SQLConnection sql = new SQLConnection();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
+        clients = sql.seeClientList();
+        try{
+        clients = sql.seeClientList();
+        clientList.setItems(obsClient);
+        for(int i = 0;i<clients.size();i++){
+        obsClient.add(clients.get(i));}}
+        catch(Exception e){}
     }
 
     @FXML

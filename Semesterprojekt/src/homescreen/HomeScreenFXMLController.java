@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.Employee;
+import semesterprojekt.SQLConnection;
 /**
  * FXML Controller class
  *
@@ -42,6 +44,7 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private TextArea informationArea;
     @FXML
     private ToggleGroup helpButtonGroup;
+    SQLConnection sql = new SQLConnection();
     /**
      * Initializes the controller class.
      */
@@ -51,10 +54,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ddImage.setImage(img.dd);
-        velkommenLabel.setText("Velkommen: \"brugernavn\"");
         informationArea.setVisible(false);
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
+        velkommenLabel.setText("Velkommen");
+        //velkommenLabel.setText("Velkommen " + sql.getName());
     }
 
     @FXML

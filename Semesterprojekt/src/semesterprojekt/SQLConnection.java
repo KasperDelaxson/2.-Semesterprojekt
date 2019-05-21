@@ -28,7 +28,6 @@ public class SQLConnection {
 
         try {
             con = DriverManager.getConnection(url, username, password);
-            System.out.println("Connected.");
         } catch (SQLException e) {
             System.out.println(e.getErrorCode());
         }
@@ -37,7 +36,6 @@ public class SQLConnection {
     public void closeConnection() {
         try {
             con.close();
-            System.out.println("Connection closed.");
         } catch (SQLException e) {
             System.out.println("No connection to close.");
         }
@@ -177,4 +175,54 @@ public class SQLConnection {
         } 
         return newList; 
     } 
+    public ArrayList getDates(String name){
+        String sqlString = "SELECT created FROM journal WHERE patientsocialSecurity = "
+                 + "(SELECT socialSecurity FROM patient WHERE name = '" + name + "');";
+        ArrayList<String> dates = new ArrayList<String>();
+         try{
+            openConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while(rs.next()){
+                dates.add(rs.getString(1));
+            }
+         }
+        catch(SQLException e){}
+        
+        return dates;
+     }
+    public String getJournal(String date){
+        
+        String returnString = null;
+        String sqlString = "SELECT takeNotes FROM Journal WHERE created = '" + date + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while(rs.next()){
+                returnString = rs.getString(1);
+            }
+        }
+        catch(SQLException e){}
+        return returnString;
+    }
+        public String getName(){
+        Employee e = Employee.getEmployee();
+        String sqlString = "SELECT name FROM users WHERE username = '" + e.getUsername() + "';";
+        String name = "user";
+        try {
+            openConnection();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                name = rs.getString(1);
+            }
+            closeConnection();
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return name;
+    }
 }
