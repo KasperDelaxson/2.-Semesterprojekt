@@ -23,6 +23,8 @@ public class SQLConnection {
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
     private ArrayList<String> nameList = new ArrayList<String>();
+    private int permissionNumber;
+    private String name;
 
     public void openConnection() {
 
@@ -64,7 +66,6 @@ public class SQLConnection {
             System.out.println(e.getMessage());
         }
     }
-
     public void deleteEmployee(int employeenumber, String name, int phoneNumber, String username, String password) {
         String sql = "DELETE FROM users WHERE employeenumber = '" + employeenumber + "' AND name = '" + name + "'"
                 + "AND phone = '" + phoneNumber + "' AND username = '" + username + "' AND password = '" + password + "';";
@@ -92,6 +93,7 @@ public class SQLConnection {
     private void displayActor(ResultSet rs) throws SQLException {
         while (rs.next()) {
             System.out.println(rs.getString("name"));
+            System.out.println(rs.getString("username"));
         }
     }
 
@@ -146,17 +148,17 @@ public class SQLConnection {
             while (rs.next()) {
                 socials.add(rs.getString(i));
             }
-            
+
             i = 0;
-            while(i < socials.size()) {
-            String sqlString2 = "SELECT name FROM patient WHERE socialSecurity = '" + socials.get(i) + "';";
-            Statement st2 = con.createStatement();
-            ResultSet rs2 = st2.executeQuery(sqlString2);
-            
-            while(rs2.next()){
-                nameList.add(rs2.getString(1));
+            while (i < socials.size()) {
+                String sqlString2 = "SELECT name FROM patient WHERE socialSecurity = '" + socials.get(i) + "';";
+                Statement st2 = con.createStatement();
+                ResultSet rs2 = st2.executeQuery(sqlString2);
+
+                while (rs2.next()) {
+                    nameList.add(rs2.getString(1));
                 }
-            i++;
+                i++;
             }
             closeConnection();
 
@@ -164,17 +166,76 @@ public class SQLConnection {
             System.out.println(ex.getMessage());
         }
         ArrayList<String> sortedNameList = removeDuplicates(nameList);
-        
+
         return sortedNameList;
     }
-     private <T> ArrayList <T> removeDuplicates(ArrayList<T> list) 
-    { 
-        ArrayList<T> newList = new ArrayList<T>(); 
-        for (T element : list) { 
-            if (!newList.contains(element)) { 
-                newList.add(element); 
-            } 
-        } 
-        return newList; 
-    } 
+
+    private <T> ArrayList<T> removeDuplicates(ArrayList<T> list) {
+        ArrayList<T> newList = new ArrayList<T>();
+        for (T element : list) {
+            if (!newList.contains(element)) {
+                newList.add(element);
+            }
+        }
+        return newList;
+    }
+    /**
+     * @return the permissionNumber
+     */
+    public int getPermissionNumber() {
+        return permissionNumber;
+    }
+
+    /**
+     * @param permissionNumber the permissionNumber to set
+     */
+    public void setPermissionNumber(int permissionNumber) {
+        this.permissionNumber = permissionNumber;
+    }
+    
+    public void getPermission(String username) {
+        openConnection();
+        String sql = "SELECT permission FROM users WHERE username = '" + username + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                int i = rs.getInt("permission");
+                setPermissionNumber(i);
+            }
+            closeConnection();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+     public String getEmployeeName(String username){
+        String fullName = null; 
+        String sql = "SELECT name FROM users WHERE username = '" + username + "';";
+        try {
+            openConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                fullName = rs.getString("name");
+                setName(fullName);
+            }
+            closeConnection();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } return fullName;
+    }
 }

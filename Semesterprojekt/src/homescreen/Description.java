@@ -37,9 +37,9 @@ public class Description {
         features.put("Se Kommentar", "Se \n Kommentar");
         features.put("Rediger Kommentar", "Rediger \n Kommen- \n tar");
         features.put("Håndter", "Håndtere \n hvem \n der må \n se hvad");
-        features.put("Sagsakter", "Slette \n Sagsakter");
+        features.put("Sagsakter", "Opret/Slet \n Patient");
         features.put("Borgers data", "Se/vise \n samlede \n borgers \n data");
-        features.put("Borgers sag", "Åbne/Lukke \n borgers \n sag");
+        features.put("Borgers sag", "Lukke \n borgers \n sag");
         features.put("Tilgået", "Se hvem \n der har \n tilgået hvad");
         features.put("Bruger", "Opret/Slet \n Bruger");
     }

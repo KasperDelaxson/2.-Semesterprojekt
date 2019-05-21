@@ -14,8 +14,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPicturesSmall.ImageSecond;
+import semesterprojekt.Employee;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -23,6 +26,7 @@ import pictures.homeScreenPicturesSmall.ImageSecond;
  * @author Kasper
  */
 public class JournalFXMLController extends ParentController implements Initializable {
+
     @FXML
     private Label dateTimeLabel;
     @FXML
@@ -35,10 +39,11 @@ public class JournalFXMLController extends ParentController implements Initializ
     private Label seJournalLabel;
     @FXML
     private Label redigereJournalLabel;
-    
+
     Description des = new Description();
     ImageSecond img = new ImageSecond();
-    
+    SQLConnection sql = new SQLConnection();
+
     @FXML
     private Label skrivJournalLabel;
 
@@ -52,7 +57,7 @@ public class JournalFXMLController extends ParentController implements Initializ
         skrivJournalLabel.setText(des.features.get("Skriv Journal"));
         seJournalLabel.setText(des.features.get("Se Journal"));
         redigereJournalLabel.setText(des.features.get("Rediger Journal"));
-    }    
+    }
 
     @FXML
     private void backToHomescreenButton(ActionEvent event) {
@@ -101,23 +106,43 @@ public class JournalFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToSeeJournal(MouseEvent event) {
-        changeFXML("/homescreen/journal/viewJournal/ViewJournalFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 0) {
+            changeFXML("/homescreen/journal/viewJournal/ViewJournalFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
+
     }
-    
+
     @FXML
     private void changeToWriteJournal(MouseEvent event) {
-        changeFXML("/homescreen/journal/writeJournal/WriteJournalFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1) {
+            changeFXML("/homescreen/journal/writeJournal/WriteJournalFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML
     private void changeToEditJournal(MouseEvent event) {
-        changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1) {
+            changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
+
     }
-    
+
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
     }
-    
+
 }

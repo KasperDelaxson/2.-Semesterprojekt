@@ -13,6 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.Employee;
+import semesterprojekt.SQLConnection;
+import javax.swing.JOptionPane;
+
 /**
  * FXML Controller class
  *
@@ -47,16 +51,17 @@ public class HomeScreenFXMLController extends ParentController implements Initia
      */
     ImageMain img = new ImageMain();
     Description description = new Description();
+    SQLConnection sql = new SQLConnection();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ddImage.setImage(img.dd);
-        velkommenLabel.setText("Velkommen: \"brugernavn\"");
+        ddImage.setImage(img.dd);  
         informationArea.setVisible(false);
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
+        String username = sql.getEmployeeName(Employee.getEmployee().getUsername());
+        velkommenLabel.setText("Velkommen: " + username);
     }
-
     @FXML
     private void blueChangeToS(MouseEvent event) {
         blueImage.setImage(img.blue);
@@ -156,38 +161,77 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     }
 
     @FXML
-    private void changeToNotes(MouseEvent event) {
-        changeFXML("/homescreen/journal/journalFXML.fxml", event);
-    }
-
-    @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
     }
+    @FXML
+    private void changeToNotes(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 0){
+            changeFXML("/homescreen/journal/journalFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
+       
+    }
 
     @FXML
     private void changeToComent(MouseEvent event) {
-        changeFXML("/homescreen/comment/commentFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 0){
+            changeFXML("/homescreen/comment/commentFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML
     private void changeToAdmin(MouseEvent event) {
-        changeFXML("/homescreen/admin/AdminFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() == 3){
+            changeFXML("/homescreen/admin/AdminFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML
     private void changeToServices(MouseEvent event) {
-        changeFXML("/homescreen/service/ServiceFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1){
+            changeFXML("/homescreen/service/ServiceFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        } 
     }
 
     @FXML
     private void changeToMedicin(MouseEvent event) {
-        changeFXML("/homescreen/medicin/MedicinFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1){
+            changeFXML("/homescreen/medicin/MedicinFXML.fxml", event);
+            System.out.println(sql.getPermissionNumber());
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+            System.out.println(sql.getPermissionNumber());
+        }
     }
 
     @FXML
     private void changeToSettings(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() == 3){
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
 }

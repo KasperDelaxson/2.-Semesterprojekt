@@ -14,8 +14,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPicturesSmall.ImageSecond;
+import semesterprojekt.Employee;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -40,6 +43,7 @@ public class CommentFXMLController extends ParentController implements Initializ
     
     ImageSecond img = new ImageSecond();
     Description des = new Description();
+    SQLConnection sql = new SQLConnection();
 
     /**
      * Initializes the controller class.
@@ -71,6 +75,13 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToWriteComent(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1){
+            //FXML TIL SKRIV COMMENT
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
         
     }
 
@@ -86,6 +97,13 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToEditComent(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1){
+            //FXML TIL COMMENT
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML
@@ -100,6 +118,13 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToSeeComent(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 0){
+            //FXML TIL SE COMMENT
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML
