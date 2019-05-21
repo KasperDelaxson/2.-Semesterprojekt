@@ -148,6 +148,7 @@ public class AdminFXMLController extends ParentController implements Initializab
 
     @FXML
     private void changeToLabel2(MouseEvent event) {
+        changeFXML("/homescreen/admin/patient/CreateDeletePatientFXML.fxml", event);
     }
 
     @FXML

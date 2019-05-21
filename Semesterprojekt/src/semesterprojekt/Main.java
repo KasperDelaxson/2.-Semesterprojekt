@@ -14,9 +14,6 @@ import java.util.ArrayList;
 //Jeg har lavet denne klasse fordi jeg tænkte vi havde brug for en klasse hvor
 //stort set alt vores kode skulle foregå
 public class Main {
-
-    private ArrayList<User> users;
-
     public static void main(String args[]) {
         //users = new ArrayList<User>();
         SQLConnection con = new SQLConnection();
@@ -25,17 +22,9 @@ public class Main {
 //        con.getEmployee("sanne");
 //        con.getUsers();
 //        con.getEmployeeNumber("admin");
-          con.getPermission("admin");
-          System.out.println(con.getPermissionNumber());
-//        con.closeConnection();   
-    }
-
-    public void createUser(User user, ArrayList<User> users) {
-        users.add(user);
-    }
-
-    public void createUsers() {
+//          con.getPermission("admin");
+//          System.out.println(con.getPermissionNumber());
+//        con.closeConnection();
 
     }
-
 }
