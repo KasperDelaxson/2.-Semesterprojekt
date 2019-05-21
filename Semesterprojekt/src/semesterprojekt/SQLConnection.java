@@ -225,4 +225,21 @@ public class SQLConnection {
         }
         return name;
     }
+        public ArrayList getMeds(String name){
+            ArrayList<String> meds = new ArrayList<String>();
+            System.out.println(name);
+            String sqlString = "SELECT assignedmedicine FROM medicinehandout WHERE patientsocialsecurity = (SELECT socialsecurity FROM patient WHERE name = '" + name + "');";
+            try{
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sqlString);
+                while(rs.next()){
+                    meds.add(rs.getString(1));
+                    System.out.println(rs.getString(1));
+                }
+            }
+            catch(SQLException ex){
+                System.out.println(ex.getErrorCode());
+            }
+            return meds;
+        }
 }

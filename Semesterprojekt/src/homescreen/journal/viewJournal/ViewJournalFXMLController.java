@@ -39,8 +39,8 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     private SQLConnection sql = new SQLConnection();
     @FXML
     private Label dateTimeLabel;
-    private ArrayList <String> nameList = new ArrayList<String>();
-    private ArrayList <String> dateList = new ArrayList<String>();
+    private ArrayList<String> nameList = new ArrayList<String>();
+    private ArrayList<String> dateList = new ArrayList<String>();
     private ObservableList<String> datesList = FXCollections.observableArrayList();
     @FXML
     private TextArea journalText;
