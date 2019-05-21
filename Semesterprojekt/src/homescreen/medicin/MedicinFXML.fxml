@@ -15,16 +15,16 @@
             <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBackToHomescreen" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
             <Line endX="1092.0" endY="137.0" layoutX="163.0" layoutY="-64.0" onMouseMoved="#updateTime" startX="-164.0" startY="137.0" stroke="#c1381b" strokeWidth="10.0" />
             <Label fx:id="dateTimeLabel" layoutX="1140.0" layoutY="676.0" onMouseMoved="#updateTime" />
-            <Label layoutX="536.0" layoutY="12.0" onMouseMoved="#updateTime" text="Se Medicin">
+            <Label layoutX="536.0" layoutY="12.0" onMouseMoved="#updateTime" text="Se medicin">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
             <ListView fx:id="patientListView" layoutX="64.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="200.0" />
             <Label layoutX="147.0" layoutY="163.0" onMouseMoved="#updateTime" text="Patient:" />
-            <Label layoutX="505.0" layoutY="155.0" onMouseMoved="#updateTime" text="Tildelt Medicin" />
+            <Label layoutX="505.0" layoutY="155.0" onMouseMoved="#updateTime" text="Tildelt medicin" />
             <ListView fx:id="medicinListView" layoutX="400.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="300.0" />
-            <Label layoutX="933.0" layoutY="155.0" onMouseMoved="#updateTime" text="Tildelt Medicin" />
+            <Label layoutX="933.0" layoutY="155.0" onMouseMoved="#updateTime" text="Tildelt ydelser" />
          </children>
       </AnchorPane>
       <ListView fx:id="handoutListView" layoutX="830.0" layoutY="201.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="300.0" />
