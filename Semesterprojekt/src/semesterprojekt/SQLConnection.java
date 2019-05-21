@@ -6,6 +6,8 @@
 package semesterprojekt;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -224,5 +226,27 @@ public class SQLConnection {
 
         }
         return name;
+    }
+    public void saveNote(String name,String text){
+        String now = getCurrentDate();
+        String sql = "INSERT INTO journal(takenotes,employeeassigned,patientsocialsecurity,created)"
+                + "VALUES ('"+ text +"',"
+                + Employee.getEmployee().getEmployeeNumber()
+                + ",(SELECT socialsecurity FROM patient WHERE name = '" + name + "')"
+                + ", '" + now +"');";
+        try {
+            openConnection();
+            Statement st = con.createStatement();
+            st.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error");
+        }
+    }
+
+    private String getCurrentDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	LocalDate localDate = LocalDate.now();
+        return (dtf.format(localDate));
     }
 }
