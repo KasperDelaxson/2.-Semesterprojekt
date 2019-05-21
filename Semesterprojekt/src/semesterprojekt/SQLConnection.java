@@ -214,7 +214,7 @@ public class SQLConnection {
     /**
      * @return the name
      */
-    public String getNameForList() {
+    public String getName() {
         return name;
     }
 
