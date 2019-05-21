@@ -12,16 +12,23 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -44,11 +51,32 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private Button AttachFile;
     @FXML
     private Label dateTimeLabel;
+    @FXML
+    private ListView clientList;
+    private ArrayList<String> clients = new ArrayList<String>();
+    private ObservableList<String> obsClient = FXCollections.observableArrayList();
+    private SQLConnection sql = new SQLConnection();
+    @FXML
+    private TextArea noteArea;
+    private String selectedPatient = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
+        clients = sql.seeClientList();
+        try{
+        clients = sql.seeClientList();
+        clientList.setItems(obsClient);
+        for(int i = 0;i<clients.size();i++){
+        obsClient.add(clients.get(i));}}
+        catch(Exception e){}
+        clientList.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                selectedPatient = (String)clientList.getSelectionModel().getSelectedItem();
+            }
+        });
     }
 
     @FXML
@@ -63,14 +91,16 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void saveNote(ActionEvent event) {
-        journalFile = new File("note" + Date.valueOf(LocalDate.MAX) + ".txt");
         
-        try {
-            journalFile.createNewFile();
-        } catch (IOException ex) {
-            Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("Couldn't create file.");
-        }
+        sql.saveNote(selectedPatient,(String)noteArea.getText());
+//        journalFile = new File("note" + Date.valueOf(LocalDate.MAX) + ".txt");
+//        
+//        try {
+//            journalFile.createNewFile();
+//        } catch (IOException ex) {
+//            Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+//            System.err.println("Couldn't create file.");
+//        }
     }
 
     @FXML

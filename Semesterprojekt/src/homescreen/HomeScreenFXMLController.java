@@ -16,7 +16,6 @@ import pictures.homeScreenPictures.ImageMain;
 import semesterprojekt.Employee;
 import semesterprojekt.SQLConnection;
 import javax.swing.JOptionPane;
-
 /**
  * FXML Controller class
  *
@@ -46,12 +45,12 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private TextArea informationArea;
     @FXML
     private ToggleGroup helpButtonGroup;
+    SQLConnection sql = new SQLConnection();
     /**
      * Initializes the controller class.
      */
     ImageMain img = new ImageMain();
     Description description = new Description();
-    SQLConnection sql = new SQLConnection();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

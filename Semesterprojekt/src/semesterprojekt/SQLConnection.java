@@ -6,6 +6,8 @@
 package semesterprojekt;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -30,7 +32,6 @@ public class SQLConnection {
 
         try {
             con = DriverManager.getConnection(url, username, password);
-            System.out.println("Connected.");
         } catch (SQLException e) {
             System.out.println(e.getErrorCode());
         }
@@ -39,7 +40,6 @@ public class SQLConnection {
     public void closeConnection() {
         try {
             con.close();
-            System.out.println("Connection closed.");
         } catch (SQLException e) {
             System.out.println("No connection to close.");
         }
@@ -66,6 +66,7 @@ public class SQLConnection {
             System.out.println(e.getMessage());
         }
     }
+
     public void deleteEmployee(int employeenumber, String name, int phoneNumber, String username, String password) {
         String sql = "DELETE FROM users WHERE employeenumber = '" + employeenumber + "' AND name = '" + name + "'"
                 + "AND phone = '" + phoneNumber + "' AND username = '" + username + "' AND password = '" + password + "';";
@@ -136,7 +137,7 @@ public class SQLConnection {
     public ArrayList seeClientList() {
 
         Employee e = Employee.getEmployee();
-        String sqlString = "SELECT patientsocialsecurity FROM journal WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
+        String sqlString = "SELECT socialsecurity FROM patient WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
         ArrayList<String> socials = new ArrayList<String>();
 
         try {
@@ -179,6 +180,7 @@ public class SQLConnection {
         }
         return newList;
     }
+
     /**
      * @return the permissionNumber
      */
@@ -192,14 +194,14 @@ public class SQLConnection {
     public void setPermissionNumber(int permissionNumber) {
         this.permissionNumber = permissionNumber;
     }
-    
+
     public void getPermission(String username) {
         openConnection();
         String sql = "SELECT permission FROM users WHERE username = '" + username + "';";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()){
+            while (rs.next()) {
                 int i = rs.getInt("permission");
                 setPermissionNumber(i);
             }
@@ -212,7 +214,7 @@ public class SQLConnection {
     /**
      * @return the name
      */
-    public String getName() {
+    public String getNameForList() {
         return name;
     }
 
@@ -222,20 +224,97 @@ public class SQLConnection {
     public void setName(String name) {
         this.name = name;
     }
-     public String getEmployeeName(String username){
-        String fullName = null; 
+
+    public String getEmployeeName(String username) {
+        String fullName = null;
         String sql = "SELECT name FROM users WHERE username = '" + username + "';";
         try {
             openConnection();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()){
+            while (rs.next()) {
                 fullName = rs.getString("name");
                 setName(fullName);
             }
             closeConnection();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } return fullName;
+        }
+        return fullName;
+    }
+
+    public ArrayList getDates(String name) {
+        String sqlString = "SELECT created FROM journal WHERE patientsocialSecurity = "
+                + "(SELECT socialSecurity FROM patient WHERE name = '" + name + "');";
+        ArrayList<String> dates = new ArrayList<String>();
+        try {
+            openConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                dates.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+        }
+
+        return dates;
+    }
+
+    public String getJournal(String date) {
+
+        String returnString = null;
+        String sqlString = "SELECT takeNotes FROM Journal WHERE created = '" + date + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                returnString = rs.getString(1);
+            }
+        } catch (SQLException e) {
+        }
+        return returnString;
+    }
+
+    public String getNameForList() {
+        Employee e = Employee.getEmployee();
+        String sqlString = "SELECT name FROM users WHERE username = '" + e.getUsername() + "';";
+        String name = "user";
+        try {
+            openConnection();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlString);
+            while (rs.next()) {
+                name = rs.getString(1);
+            }
+            closeConnection();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return name;
+    }
+
+    public void saveNote(String name, String text) {
+        String now = getCurrentDate();
+        String sql = "INSERT INTO journal(takenotes,employeeassigned,patientsocialsecurity,created)"
+                + "VALUES ('" + text + "',"
+                + Employee.getEmployee().getEmployeeNumber()
+                + ",(SELECT socialsecurity FROM patient WHERE name = '" + name + "')"
+                + ", '" + now + "');";
+        try {
+            openConnection();
+            Statement st = con.createStatement();
+            st.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error");
+        }
+    }
+
+    private String getCurrentDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.now();
+        return (dtf.format(localDate));
     }
 }
