@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1325.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.journal.editJournal.EditJournalFXMLController">
+<AnchorPane id="AnchorPane" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1325.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.comment.editCommetFXML">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1301.0" style="-fx-background-color: ffffff;">
          <children>
@@ -34,6 +34,6 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </padding>
       </ListView>
-      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#goBackToNotesFromView" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
+      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#goBackToViewCommentScreen" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
    </children>
 </AnchorPane>
