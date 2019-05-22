@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -28,6 +29,26 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import mainAndParent.ParentController;
+import semesterprojekt.SQLConnection;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import mainAndParent.ParentController;
+import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.Employee;
 import semesterprojekt.SQLConnection;
 
 /**
@@ -91,17 +112,15 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void saveNote(ActionEvent event) {
+        try {
+      
+            
+        } catch (Exception e) { 
         
-        sql.saveNote(selectedPatient,(String)noteArea.getText());
-//        journalFile = new File("note" + Date.valueOf(LocalDate.MAX) + ".txt");
-//        
-//        try {
-//            journalFile.createNewFile();
-//        } catch (IOException ex) {
-//            Logger.getLogger(WriteJournalFXMLController.class.getNameForList()).log(Level.SEVERE, null, ex);
-//            System.err.println("Couldn't create file.");
-//        }
-    }
+        
+        
+        
+    }}
 
     @FXML
     private void attachFile(ActionEvent event) {
