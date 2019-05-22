@@ -80,6 +80,10 @@ public class WriteJournalFXMLController extends ParentController implements Init
     @FXML
     private TextArea noteArea;
     private String selectedPatient = null;
+    
+    private final SQLConnection sql1 = new SQLConnection();
+    private Connection con;
+    PreparedStatement pst = null; 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -112,15 +116,25 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void saveNote(ActionEvent event) {
+        
         try {
+            String sqlString = "INSERT INTO journal (takenotes) VALUES (?)";
+            sql.openConnection();
+            con = sql.getCon();
+                    
+                    pst=con.prepareStatement(sqlString);
+                    pst.setString(1, noteArea.getText());
+                    
+                    
+                    
+                    pst.execute();
       
             
         } catch (Exception e) { 
-        
-        
-        
-        
-    }}
+        System.out.println(e.getMessage());
+    }
+        System.out.println("detvirker");
+    }
 
     @FXML
     private void attachFile(ActionEvent event) {

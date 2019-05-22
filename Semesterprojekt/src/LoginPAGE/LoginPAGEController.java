@@ -5,26 +5,26 @@
  */
 package LoginPAGE;
 
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import mainAndParent.ParentController;
-import pictures.homeScreenPictures.ImageMain;
-import semesterprojekt.Employee;
-import semesterprojekt.SQLConnection;
+    import java.net.URL;
+    import java.sql.*;
+    import java.util.ResourceBundle;
+    import java.util.logging.Level;
+    import java.util.logging.Logger;
+    import javafx.event.ActionEvent;
+    import javafx.fxml.FXML;
+    import javafx.fxml.Initializable;
+    import javafx.scene.control.Label;
+    import javafx.scene.control.PasswordField;
+    import javafx.scene.control.TextField;
+    import javafx.scene.image.ImageView;
+    import javafx.scene.input.InputMethodEvent;
+    import javafx.scene.input.MouseEvent;
+    import javafx.scene.layout.AnchorPane;
+    import javafx.scene.text.Text;
+    import mainAndParent.ParentController;
+    import pictures.homeScreenPictures.ImageMain;
+    import semesterprojekt.Employee;
+    import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
