@@ -38,6 +38,8 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -46,10 +48,13 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
 import semesterprojekt.Employee;
 import semesterprojekt.SQLConnection;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  * FXML Controller class
@@ -116,7 +121,12 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void saveNote(ActionEvent event) {
-        
+        Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Saved");
+                alert.setHeaderText(null);
+                alert.setContentText("Saved");
+                alert.showAndWait();
+    
         try {
             String sqlString = "INSERT INTO journal (takenotes) VALUES (?)";
             sql.openConnection();
@@ -133,8 +143,11 @@ public class WriteJournalFXMLController extends ParentController implements Init
         } catch (Exception e) { 
         System.out.println(e.getMessage());
     }
-        System.out.println("detvirker");
+     
+     System.out.println("detvirker");
+       
     }
+    
 
     @FXML
     private void attachFile(ActionEvent event) {
