@@ -24,6 +24,7 @@ import semesterprojekt.SQLConnection;
  * @author Kaspe
  */
 public class CreateDeletePatientFXMLController extends ParentController implements Initializable {
+    SQLConnection sql = new SQLConnection();
     @FXML
     private Label timeLabel;
     @FXML
@@ -49,8 +50,6 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     @FXML
     private Label passwordLabel;
     @FXML
-    private Label permissionLabel;
-    @FXML
     private TextField employeeassignedField;
     @FXML
     private TextField nameField;
@@ -65,12 +64,8 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     @FXML
     private TextField passwordField;
     @FXML
-    private TextField permissionField;
-    @FXML
     private Label advarselLabel;
     @FXML
-    private TextArea patientListView;
-    private final SQLConnection sql = new SQLConnection();
     /**
      * Initializes the controller class.
      */
@@ -87,10 +82,6 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
         timeLabel.setText(getDatoTid());
     }
     
-     @FXML
-    private void showUsers(ActionEvent event) {
-        //
-    }
 
     @FXML
     private void deleteUser(ActionEvent event) {
@@ -113,11 +104,11 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     @FXML
     private void createUser(ActionEvent event) {
         if (employeeassignedField.getText().isEmpty() || nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty() || 
-                socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || permissionField.getText().isEmpty()) {
+                socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
             awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
         } else {
             int phone = Integer.parseInt(phoneField.getText());
-            int permission = Integer.parseInt(permissionField.getText());
+            int permission = 1;
             int employeeassigned = Integer.parseInt(employeeassignedField.getText());
             try {
                 sql.openConnection();
@@ -137,8 +128,6 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
         deleteUserButton.setVisible(false);
         employeeassignedField.setVisible(true);
         employeeAssignedLabel.setVisible(true);
-        permissionField.setVisible(true);
-        permissionLabel.setVisible(true);
         
     }
 
@@ -149,8 +138,6 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
         deleteUserButton.setVisible(true);
         employeeassignedField.setVisible(false);
         employeeAssignedLabel.setVisible(false);
-        permissionField.setVisible(false);
-        permissionLabel.setVisible(false);
     }
 
     @FXML
@@ -166,6 +153,10 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     @FXML
     private void exitButton(ActionEvent event) {
         closeWindow(event);
+    }
+
+    @FXML
+    private void showPatients(ActionEvent event) {
     }
     
 }

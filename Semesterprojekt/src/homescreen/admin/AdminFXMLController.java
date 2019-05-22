@@ -14,8 +14,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import pictures.homeScreenPictures.ImageMain;
+import semesterprojekt.Employee;
+import semesterprojekt.SQLConnection;
 
 /**
  * FXML Controller class
@@ -54,6 +57,7 @@ public class AdminFXMLController extends ParentController implements Initializab
     
     ImageMain img = new ImageMain();
     Description des = new Description();
+    SQLConnection sql = new SQLConnection();
 
     /**
      * Initializes the controller class.
@@ -148,7 +152,14 @@ public class AdminFXMLController extends ParentController implements Initializab
 
     @FXML
     private void changeToLabel2(MouseEvent event) {
-        changeFXML("/homescreen/admin/patient/CreateDeletePatientFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 1){
+            changeFXML("/homescreen/admin/patient/CreateDeletePatientFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
+        
     }
 
     @FXML
@@ -161,7 +172,14 @@ public class AdminFXMLController extends ParentController implements Initializab
 
     @FXML
     private void changeToLabel6(MouseEvent event) {
-        changeFXML("/homescreen/admin/user/CreateDeleteUserFXML.fxml", event);
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 2){
+            changeFXML("/homescreen/admin/user/CreateDeleteUserFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
+        
     }
 
     @FXML

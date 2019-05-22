@@ -191,7 +191,7 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private void changeToAdmin(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() == 3){
+        if (sql.getPermissionNumber() > 1){
             changeFXML("/homescreen/admin/AdminFXML.fxml", event);
         } else {
             JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
@@ -226,7 +226,7 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private void changeToSettings(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() == 3){
+        if (sql.getPermissionNumber() >0){
             
         } else {
             JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);

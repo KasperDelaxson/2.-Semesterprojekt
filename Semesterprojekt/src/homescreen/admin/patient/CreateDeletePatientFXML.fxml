@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -19,14 +21,14 @@
       <AnchorPane layoutX="9.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
          <children>
             <Line endX="1147.0" layoutX="110.0" layoutY="68.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
-            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" text="Opret eller slet patient af systemet">
+            <Label layoutX="28.0" layoutY="68.0" onMouseMoved="#updateTime" prefHeight="58.0" prefWidth="513.0" text="Opret/slet patient af systemet">
                <font>
-                  <Font size="40.0" />
+                  <Font size="39.0" />
                </font>
             </Label>
             <Label fx:id="timeLabel" layoutX="1139.0" layoutY="676.0" onMouseMoved="#updateTime" />
             <Line endX="1147.0" layoutX="110.0" layoutY="124.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
-            <Line endX="-100.0" endY="520.0" layoutX="731.0" layoutY="175.0" onMouseMoved="#updateTime" startX="-100.0" startY="-51.0" stroke="#c1381b" strokeWidth="10.0" />
+            <Line endX="-100.0" endY="520.0" layoutX="645.0" layoutY="175.0" onMouseMoved="#updateTime" startX="-100.0" startY="-51.0" stroke="#c1381b" strokeWidth="10.0" />
             <Button fx:id="deleteUserButton" layoutX="254.0" layoutY="548.0" mnemonicParsing="false" onAction="#deleteUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Slet Bruger" visible="false" />
             <TextArea fx:id="awaitingActionArea" editable="false" layoutX="137.0" layoutY="599.0" mouseTransparent="true" onMouseMoved="#updateTime" pickOnBounds="false" prefHeight="72.0" prefWidth="368.0" promptText="Afventer handling">
                <opaqueInsets>
@@ -36,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </TextArea>
-            <Button layoutX="877.0" layoutY="143.0" mnemonicParsing="false" onAction="#showUsers" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="185.0" text="Vis bruger af systemet" />
+            <Button layoutX="813.0" layoutY="140.0" mnemonicParsing="false" onAction="#showPatients" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="185.0" text="Vis Patienter:" />
             <Button fx:id="createUserButton" layoutX="254.0" layoutY="556.0" mnemonicParsing="false" onAction="#createUser" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="149.0" text="Opret bruger" />
             <VBox layoutX="351.0" layoutY="232.0" onMouseMoved="#updateTime" prefHeight="183.0" prefWidth="149.0" />
             <HBox layoutX="141.0" layoutY="143.0" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="404.0">
@@ -56,7 +58,7 @@
                   </RadioButton>
                </children>
             </HBox>
-            <Label layoutX="758.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se patient af systemet">
+            <Label layoutX="683.0" layoutY="68.0" onMouseMoved="#updateTime" text="Se patient af systemet">
                <font>
                   <Font size="40.0" />
                </font>
@@ -69,7 +71,7 @@
             <Button layoutX="9.0" layoutY="16.0" mnemonicParsing="false" onAction="#goBackToAdmin" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
             <VBox layoutX="28.0" layoutY="222.0" onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="543.0">
                <children>
-                  <HBox onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="320.0">
+                  <HBox onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="570.0">
                      <children>
                         <VBox onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="298.0">
                            <children>
@@ -108,14 +110,9 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="permissionLabel" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="283.0" text="Indtast tilladelse:">
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </Label>
                            </children>
                         </VBox>
-                        <VBox onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="297.0">
+                        <VBox onMouseMoved="#updateTime" prefHeight="260.0" prefWidth="205.0">
                            <children>
                               <TextField fx:id="employeeassignedField" onMouseMoved="#updateTime">
                                  <VBox.margin>
@@ -149,14 +146,9 @@
                               </TextField>
                               <PasswordField fx:id="passwordField">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </PasswordField>
-                              <TextField fx:id="permissionField" onMouseMoved="#updateTime">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </TextField>
                            </children>
                         </VBox>
                      </children>
@@ -168,9 +160,16 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextArea fx:id="patientListView" layoutX="677.0" layoutY="189.0" onMouseMoved="#updateTime" prefHeight="416.0" prefWidth="543.0" />
             <Button layoutX="1104.0" layoutY="16.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud" />
             <Button layoutX="1185.0" layoutY="16.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+            <TableView fx:id="patientListView" layoutX="555.0" layoutY="190.0" prefHeight="450.0" prefWidth="700.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" editable="false" minWidth="-Infinity" prefWidth="183.0" resizable="false" text="Navn" />
+                <TableColumn fx:id="phoneColumn" minWidth="-Infinity" prefWidth="150.0" text="Telefon" />
+                  <TableColumn fx:id="mailColumn" minWidth="-Infinity" prefWidth="183.0" text="Mail" />
+                  <TableColumn fx:id="cprColumn" minWidth="-Infinity" prefWidth="183.0" text="CPR" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </children>

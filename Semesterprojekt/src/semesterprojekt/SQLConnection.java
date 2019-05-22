@@ -317,9 +317,10 @@ public class SQLConnection {
         LocalDate localDate = LocalDate.now();
         return (dtf.format(localDate));
     }
+
     public void addPatient(String name, int phone, String mail, String socialsecurity, String username, String password, int permission, int employeeassigned) {
         String sql = "INSERT INTO patient(uuid,name,phone,mail,socialsecurity,username,password,permission,employeeassigned) "
-                + "VALUES ((select uuid_generate_v4()) ,'" + name +"'," + "" + phone + ",'" + mail + "','" + socialsecurity + "','" + username + "','" + password + "'," + permission + "," + employeeassigned + ");";
+                + "VALUES ((select uuid_generate_v4()) ,'" + name + "'," + "" + phone + ",'" + mail + "','" + socialsecurity + "','" + username + "','" + password + "'," + permission + "," + employeeassigned + ");";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -328,12 +329,28 @@ public class SQLConnection {
             System.out.println(e.getMessage());
         }
     }
+
     public void deletePatient(String name, int phoneNumber, String mail, String username, String password, String socialsecurity) {
         String sql = "DELETE FROM patient WHERE socialsecurity = '" + socialsecurity + "' AND name = '" + name + "'"
-                + "AND phone = " + phoneNumber + " AND mail = '" + mail  + "' AND username = '" + username + "' AND password = '" + password + "';";
+                + "AND phone = " + phoneNumber + " AND mail = '" + mail + "' AND username = '" + username + "' AND password = '" + password + "';";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void getPatients() {
+        openConnection();
+        String sql = "SELECT name, phone, mail, socialsecurity FROM patient ORDER BY name;";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+            }
+            closeConnection();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
