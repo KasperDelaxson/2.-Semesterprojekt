@@ -71,6 +71,7 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToWriteComent(MouseEvent event) {
+        changeFXML("/homescreen.comment/addCommentPage.fxml", event);
         
     }
 
@@ -86,6 +87,7 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToEditComent(MouseEvent event) {
+        changeFXML("/homescreen.comment/editComment.fxml", event);
     }
 
     @FXML
@@ -100,6 +102,7 @@ public class CommentFXMLController extends ParentController implements Initializ
 
     @FXML
     private void changeToSeeComent(MouseEvent event) {
+        changeFXML("/homescreen.comment/seeComment.fxml", event);
     }
 
     @FXML
