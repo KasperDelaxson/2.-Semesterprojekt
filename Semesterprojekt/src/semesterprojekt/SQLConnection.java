@@ -27,7 +27,7 @@ public class SQLConnection extends ParentController {
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
     private ArrayList<String> nameList = new ArrayList<String>();
-    private int permissionNumber;
+    private static int permissionNumber = -1;
     private String name;
 
     public void openConnection() {
@@ -186,7 +186,7 @@ public class SQLConnection extends ParentController {
     /**
      * @return the permissionNumber
      */
-    public int getPermissionNumber() {
+    public static int getPermissionNumber() {
         return permissionNumber;
     }
 
@@ -198,8 +198,10 @@ public class SQLConnection extends ParentController {
     }
 
     public void getPermission(String username) {
+        if(permissionNumber == -1){
         openConnection();
         String sql = "SELECT permission FROM users WHERE username = '" + username + "';";
+            System.out.println("USED");
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -211,6 +213,8 @@ public class SQLConnection extends ParentController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        }
+        else{}
     }
 
     /**
@@ -310,7 +314,6 @@ public class SQLConnection extends ParentController {
             st.executeQuery(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Error");
         }
     }
     public String getTimeAndDate() {
