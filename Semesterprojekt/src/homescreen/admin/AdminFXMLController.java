@@ -164,6 +164,13 @@ public class AdminFXMLController extends ParentController implements Initializab
 
     @FXML
     private void changeToLabel1(MouseEvent event) {
+        String username = Employee.getEmployee().getUsername();
+        sql.getPermission(username);
+        if (sql.getPermissionNumber() > 2){
+            changeFXML("/homescreen/admin/patient/PermissionAccessToDataFXML.fxml", event);
+        } else {
+            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+        }
     }
 
     @FXML

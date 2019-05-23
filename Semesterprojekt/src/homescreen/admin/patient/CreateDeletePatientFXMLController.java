@@ -97,9 +97,11 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
                 sql.openConnection();
                 sql.deletePatient(nameField.getText(), phone, mailField.getText(), usernameField.getText(), passwordField.getText(), socialSecurityField.getText());
                 awaitingActionArea.setText("Fuldført! Patient slettet!");
+                JOptionPane.showMessageDialog(null, "Fuldført patient slettet! ", "Godkendt", 1);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 awaitingActionArea.setText("Fejl ved slet af patient!");
+                JOptionPane.showMessageDialog(null, "Fejl ved slet af bruger ", "Fejl", 1);
             }
         }
     }
@@ -117,9 +119,11 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
                 sql.openConnection();
                 sql.addPatient(nameField.getText(), phone, mailField.getText(), socialSecurityField.getText(), usernameField.getText(), passwordField.getText(), permission, employeeassigned);
                 awaitingActionArea.setText("Fuldført! Patient oprettet!");
+                JOptionPane.showMessageDialog(null, "Fuldført Patient oprettet! ", "Godkendt", 1);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 awaitingActionArea.setText("Fejl ved opret af patient!");
+                JOptionPane.showMessageDialog(null, "Fejl ved opret af patient!", "Fejl", 1);
             }
         }
     }

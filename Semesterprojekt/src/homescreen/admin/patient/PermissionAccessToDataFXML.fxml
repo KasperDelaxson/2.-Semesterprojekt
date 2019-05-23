@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.admin.patient.PermissionAccessToDataFXMLController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Line endX="1147.0" layoutX="109.0" layoutY="75.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
+            <Label layoutX="371.0" onMouseMoved="#updateTime" text="Tildel adgang til borgers data">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Button layoutX="7.0" layoutY="24.0" mnemonicParsing="false" onAction="#goBackToAdmin" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
+            <Button layoutX="1102.0" layoutY="24.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud" />
+            <Button layoutX="1183.0" layoutY="24.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+            <Label layoutX="102.0" layoutY="233.0" onMouseMoved="#updateTime" text="Indtast medarbejdernummer på nuværende medarbejder: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="298.0" onMouseMoved="#updateTime" text="Indtast medarbejdernummer på den nye medarbejder:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="371.0" onMouseMoved="#updateTime" text="Indtast CPR nummer på den vedrørende patient:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstEmployeeField" layoutX="681.0" layoutY="233.0" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="187.0" promptText="Indtast" />
+            <TextField fx:id="nextEmployeeField" layoutX="681.0" layoutY="298.0" onMouseMoved="#updateTime" promptText="Indtast" />
+            <TextField fx:id="socialSecurityField" layoutX="681.0" layoutY="371.0" onMouseMoved="#updateTime" promptText="Indtast" />
+            <Button layoutX="680.0" layoutY="450.0" mnemonicParsing="false" onAction="#givePermissionButton" onMouseMoved="#updateTime" prefHeight="31.0" prefWidth="193.0" text="Tildel adgang" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="timeLabel" layoutX="1142.0" layoutY="681.0" onMouseMoved="#updateTime" />
+   </children>
+</AnchorPane>

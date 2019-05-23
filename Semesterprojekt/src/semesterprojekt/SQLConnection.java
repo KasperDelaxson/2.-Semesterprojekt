@@ -372,4 +372,15 @@ public class SQLConnection extends ParentController {
         }
         
     }
+    public void alterPermissionToJournal(String cpr, int employeeAssignedBefore, int employeeAssignedAfter){
+        openConnection();
+        String sql = "UPDATE journal SET employeeassigned =" + employeeAssignedAfter + "WHERE patientsocialsecurity = '" + cpr + "' AND employeeassigned =" + employeeAssignedBefore + ";";
+        try{
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            closeConnection();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

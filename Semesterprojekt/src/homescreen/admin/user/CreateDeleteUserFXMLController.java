@@ -100,8 +100,10 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 sql.deleteEmployee(employeeNumber, nameField.getText(), phone, usernameField.getText(), passwordField.getText());
                 sql.closeConnection();
                 awaitingActionArea.setText("Fuldført! Bruger Slettet!");
+                JOptionPane.showMessageDialog(null, "Fuldført! Bruger slettet!", "Godkendt", 1);
             } catch (Exception e) {
                 awaitingActionArea.setText("Fejl ved slet af Bruger");
+                JOptionPane.showMessageDialog(null, "Fejl ved slet af bruger!", "Fejl", 1);
             }
         }
     }
@@ -126,8 +128,10 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 sql.addEmployee(employeeNumber, nameField.getText(), phone, mailField.getText(), usernameField.getText(), passwordField.getText(), permission);
                 sql.closeConnection();
                 awaitingActionArea.setText("Fuldført! Bruger Oprettet");
+                JOptionPane.showMessageDialog(null, "Fuldført bruger oprettet! ", "Godkendt", 1);
             } catch (Exception e) {
                 awaitingActionArea.setText("Fejl ved opret af Bruger!");
+                JOptionPane.showMessageDialog(null, "Fejl ved opret af bruger!", "Fejl", 1);
             }
 
         }
