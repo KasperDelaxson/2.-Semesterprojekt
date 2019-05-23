@@ -16,14 +16,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import semesterprojekt.SQLConnection;
+
 /**
  * FXML Controller class
  *
  * @author Kaspe
  */
 public class CreateDeletePatientFXMLController extends ParentController implements Initializable {
+
     SQLConnection sql = new SQLConnection();
     @FXML
     private Label timeLabel;
@@ -65,6 +68,7 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     private TextField passwordField;
     @FXML
     private Label advarselLabel;
+
     @FXML
     /**
      * Initializes the controller class.
@@ -74,20 +78,19 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
         timeAndDate();
         timeLabel.setText(getDatoTid());
         advarselLabel.setText("OBS! Ved slet af Patient kan dette ikke fortrydes!");
-    }    
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();
         timeLabel.setText(getDatoTid());
     }
-    
 
     @FXML
     private void deleteUser(ActionEvent event) {
-        if (nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty() || 
-                socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+        if (nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
+                || socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
         } else {
             int phone = Integer.parseInt(phoneField.getText());
             try {
@@ -103,9 +106,9 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
 
     @FXML
     private void createUser(ActionEvent event) {
-        if (employeeassignedField.getText().isEmpty() || nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty() || 
-                socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+        if (employeeassignedField.getText().isEmpty() || nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
+                || socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
         } else {
             int phone = Integer.parseInt(phoneField.getText());
             int permission = 1;
@@ -128,7 +131,7 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
         deleteUserButton.setVisible(false);
         employeeassignedField.setVisible(true);
         employeeAssignedLabel.setVisible(true);
-        
+
     }
 
     @FXML
@@ -158,5 +161,5 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     @FXML
     private void showPatients(ActionEvent event) {
     }
-    
+
 }

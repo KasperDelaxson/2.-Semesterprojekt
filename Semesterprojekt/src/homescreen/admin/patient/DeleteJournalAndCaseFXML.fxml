@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.admin.patient.DeleteJournalAndCaseFXMLController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Label layoutX="435.0" layoutY="5.0" onMouseMoved="#updateTime" text="Slet borgers sagsakter">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Button layoutX="506.0" layoutY="402.0" mnemonicParsing="false" onAction="#deletePatientCase" text="Slet sagsakter tilhørende brugeren" />
+            <TextArea fx:id="informationArea" editable="false" layoutX="377.0" layoutY="103.0" prefHeight="84.0" prefWidth="507.0" promptText="Afventer handling" />
+            <Label layoutX="418.0" layoutY="251.0" text="Indtast CPR-nummer" />
+            <TextField fx:id="socialSecurityField" layoutX="638.0" layoutY="246.0" promptText="Indtast" />
+            <Label fx:id="timeLabel" layoutX="1133.0" layoutY="671.0" onMouseMoved="#updateTime" />
+         </children>
+      </AnchorPane>
+      <Line endX="1147.0" layoutX="120.0" layoutY="89.0" onMouseMoved="#updateTime" startX="-105.0" stroke="#c1381b" strokeWidth="10.0" />
+      <Button layoutX="19.0" layoutY="26.0" mnemonicParsing="false" onAction="#goBackToAdmin" onMouseMoved="#updateTime" prefHeight="25.0" prefWidth="127.0" text="Tilbage" />
+      <Button layoutX="1114.0" layoutY="26.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud" />
+      <Button layoutX="1195.0" layoutY="26.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
+   </children>
+</AnchorPane>

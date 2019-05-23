@@ -355,4 +355,17 @@ public class SQLConnection {
             System.out.println(e.getMessage());
         }
     }
+    public void deleteJournal(String cpr){
+        openConnection();
+        String sql = "DELETE FROM journal WHERE patientsocialsecurity = '" + cpr + "';";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            closeConnection();
+            
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
 }

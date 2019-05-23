@@ -19,6 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 import mainAndParent.ParentController;
 import semesterprojekt.SQLConnection;
 
@@ -90,7 +91,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private void deleteUser(ActionEvent event) {
         if (nameField.getText().isEmpty() || phoneField.getText().isEmpty()
                 || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
         } else {
             try {
                 int employeeNumber = Integer.parseInt(employeeNumberField.getText());
@@ -115,7 +116,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
                 || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()
                 || permissionField.getText().isEmpty()) {
-            awaitingActionArea.setText("Ikke tilstrækkelig information givet!");
+            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
         } else {
             int employeeNumber = Integer.parseInt(employeeNumberField.getText());
             int phone = Integer.parseInt(phoneField.getText());
