@@ -27,6 +27,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import mainAndParent.ParentController;
 import semesterprojekt.SQLConnection;
 
@@ -108,7 +111,16 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private void attachFile(ActionEvent event) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfileChooser().setVisible(true);
+                JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		jfc.setDialogTitle("Select a file");
+		jfc.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text files", "txt", "pdf");
+		jfc.addChoosableFileFilter(filter);
+
+		int returnValue = jfc.showOpenDialog(null);
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File file = jfc.getSelectedFile();
+		}
             }
         });
     }
