@@ -56,6 +56,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private ArrayList<String> clients = new ArrayList<String>();
     private ObservableList<String> obsClient = FXCollections.observableArrayList();
     private SQLConnection sql = new SQLConnection();
+    private JfileChooser jf = new JfileChooser();
     @FXML
     private TextArea noteArea;
     private String selectedPatient = null;
@@ -105,7 +106,13 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void attachFile(ActionEvent event) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JfileChooser().setVisible(true);
+            }
+        });
     }
+    
 
     @FXML
     private void updateTime(MouseEvent event) {
