@@ -71,7 +71,7 @@
             <Label fx:id="dateTimeLabel" layoutX="1133.0" layoutY="677.0" onMousePressed="#updateTime" prefHeight="21.0" prefWidth="127.0" />
             <HBox layoutX="1091.0" layoutY="11.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="155.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#logOffButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud">
+                  <Button mnemonicParsing="false" onAction="#logOffButton" onMousePressed="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log ud">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>

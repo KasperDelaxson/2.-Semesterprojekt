@@ -153,7 +153,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Label fx:id="advarselLabel" layoutX="131.0" layoutY="176.0" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="422.0" text="OBS! Ved Slet af bruger, kan dette ikke fortrydes">
+            <Label fx:id="advarselLabel" layoutX="131.0" layoutY="176.0" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="422.0" text="OBS! Ved slet af bruger, kan dette ikke fortrydes">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -162,6 +162,6 @@
          </children>
       </AnchorPane>
       <Button layoutX="1190.0" layoutY="26.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
-      <Button layoutX="1108.0" layoutY="26.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud" />
+      <Button layoutX="1108.0" layoutY="26.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log ud" />
    </children>
 </AnchorPane>

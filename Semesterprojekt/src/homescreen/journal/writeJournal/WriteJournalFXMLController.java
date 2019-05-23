@@ -159,5 +159,5 @@ public class WriteJournalFXMLController extends ParentController implements Init
         dateTimeLabel.setText(getDatoTid());
     }
 
-  
+
 }
