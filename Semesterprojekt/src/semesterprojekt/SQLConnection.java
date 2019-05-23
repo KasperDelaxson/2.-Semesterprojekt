@@ -7,18 +7,20 @@ package semesterprojekt;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
+import mainAndParent.ParentController;
 
 /**
  *
  * @author Malthe
  */
-public class SQLConnection {
+public class SQLConnection extends ParentController {
 
     private final String url = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cyxmirsh";
     private final String username = "cyxmirsh";
@@ -296,7 +298,7 @@ public class SQLConnection {
     }
 
     public void saveNote(String name, String text) {
-        String now = getCurrentDate();
+        String now = getTimeAndDate();
         String sql = "INSERT INTO journal(takenotes,employeeassigned,patientsocialsecurity,created)"
                 + "VALUES ('" + text + "',"
                 + Employee.getEmployee().getEmployeeNumber()
@@ -311,11 +313,11 @@ public class SQLConnection {
             System.out.println("Error");
         }
     }
-
-    private String getCurrentDate() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.now();
-        return (dtf.format(localDate));
+    public String getTimeAndDate() {
+        LocalDateTime lokalDatoTid = LocalDateTime.now();
+        DateTimeFormatter datoformat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateTime = lokalDatoTid.format(datoformat);
+        return dateTime;
     }
 
     public void addPatient(String name, int phone, String mail, String socialsecurity, String username, String password, int permission, int employeeassigned) {
