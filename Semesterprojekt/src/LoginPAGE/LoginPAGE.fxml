@@ -29,7 +29,7 @@
                         <Label fx:id="fejlLabel" layoutX="16.0" layoutY="7.0" onMouseMoved="#updateTime" prefHeight="17.0" prefWidth="251.0" textFill="RED" />
                      </children>
                   </AnchorPane>
-                  <Text fx:id="forgotUserText" layoutX="15.0" layoutY="210.0" onMouseClicked="#forgotPasswordUsername" strokeType="OUTSIDE" strokeWidth="0.0" text="Glemt brugernavn eller Adgangskode?" underline="true">
+                  <Text fx:id="forgotUserText" layoutX="15.0" layoutY="210.0" onMouseClicked="#forgotPasswordUsername" strokeType="OUTSIDE" strokeWidth="0.0" text="Glemt brugernavn eller adgangskode?" underline="true">
                      <font>
                         <Font size="12.0" />
                      </font>

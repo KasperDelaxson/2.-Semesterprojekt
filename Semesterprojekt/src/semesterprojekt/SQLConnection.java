@@ -7,25 +7,27 @@ package semesterprojekt;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
+import mainAndParent.ParentController;
 
 /**
  *
  * @author Malthe
  */
-public class SQLConnection {
+public class SQLConnection extends ParentController {
 
     private final String url = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cyxmirsh";
     private final String username = "cyxmirsh";
     private final String password = "DFphZvwuCLTpqv7BxuaqbjlHrjFfz4PJ";
     private Connection con;
     private ArrayList<String> nameList = new ArrayList<String>();
-    private int permissionNumber;
+    private static int permissionNumber = -1;
     private String name;
 
     public void openConnection() {
@@ -184,7 +186,7 @@ public class SQLConnection {
     /**
      * @return the permissionNumber
      */
-    public int getPermissionNumber() {
+    public static int getPermissionNumber() {
         return permissionNumber;
     }
 
@@ -196,6 +198,7 @@ public class SQLConnection {
     }
 
     public void getPermission(String username) {
+        if(permissionNumber == -1){
         openConnection();
         String sql = "SELECT permission FROM users WHERE username = '" + username + "';";
         try {
@@ -209,6 +212,8 @@ public class SQLConnection {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        }
+        else{}
     }
 
     /**
@@ -296,7 +301,7 @@ public class SQLConnection {
     }
 
     public void saveNote(String name, String text) {
-        String now = getCurrentDate();
+        String now = getTimeAndDate();
         String sql = "INSERT INTO journal(takenotes,employeeassigned,patientsocialsecurity,created)"
                 + "VALUES ('" + text + "',"
                 + Employee.getEmployee().getEmployeeNumber()
@@ -308,14 +313,13 @@ public class SQLConnection {
             st.executeQuery(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Error");
         }
     }
-
-    private String getCurrentDate() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.now();
-        return (dtf.format(localDate));
+    public String getTimeAndDate() {
+        LocalDateTime lokalDatoTid = LocalDateTime.now();
+        DateTimeFormatter datoformat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateTime = lokalDatoTid.format(datoformat);
+        return dateTime;
     }
 
     public void addPatient(String name, int phone, String mail, String socialsecurity, String username, String password, int permission, int employeeassigned) {

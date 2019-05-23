@@ -162,6 +162,6 @@
          </children>
       </AnchorPane>
       <Button layoutX="1190.0" layoutY="26.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Afslut" />
-      <Button layoutX="1108.0" layoutY="26.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log Ud" />
+      <Button layoutX="1108.0" layoutY="26.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="30.0" prefWidth="70.0" text="Log ud" />
    </children>
 </AnchorPane>
