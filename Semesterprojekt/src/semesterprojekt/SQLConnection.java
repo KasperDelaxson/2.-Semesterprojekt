@@ -201,7 +201,6 @@ public class SQLConnection extends ParentController {
         if(permissionNumber == -1){
         openConnection();
         String sql = "SELECT permission FROM users WHERE username = '" + username + "';";
-            System.out.println("USED");
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
