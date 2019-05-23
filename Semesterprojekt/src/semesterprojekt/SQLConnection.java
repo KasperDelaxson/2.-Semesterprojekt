@@ -355,5 +355,39 @@ public class SQLConnection {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        
+    }
+    
+public void saveToJournal (String takenotes, int employeeassigned, String patientsocialsecurity) {
+    
+    openConnection();
+    String sql = "INSERT INTO journal (takenotes, employeeassigned, patientsocialsecurity) VALUES ('" + takenotes + "'," + employeeassigned + ",'" + patientsocialsecurity + "'"+")";
+            
+    try {
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        
+    closeConnection();
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
     }
 }
+
+}
+            
+           
+            
+
+
+        
+
+
+        
+        
+        
+        
+            
+            
+        
+       
+   
