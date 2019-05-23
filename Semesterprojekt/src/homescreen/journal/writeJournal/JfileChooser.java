@@ -36,8 +36,6 @@ public class JfileChooser extends javax.swing.JFrame {
         fileChooser = new javax.swing.JFileChooser();
         ChooseFile = new javax.swing.JButton();
         SaveFile = new javax.swing.JButton();
-        Exit = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
 
         fileChooser.setDialogTitle("Please choose a file ");
 
@@ -57,26 +55,16 @@ public class JfileChooser extends javax.swing.JFrame {
             }
         });
 
-        Exit.setText("Exit");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(36, 36, 36)
                 .addComponent(ChooseFile)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(SaveFile)
-                .addGap(18, 18, 18)
-                .addComponent(Exit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,8 +72,7 @@ public class JfileChooser extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChooseFile)
-                    .addComponent(SaveFile)
-                    .addComponent(Exit))
+                    .addComponent(SaveFile))
                 .addContainerGap())
         );
 
@@ -106,10 +93,6 @@ public class JfileChooser extends javax.swing.JFrame {
         System.out.println("File access cancelled by user.");
     }
     }//GEN-LAST:event_ChooseFileActionPerformed
-
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-System.exit(0); 
-    }//GEN-LAST:event_ExitActionPerformed
 
     private void SaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveFileActionPerformed
         // TODO add your handling code here:
@@ -153,9 +136,7 @@ System.exit(0);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ChooseFile;
-    private javax.swing.JButton Exit;
     private javax.swing.JButton SaveFile;
     private javax.swing.JFileChooser fileChooser;
-    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
