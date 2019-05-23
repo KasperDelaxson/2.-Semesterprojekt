@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="homescreen.comment.editComment.EditCommentFXMLController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBackToComment" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
+            <Button layoutX="1140.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="92.0" text="Log ud" />
+            <Label fx:id="dateTimeLabel" layoutX="1156.0" layoutY="671.0" onMouseMoved="#updateTime" />
+            <Label layoutX="516.0" layoutY="16.0" onMouseMoved="#updateTime" text="Rediger Kommentar">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="147.0" layoutY="183.0" onMouseMoved="#updateTime" text="Borger" />
+            <Label layoutX="397.0" layoutY="183.0" onMouseMoved="#updateTime" text="Dato" />
+            <Label layoutX="792.0" layoutY="183.0" onMouseMoved="#updateTime" text="Kommentar" />
+            <ListView fx:id="patientListView" layoutX="65.0" layoutY="208.0" onMouseMoved="#updateTime" prefHeight="451.0" prefWidth="200.0" />
+            <ListView fx:id="dateListView" layoutX="310.0" layoutY="208.0" onMouseMoved="#updateTime" prefHeight="451.0" prefWidth="200.0" />
+            <TextArea fx:id="editCommentArea" layoutX="554.0" layoutY="208.0" onMouseMoved="#updateTime" prefHeight="451.0" prefWidth="538.0" />
+            <Button layoutX="1142.0" layoutY="634.0" mnemonicParsing="false" onAction="#saveJournal" onMouseMoved="#updateTime" text="Gem kommentar" />
+            <Button layoutX="1142.0" layoutY="590.0" mnemonicParsing="false" onAction="#attachFile" onMouseMoved="#updateTime" text="Vedhæft fil" />
+         </children>
+      </AnchorPane>
+      <Line endX="1150.0" layoutX="115.0" layoutY="87.0" onMouseMoved="#updateTime" startX="-100.0" stroke="#c1381b" strokeWidth="10.0" />
+   </children>
+</AnchorPane>

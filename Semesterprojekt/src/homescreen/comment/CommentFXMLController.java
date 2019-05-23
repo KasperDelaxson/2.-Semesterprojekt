@@ -78,7 +78,7 @@ public class CommentFXMLController extends ParentController implements Initializ
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
         if (sql.getPermissionNumber() > 1){
-            //FXML TIL SKRIV COMMENT
+            changeFXML("/homescreen/comment/writeComment/WriteCommentFXML.fxml", event);
         } else {
             JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
         }
@@ -100,7 +100,7 @@ public class CommentFXMLController extends ParentController implements Initializ
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
         if (sql.getPermissionNumber() > 1){
-            //FXML TIL COMMENT
+            changeFXML("/homescreen/comment/editComment/EditCommentFXML.fxml", event);
         } else {
             JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
         }
@@ -121,7 +121,7 @@ public class CommentFXMLController extends ParentController implements Initializ
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
         if (sql.getPermissionNumber() > 0){
-            //FXML TIL SE COMMENT
+            changeFXML("/homescreen/comment/viewComment/ViewCommentFXML.fxml", event);
         } else {
             JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
         }
