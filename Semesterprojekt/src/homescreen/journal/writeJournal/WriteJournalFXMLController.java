@@ -5,8 +5,10 @@
  */
 package homescreen.journal.writeJournal;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -59,7 +61,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
     private ArrayList<String> clients = new ArrayList<String>();
     private ObservableList<String> obsClient = FXCollections.observableArrayList();
     private SQLConnection sql = new SQLConnection();
-    private JfileChooser jf = new JfileChooser();
+
     @FXML
     private TextArea noteArea;
     private String selectedPatient = null;
@@ -69,16 +71,18 @@ public class WriteJournalFXMLController extends ParentController implements Init
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
         clients = sql.seeClientList();
-        try{
-        clients = sql.seeClientList();
-        clientList.setItems(obsClient);
-        for(int i = 0;i<clients.size();i++){
-        obsClient.add(clients.get(i));}}
-        catch(Exception e){}
-        clientList.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        try {
+            clients = sql.seeClientList();
+            clientList.setItems(obsClient);
+            for (int i = 0; i < clients.size(); i++) {
+                obsClient.add(clients.get(i));
+            }
+        } catch (Exception e) {
+        }
+        clientList.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                selectedPatient = (String)clientList.getSelectionModel().getSelectedItem();
+                selectedPatient = (String) clientList.getSelectionModel().getSelectedItem();
             }
         });
     }
@@ -95,8 +99,8 @@ public class WriteJournalFXMLController extends ParentController implements Init
 
     @FXML
     private void saveNote(ActionEvent event) {
-        
-        sql.saveNote(selectedPatient,(String)noteArea.getText());
+
+        sql.saveNote(selectedPatient, (String) noteArea.getText());
 //        journalFile = new File("note" + Date.valueOf(LocalDate.MAX) + ".txt");
 //        
 //        try {
@@ -110,21 +114,41 @@ public class WriteJournalFXMLController extends ParentController implements Init
     @FXML
     private void attachFile(ActionEvent event) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            File file = null;
+            String text;
             public void run() {
                 JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-		jfc.setDialogTitle("Select a file");
-		jfc.setAcceptAllFileFilterUsed(false);
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text files", "txt", "pdf");
-		jfc.addChoosableFileFilter(filter);
+                jfc.setDialogTitle("Select a file");
+                jfc.setAcceptAllFileFilterUsed(false);
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Text files", "txt");
+                jfc.addChoosableFileFilter(filter);
 
-		int returnValue = jfc.showOpenDialog(null);
-		if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File file = jfc.getSelectedFile();
-		}
+                int returnValue = jfc.showOpenDialog(null);
+                
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    file = jfc.getSelectedFile();
+                }
+
+                BufferedReader br=null;
+                try {
+                    br = new BufferedReader(new FileReader(file));
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                String st;
+                try {
+                    while ((st = br.readLine()) != null) {
+                        text=text+st;
+                    }
+                    sql.saveNote(selectedPatient, (String) text);
+                } catch (IOException ex) {
+                    Logger.getLogger(WriteJournalFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
+
     }
-    
 
     @FXML
     private void updateTime(MouseEvent event) {
@@ -132,5 +156,4 @@ public class WriteJournalFXMLController extends ParentController implements Init
         dateTimeLabel.setText(getDatoTid());
     }
 
-  
 }
