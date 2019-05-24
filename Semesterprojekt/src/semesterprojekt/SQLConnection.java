@@ -431,4 +431,21 @@ public class SQLConnection extends ParentController {
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }
+    } 
+        public ArrayList seeAssignedHandout(String name){
+        String sql = "SELECT assignedhandout FROM medicinehandout WHERE patientsocialsecurity = (SELECT socialsecurity FROM patient WHERE name ='" + name + "');";
+        ArrayList<String> assignedHandout = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                assignedHandout.add(rs.getString(1));
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            
+        } return assignedHandout;
     } }
+
