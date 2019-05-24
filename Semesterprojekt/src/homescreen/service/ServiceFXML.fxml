@@ -24,7 +24,7 @@
             <Label layoutX="147.0" layoutY="163.0" onMouseMoved="#updateTime" text="Patient:" />
             <Label layoutX="774.0" layoutY="163.0" onMouseMoved="#updateTime" text="Tildelt ydelser" />
             <ListView fx:id="servicesListView" layoutX="502.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="675.0" />
-            <Button fx:id="exit" layoutX="1154.0" layoutY="12.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="37.0" prefWidth="92.0" text="Afslut" />
+            <Button layoutX="1154.0" layoutY="12.0" mnemonicParsing="false" onAction="#exitButton" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="92.0" text="Afslut" />
          </children>
       </AnchorPane>
    </children>
