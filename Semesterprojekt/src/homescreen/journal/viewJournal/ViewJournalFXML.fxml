@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" onMouseMoved="#updateTime" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C1381B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homescreen.journal.viewJournal.ViewJournalFXMLController">
@@ -30,6 +31,11 @@
             <TextArea fx:id="journalText" editable="false" layoutX="606.0" layoutY="169.0" onMouseMoved="#updateTime" prefHeight="473.0" prefWidth="591.0" />
             <Label fx:id="dateTimeLabel" layoutX="1135.0" layoutY="676.0" onMouseMoved="#updateTime" />
             <Button fx:id="exit" layoutX="1151.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="37.0" prefWidth="92.0" text="Afslut" />
+            <Text layoutX="536.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se Journal">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
