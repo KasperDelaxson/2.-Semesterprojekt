@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -62,9 +63,9 @@ public class MedicinFXMLController extends ParentController implements Initializ
             @Override
             public void handle(MouseEvent event) {
                 medicinListView.getItems().clear();
-                ArrayList<String> as = sql.seeAssignedMedicine(patientListView.getSelectionModel().getSelectedItem());
-                medicineAList = as;
-                if (as.isEmpty()) {
+                ArrayList<String> med = sql.seeAssignedMedicine(patientListView.getSelectionModel().getSelectedItem());
+                medicineAList = med;
+                if (med.isEmpty()) {
                     medicineOList.add("Ingen medicin tildelt!");
                 } else {
                     medicinListView.setItems(medicineOList);
@@ -95,25 +96,5 @@ public class MedicinFXMLController extends ParentController implements Initializ
     private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
-    @FXML
-    private void showAssignedMedicine(MouseEvent event) {
-//        try {
-//            patientListView.getItems().clear();
-//            medicineAList = sql.seePatientList();
-//            patientListView.setItems(medicineOList);
-//            for (int i = 0; i < medicineAList.size(); i++) {
-//                medicineOList.add(medicineAList.get(i));
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        patientListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                ArrayList<String> as = sql.seeAssignedMedicine(patientListView.getSelectionModel().getSelectedItem());
-//                
-//            }
-//        });
-    }
-
+ 
 }
