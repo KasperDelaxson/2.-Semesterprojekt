@@ -24,12 +24,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 import mainAndParent.ParentController;
@@ -65,6 +68,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
     @FXML
     private TextArea noteArea;
     private String selectedPatient = null;
+    private String patientSelected;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -109,7 +113,29 @@ public class WriteJournalFXMLController extends ParentController implements Init
 //            Logger.getLogger(WriteJournalFXMLController.class.getNameForList()).log(Level.SEVERE, null, ex);
 //            System.err.println("Couldn't create file.");
 //        }
+ 
+        sql.saveNote(selectedPatient,(String)noteArea.getText());
+  
+        if (selectedPatient != null && !noteArea.getText().isEmpty() ) {
+            
+            sql.saveNote(selectedPatient, selectedPatient);
+            
+                   Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Journal gemt");
+                alert.setHeaderText(null);
+                alert.setContentText("Journal gemt");
+                alert.showAndWait(); 
+                
+    } else {
+             Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("FEJL!");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient skal vælges og note skal skrives!");
+                alert.showAndWait();
+        
+        }
     }
+    
 
     @FXML
     private void attachFile(ActionEvent event) {
