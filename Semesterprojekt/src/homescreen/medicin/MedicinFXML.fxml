@@ -20,7 +20,7 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <ListView fx:id="patientListView" layoutX="64.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="200.0" />
+            <ListView fx:id="patientListView" layoutX="64.0" layoutY="191.0" onMouseClicked="#showAssignedMedicine" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="200.0" />
             <Label layoutX="147.0" layoutY="163.0" onMouseMoved="#updateTime" text="Patient:" />
             <Label layoutX="774.0" layoutY="163.0" onMouseMoved="#updateTime" text="Tildelt medicin" />
             <ListView fx:id="medicinListView" layoutX="502.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="675.0" />
