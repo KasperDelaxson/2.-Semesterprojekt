@@ -149,7 +149,10 @@ public class WriteJournalFXMLController extends ParentController implements Init
         });
 
     }
-
+@FXML
+    private void exitButton(ActionEvent event) {
+        closeWindow(event);
+    }
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();

@@ -39,8 +39,8 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     private SQLConnection sql = new SQLConnection();
     @FXML
     private Label dateTimeLabel;
-    private ArrayList <String> nameList = new ArrayList<String>();
-    private ArrayList <String> dateList = new ArrayList<String>();
+    private ArrayList<String> nameList = new ArrayList<String>();
+    private ArrayList<String> dateList = new ArrayList<String>();
     private ObservableList<String> datesList = FXCollections.observableArrayList();
     @FXML
     private TextArea journalText;
@@ -51,25 +51,30 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        try{
-        nameList = sql.seeClientList();
-        patientList.setItems(namesList);
-        for(int i = 0;i<nameList.size();i++){
-        namesList.add(nameList.get(i));}}
-        catch(Exception e){}
-        patientList.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        try {
+            nameList = sql.seeClientList();
+            patientList.setItems(namesList);
+            for (int i = 0; i < nameList.size(); i++) {
+                namesList.add(nameList.get(i));
+            }
+        } catch (Exception e) {
+        }
+        patientList.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                try{
-                referalDatelist.getItems().clear();
-                dateList = sql.getDates((String) patientList.getSelectionModel().getSelectedItem());
-                referalDatelist.setItems(datesList);
-                for(int i = 0;i<dateList.size();i++){
-                datesList.add(dateList.get(i));}}
-                catch(Exception e){System.out.println("There is no recorded journal entry");}
+                try {
+                    referalDatelist.getItems().clear();
+                    dateList = sql.getDates((String) patientList.getSelectionModel().getSelectedItem());
+                    referalDatelist.setItems(datesList);
+                    for (int i = 0; i < dateList.size(); i++) {
+                        datesList.add(dateList.get(i));
+                    }
+                } catch (Exception e) {
+                    System.out.println("There is no recorded journal entry");
+                }
             }
         });
-        referalDatelist.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        referalDatelist.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 journalText.clear();
@@ -77,7 +82,12 @@ public class ViewJournalFXMLController extends ParentController implements Initi
                 journalText.setText(returnString);
             }
         });
-    }    
+    }
+
+    @FXML
+    private void exitButton(ActionEvent event) {
+        closeWindow(event);
+    }
 
     @FXML
     private void goBackToNotesFromView(ActionEvent event) {
@@ -88,7 +98,7 @@ public class ViewJournalFXMLController extends ParentController implements Initi
     private void logOffButton(ActionEvent event) {
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
-    
+
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();

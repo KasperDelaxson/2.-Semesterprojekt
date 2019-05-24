@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" onMouseMoved="#updateTime" prefHeight="700.0" prefWidth="1260.0" style="-fx-background-color: ffffff;">
          <children>
-            <Button layoutX="1154.0" layoutY="12.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="92.0" text="Log ud" />
+            <Button layoutX="1054.0" layoutY="12.0" mnemonicParsing="false" onAction="#logOffButton" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="92.0" text="Log ud" />
             <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBackToHomescreen" onMouseMoved="#updateTime" prefHeight="37.0" prefWidth="109.0" text="Tilbage" />
             <Line endX="1092.0" endY="137.0" layoutX="163.0" layoutY="-64.0" onMouseMoved="#updateTime" startX="-164.0" startY="137.0" stroke="#c1381b" strokeWidth="10.0" />
             <Label fx:id="dateTimeLabel" layoutX="1140.0" layoutY="676.0" onMouseMoved="#updateTime" />
@@ -24,6 +24,7 @@
             <Label layoutX="147.0" layoutY="163.0" onMouseMoved="#updateTime" text="Patient:" />
             <Label layoutX="774.0" layoutY="163.0" onMouseMoved="#updateTime" text="Tildelt ydelser" />
             <ListView fx:id="servicesListView" layoutX="502.0" layoutY="191.0" onMouseMoved="#updateTime" prefHeight="467.0" prefWidth="675.0" />
+            <Button fx:id="exit" layoutX="1154.0" layoutY="12.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="37.0" prefWidth="92.0" text="Afslut" />
          </children>
       </AnchorPane>
    </children>
