@@ -102,14 +102,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
  
         sql.saveNote(selectedPatient,(String)noteArea.getText());
   
-        if (selectedPatient == null) {
-       Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Fejl");
-                alert.setHeaderText(null);
-                alert.setContentText("Journal kan ikke gemmes uden valg af patient");
-                alert.showAndWait();
-
-    } else {
+        if (selectedPatient != null && !noteArea.getText().isEmpty() ) {
             
             sql.saveNote(selectedPatient, selectedPatient);
             
@@ -117,7 +110,15 @@ public class WriteJournalFXMLController extends ParentController implements Init
                 alert.setTitle("Journal gemt");
                 alert.setHeaderText(null);
                 alert.setContentText("Journal gemt");
+                alert.showAndWait(); 
+                
+    } else {
+             Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("FEJL!");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient skal vælges og note skal skrives!");
                 alert.showAndWait();
+        
         }
     }
     
