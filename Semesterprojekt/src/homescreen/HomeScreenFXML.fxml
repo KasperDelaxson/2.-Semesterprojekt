@@ -83,12 +83,12 @@
                   </Button>
                </children>
             </HBox>
+            <Label fx:id="velkommenLabel" alignment="TOP_LEFT" layoutX="383.0" layoutY="1.0" onMouseMoved="#updateTime" textAlignment="JUSTIFY">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
-      <Label fx:id="velkommenLabel" alignment="CENTER" layoutX="498.0" layoutY="10.0" onMousePressed="#updateTime" prefHeight="31.0" prefWidth="302.0">
-         <font>
-            <Font name="TI-Nspire Regular" size="25.0" />
-         </font>
-      </Label>
       <ImageView fx:id="ddImage" fitHeight="171.0" fitWidth="178.0" layoutX="551.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pictures/DIGI-DAGBOG.PNG" />
