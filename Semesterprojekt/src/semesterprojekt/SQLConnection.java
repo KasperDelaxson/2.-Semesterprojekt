@@ -135,6 +135,37 @@ public class SQLConnection extends ParentController {
         }
         return con;
     }
+    public ArrayList seeUserList(){
+        String sql = "SELECT name FROM users";
+        ArrayList<String> users = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                users.add(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return users;
+    }
+    public ArrayList seePatientList(){
+        String sql = "SELECT name FROM patient";
+        ArrayList<String> patient = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                patient.add(rs.getString("name"));
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        } return patient;
+    }
 
     public ArrayList seeClientList() {
 
