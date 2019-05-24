@@ -14,6 +14,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import mainAndParent.ParentController;
 
 /**
@@ -135,9 +136,57 @@ public class SQLConnection extends ParentController {
         }
         return con;
     }
+    
+    public ArrayList seeUserList(){
+        String sql = "SELECT name FROM users";
+        ArrayList<String> users = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                users.add(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return users;
+    }
+    
+    public ArrayList seePatientList(){
+        String sql = "SELECT name FROM patient";
+        ArrayList<String> patient = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                patient.add(rs.getString("name"));
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        } return patient;
+    }
+    public ArrayList seeAssignedMedicine(String name){
+        String sql = "SELECT assignedmedicine FROM medicinehandout WHERE patientsocialsecurity = (SELECT socialsecurity FROM patient WHERE name ='" + name + "');";
+        ArrayList<String> assignedMedicine = new ArrayList<String>();
+        try {
+            openConnection();
+            Connection con = getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                assignedMedicine.add(rs.getString(1));
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            
+        } return assignedMedicine;
+    } 
 
     public ArrayList seeClientList() {
-
         Employee e = Employee.getEmployee();
         String sqlString = "SELECT socialsecurity FROM patient WHERE employeeassigned = " + e.getEmployeeNumber() + ";";
         ArrayList<String> socials = new ArrayList<String>();

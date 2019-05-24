@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,17 +26,19 @@ import semesterprojekt.SQLConnection;
  * @author Kaspe
  */
 public class MedicinFXMLController extends ParentController implements Initializable {
+
     @FXML
     private Label dateTimeLabel;
     @FXML
     private ListView<String> patientListView;
     @FXML
-    private ListView<?> medicinListView;
-    
+    private ListView<String> medicinListView;
+
     SQLConnection sql = new SQLConnection();
-    
-    ArrayList <String> nameList = new ArrayList<String>();
-    private ObservableList<String> namesList = FXCollections.observableArrayList();
+    private ArrayList<String> patientAList = new ArrayList<String>();
+    private ObservableList<String> patientOList = FXCollections.observableArrayList();
+    private ArrayList<String> medicineAList = new ArrayList<String>();
+    private ObservableList<String> medicineOList = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
@@ -44,14 +47,34 @@ public class MedicinFXMLController extends ParentController implements Initializ
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-        try{
-        nameList = sql.seeClientList();
-        patientListView.setItems(namesList);
-        for(int i = 0;i<nameList.size();i++){
-        namesList.add(nameList.get(i));}}
-        catch(Exception e){}
-    
-    }    
+
+        try {
+            patientListView.getItems().clear();
+            patientAList = sql.seePatientList();
+            patientListView.setItems(patientOList);
+            for (int i = 0; i < patientAList.size(); i++) {
+                patientOList.add(patientAList.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        patientListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                medicinListView.getItems().clear();
+                ArrayList<String> as = sql.seeAssignedMedicine(patientListView.getSelectionModel().getSelectedItem());
+                medicineAList = as;
+                if (as.isEmpty()) {
+                    medicineOList.add("Ingen medicin tildelt!");
+                } else {
+                    medicinListView.setItems(medicineOList);
+                    for (int i = 0; i < medicineAList.size(); i++) {
+                        medicineOList.add(medicineAList.get(i));
+                    }
+                }
+            }
+        });
+    }
 
     @FXML
     private void logOffButton(ActionEvent event) {
@@ -72,4 +95,25 @@ public class MedicinFXMLController extends ParentController implements Initializ
     private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
+    @FXML
+    private void showAssignedMedicine(MouseEvent event) {
+//        try {
+//            patientListView.getItems().clear();
+//            medicineAList = sql.seePatientList();
+//            patientListView.setItems(medicineOList);
+//            for (int i = 0; i < medicineAList.size(); i++) {
+//                medicineOList.add(medicineAList.get(i));
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//        patientListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                ArrayList<String> as = sql.seeAssignedMedicine(patientListView.getSelectionModel().getSelectedItem());
+//                
+//            }
+//        });
+    }
+
 }

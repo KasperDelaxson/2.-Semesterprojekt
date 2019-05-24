@@ -6,12 +6,16 @@
 package homescreen.admin.patient;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -68,8 +72,11 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     private TextField passwordField;
     @FXML
     private Label advarselLabel;
-
+    private ArrayList<String> patientAList = new ArrayList<String>();
+    private ObservableList<String> patientOList = FXCollections.observableArrayList();
     @FXML
+    private ListView<String> patientListView;
+
     /**
      * Initializes the controller class.
      */
@@ -164,6 +171,15 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
 
     @FXML
     private void showPatients(ActionEvent event) {
+        try {
+            patientAList = sql.seePatientList();
+            patientListView.setItems(patientOList);
+            for (int i = 0; i < patientAList.size(); i++) {
+                patientOList.add(patientAList.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

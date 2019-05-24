@@ -7,7 +7,10 @@ package homescreen.admin.user;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,7 +46,7 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     @FXML
     private ToggleGroup bruger;
     @FXML
-    private TextArea userListView;
+    private ListView<String> userListView;
     @FXML
     private Label usernameLabel;
     @FXML
@@ -73,11 +76,14 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     @FXML
     private Label mailLabel;
     SQLConnection sql = new SQLConnection();
-    ObservableList<String> userList;
+    private ArrayList<String> userAList = new ArrayList<String>();
+    private ObservableList<String> userOList = FXCollections.observableArrayList();
+
     Connection con;
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -110,7 +116,17 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
 
     @FXML
     private void showUsers(ActionEvent event) {
+        try {
+            userAList = sql.seeUserList();
+            userListView.setItems(userOList);
+            for (int i = 0; i < userAList.size(); i++) {
+                userOList.add(userAList.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
+    
 
     @FXML
     private void createUser(ActionEvent event) {
