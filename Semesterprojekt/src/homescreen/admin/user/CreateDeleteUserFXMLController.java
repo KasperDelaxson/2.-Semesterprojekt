@@ -15,6 +15,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -97,7 +99,12 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
     private void deleteUser(ActionEvent event) {
         if (nameField.getText().isEmpty() || phoneField.getText().isEmpty()
                 || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Fejl!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
         } else {
             try {
                 int employeeNumber = Integer.parseInt(employeeNumberField.getText());
@@ -106,10 +113,21 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 sql.deleteEmployee(employeeNumber, nameField.getText(), phone, usernameField.getText(), passwordField.getText());
                 sql.closeConnection();
                 awaitingActionArea.setText("Fuldført! Bruger Slettet!");
-                JOptionPane.showMessageDialog(null, "Fuldført! Bruger slettet!", "Godkendt", 1);
+
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Godkendt!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fuldført! Bruger slettet!");
+                alert.showAndWait();
+
             } catch (Exception e) {
                 awaitingActionArea.setText("Fejl ved slet af Bruger");
-                JOptionPane.showMessageDialog(null, "Fejl ved slet af bruger!", "Fejl", 1);
+
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Fejl!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fejl ved slet af bruger!");
+                alert.showAndWait();
             }
         }
     }
@@ -126,7 +144,6 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
             System.out.println(e.getMessage());
         }
     }
-    
 
     @FXML
     private void createUser(ActionEvent event) {
@@ -134,7 +151,13 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
                 || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()
                 || permissionField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Fejl!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
+
         } else {
             int employeeNumber = Integer.parseInt(employeeNumberField.getText());
             int phone = Integer.parseInt(phoneField.getText());
@@ -144,10 +167,21 @@ public class CreateDeleteUserFXMLController extends ParentController implements 
                 sql.addEmployee(employeeNumber, nameField.getText(), phone, mailField.getText(), usernameField.getText(), passwordField.getText(), permission);
                 sql.closeConnection();
                 awaitingActionArea.setText("Fuldført! Bruger Oprettet");
-                JOptionPane.showMessageDialog(null, "Fuldført bruger oprettet! ", "Godkendt", 1);
+
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Godkendt!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fuldført bruger oprettet!");
+                alert.showAndWait();
+
             } catch (Exception e) {
                 awaitingActionArea.setText("Fejl ved opret af Bruger!");
-                JOptionPane.showMessageDialog(null, "Fejl ved opret af bruger!", "Fejl", 1);
+
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Fejl!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fejl ved opret af bruger!");
+                alert.showAndWait();
             }
 
         }

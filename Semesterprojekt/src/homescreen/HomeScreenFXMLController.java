@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
@@ -171,7 +173,12 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         if (sql.getPermissionNumber() > 0){
             changeFXML("/homescreen/journal/journalFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+            
+                         Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
         }
        
     }
@@ -183,7 +190,12 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         if (sql.getPermissionNumber() > 0){
             changeFXML("/homescreen/comment/commentFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+            
+            Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
         }
     }
 
@@ -194,7 +206,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         if (sql.getPermissionNumber() > 1){
             changeFXML("/homescreen/admin/AdminFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+                      Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
         }
     }
 
@@ -205,7 +221,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         if (sql.getPermissionNumber() > 1){
             changeFXML("/homescreen/service/ServiceFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+                       Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
         } 
     }
 
@@ -217,7 +237,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
             changeFXML("/homescreen/medicin/MedicinFXML.fxml", event);
             System.out.println(sql.getPermissionNumber());
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+                       Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
             System.out.println(sql.getPermissionNumber());
         }
     }
@@ -229,7 +253,11 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         if (sql.getPermissionNumber() >0){
             
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+            Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Tilladelse er ikke eksisterende");
+                alert.setHeaderText(null);
+                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+                alert.showAndWait();
         }
     }
 
