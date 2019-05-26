@@ -19,6 +19,7 @@ import mainAndParent.ParentController;
  * @author Kasper
  */
 public class ContactFXMLController extends ParentController implements Initializable {
+
     @FXML
     private TextArea contactTextArea;
 
@@ -28,15 +29,15 @@ public class ContactFXMLController extends ParentController implements Initializ
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         contactTextArea.setText("Systemet er lavet af gruppe 13, bestående af: \n"
-        + "(Sorterer Alfabetisk) \n"
-        + "\nAhash Mathivathan: Ahmat18@student.sdu.dk \n"
-        + "Kasper Sebastiampillai: Kaseb18@student.sdu.dk \n"
-        + "Kenneth Michael Haahr: Kehaa18@student.sdu.dk \n"
-        + "Malthe Petersen: Malpe18@student.sdu.dk \n"
-        + "Mehmed Emin Øzer: Meuze18@student.sdu.dk \n"
-        + "Samir Al Idrissi: Salid18@student.sdu.dk ");
-        
-    }    
+                + "(Sorterer Alfabetisk) \n"
+                + "\nAhash Mathivathan: Ahmat18@student.sdu.dk \n"
+                + "Kasper Sebastiampillai: Kaseb18@student.sdu.dk \n"
+                + "Kenneth Michael Haahr: Kehaa18@student.sdu.dk \n"
+                + "Malthe Petersen: Malpe18@student.sdu.dk \n"
+                + "Mehmed Emin Øzer: Meuze18@student.sdu.dk \n"
+                + "Samir Al Idrissi: Salid18@student.sdu.dk ");
+
+    }
 
     @FXML
     private void goBack(ActionEvent event) {
@@ -52,5 +53,5 @@ public class ContactFXMLController extends ParentController implements Initializ
     private void exitProgram(ActionEvent event) {
         closeWindow(event);
     }
-    
+
 }

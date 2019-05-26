@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -69,10 +71,20 @@ public class DeleteJournalAndCaseFXMLController extends ParentController impleme
     @FXML
     private void deletePatientCase(ActionEvent event) {
         if (socialSecurityField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("FEJL!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
         } else {
             sql.deleteJournal(socialSecurityField.getText());
-            JOptionPane.showMessageDialog(null, "Fuldført sagsakter slettet! ", "Godkendt", 1);
+
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Godkendt!");
+            alert.setHeaderText(null);
+            alert.setContentText("Fuldført sagsakter slettet!");
+            alert.showAndWait();
         }
     }
 

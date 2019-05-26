@@ -18,6 +18,7 @@ import pictures.homeScreenPictures.ImageMain;
 import semesterprojekt.Employee;
 import semesterprojekt.SQLConnection;
 import javax.swing.JOptionPane;
+
 /**
  * FXML Controller class
  *
@@ -53,16 +54,17 @@ public class HomeScreenFXMLController extends ParentController implements Initia
      */
     ImageMain img = new ImageMain();
     Description description = new Description();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ddImage.setImage(img.dd);  
+        ddImage.setImage(img.dd);
         informationArea.setVisible(false);
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
         String username = sql.getEmployeeName(Employee.getEmployee().getUsername());
         velkommenLabel.setText("Velkommen: " + username);
     }
+
     @FXML
     private void blueChangeToS(MouseEvent event) {
         blueImage.setImage(img.blue);
@@ -166,36 +168,37 @@ public class HomeScreenFXMLController extends ParentController implements Initia
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
     }
+
     @FXML
     private void changeToNotes(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 0){
+        if (sql.getPermissionNumber() > 0) {
             changeFXML("/homescreen/journal/journalFXML.fxml", event);
         } else {
-            
-                         Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
-       
+
     }
 
     @FXML
     private void changeToComent(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 0){
+        if (sql.getPermissionNumber() > 0) {
             changeFXML("/homescreen/comment/commentFXML.fxml", event);
         } else {
-            
+
             Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 
@@ -203,14 +206,14 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private void changeToAdmin(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 1){
+        if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/admin/AdminFXML.fxml", event);
         } else {
-                      Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 
@@ -218,30 +221,30 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private void changeToServices(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 1){
+        if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/service/ServiceFXML.fxml", event);
         } else {
-                       Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
-        } 
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void changeToMedicin(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 1){
+        if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/medicin/MedicinFXML.fxml", event);
             System.out.println(sql.getPermissionNumber());
         } else {
-                       Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
             System.out.println(sql.getPermissionNumber());
         }
     }
@@ -250,14 +253,14 @@ public class HomeScreenFXMLController extends ParentController implements Initia
     private void changeToSettings(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() >0){
-            
+        if (sql.getPermissionNumber() > 0) {
+
         } else {
             Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Tilladelse er ikke eksisterende");
-                alert.setHeaderText(null);
-                alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
-                alert.showAndWait();
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 

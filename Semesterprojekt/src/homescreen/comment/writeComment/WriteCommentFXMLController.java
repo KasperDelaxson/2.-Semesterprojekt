@@ -23,6 +23,7 @@ import mainAndParent.ParentController;
  * @author Kasper
  */
 public class WriteCommentFXMLController extends ParentController implements Initializable {
+
     private ListView<?> patientListview;
     @FXML
     private TextArea writeCommentArea;
@@ -38,7 +39,7 @@ public class WriteCommentFXMLController extends ParentController implements Init
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-    }    
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {
@@ -63,5 +64,5 @@ public class WriteCommentFXMLController extends ParentController implements Init
     @FXML
     private void saveComment(ActionEvent event) {
     }
-    
+
 }

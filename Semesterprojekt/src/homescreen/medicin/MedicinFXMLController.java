@@ -92,9 +92,10 @@ public class MedicinFXMLController extends ParentController implements Initializ
     private void goBackToHomescreen(ActionEvent event) {
         changeFXML("/homescreen/HomeScreenFXML.fxml", event);
     }
+
     @FXML
     private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
- 
+
 }

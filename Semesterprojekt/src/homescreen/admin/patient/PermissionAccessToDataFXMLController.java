@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +25,7 @@ import semesterprojekt.SQLConnection;
  * @author Kaspe
  */
 public class PermissionAccessToDataFXMLController extends ParentController implements Initializable {
+
     @FXML
     private TextField firstEmployeeField;
     @FXML
@@ -32,6 +35,7 @@ public class PermissionAccessToDataFXMLController extends ParentController imple
     @FXML
     private Label timeLabel;
     SQLConnection sql = new SQLConnection();
+
     /**
      * Initializes the controller class.
      */
@@ -39,7 +43,7 @@ public class PermissionAccessToDataFXMLController extends ParentController imple
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         timeLabel.setText(getDatoTid());
-    }    
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {
@@ -64,14 +68,25 @@ public class PermissionAccessToDataFXMLController extends ParentController imple
 
     @FXML
     private void givePermissionButton(ActionEvent event) {
-        if (firstEmployeeField.getText().isEmpty() || nextEmployeeField.getText().isEmpty() || socialSecurityField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+        if (firstEmployeeField.getText().isEmpty() || nextEmployeeField.getText().isEmpty() || socialSecurityField.getText().isEmpty()) {
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Fejl!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
+
         } else {
             int firstField = Integer.parseInt(firstEmployeeField.getText());
             int nextField = Integer.parseInt(nextEmployeeField.getText());
             sql.alterPermissionToJournal(socialSecurityField.getText(), firstField, nextField);
-            JOptionPane.showMessageDialog(null, "Der er nu tildelt adgang til borgers sagsakter!", "Godkendt", 1);
+
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Godkendt!");
+            alert.setHeaderText(null);
+            alert.setContentText("Der er nu tildelt adgang til borgers sagsakter!");
+            alert.showAndWait();
         }
     }
-    
+
 }

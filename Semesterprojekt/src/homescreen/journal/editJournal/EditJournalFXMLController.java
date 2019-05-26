@@ -20,6 +20,7 @@ import mainAndParent.ParentController;
  * @author Kenneth Haahr
  */
 public class EditJournalFXMLController extends ParentController implements Initializable {
+
     @FXML
     private Label dateTimeLabel;
 
@@ -49,6 +50,7 @@ public class EditJournalFXMLController extends ParentController implements Initi
     private void logOffButton(ActionEvent event) {
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
+
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();

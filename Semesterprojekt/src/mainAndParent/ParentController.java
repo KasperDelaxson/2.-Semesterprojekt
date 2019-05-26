@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  * @author Kasper
  */
 public abstract class ParentController {
+
     private String datoTid;
     private static Stage window;
 
@@ -45,7 +46,7 @@ public abstract class ParentController {
             System.out.println("closeWindow IO exceptions");
         }
     }
-    
+
     /**
      * @return the datoTid
      */
@@ -59,7 +60,7 @@ public abstract class ParentController {
     public void setDatoTid(String datoTid) {
         this.datoTid = datoTid;
     }
-    
+
     public void timeAndDate() {
         LocalDateTime lokalDatoTid = LocalDateTime.now();
         DateTimeFormatter datoformat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");

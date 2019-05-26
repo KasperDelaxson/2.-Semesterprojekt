@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
  * @author Kasper
  */
 public class Description {
+
     public HashMap<String, String> features = new HashMap<String, String>();
 
     public Description() {

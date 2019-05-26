@@ -22,6 +22,7 @@ import mainAndParent.ParentController;
  * @author Kasper
  */
 public class ViewCommentFXMLController extends ParentController implements Initializable {
+
     @FXML
     private ListView<?> patientListview;
     @FXML
@@ -38,7 +39,7 @@ public class ViewCommentFXMLController extends ParentController implements Initi
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-    }    
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {
@@ -55,5 +56,5 @@ public class ViewCommentFXMLController extends ParentController implements Initi
     private void logOffButton(ActionEvent event) {
         changeFXML("/LoginPAGE/LoginPAGE.fxml", event);
     }
-    
+
 }

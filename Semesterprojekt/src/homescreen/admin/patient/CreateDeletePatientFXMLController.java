@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -97,18 +99,33 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     private void deleteUser(ActionEvent event) {
         if (nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
                 || socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Fejl!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
         } else {
             int phone = Integer.parseInt(phoneField.getText());
             try {
                 sql.openConnection();
                 sql.deletePatient(nameField.getText(), phone, mailField.getText(), usernameField.getText(), passwordField.getText(), socialSecurityField.getText());
                 awaitingActionArea.setText("Fuldført! Patient slettet!");
-                JOptionPane.showMessageDialog(null, "Fuldført patient slettet! ", "Godkendt", 1);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Godkendt");
+                alert.setHeaderText(null);
+                alert.setContentText("Fuldført patient slettet! ");
+                alert.showAndWait();
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 awaitingActionArea.setText("Fejl ved slet af patient!");
-                JOptionPane.showMessageDialog(null, "Fejl ved slet af bruger ", "Fejl", 1);
+
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Fejl!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fejl ved slet af bruger");
+                alert.showAndWait();
             }
         }
     }
@@ -117,7 +134,13 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
     private void createUser(ActionEvent event) {
         if (employeeassignedField.getText().isEmpty() || nameField.getText().isEmpty() || phoneField.getText().isEmpty() || mailField.getText().isEmpty()
                 || socialSecurityField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ikke tilstrækkelig information angivet!", "Fejl!", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Fejl!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ikke tilstrækkelig information angivet!");
+            alert.showAndWait();
+
         } else {
             int phone = Integer.parseInt(phoneField.getText());
             int permission = 1;
@@ -126,11 +149,23 @@ public class CreateDeletePatientFXMLController extends ParentController implemen
                 sql.openConnection();
                 sql.addPatient(nameField.getText(), phone, mailField.getText(), socialSecurityField.getText(), usernameField.getText(), passwordField.getText(), permission, employeeassigned);
                 awaitingActionArea.setText("Fuldført! Patient oprettet!");
-                JOptionPane.showMessageDialog(null, "Fuldført Patient oprettet! ", "Godkendt", 1);
+
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Godkendt!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fuldført Patient oprettet!");
+                alert.showAndWait();
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 awaitingActionArea.setText("Fejl ved opret af patient!");
-                JOptionPane.showMessageDialog(null, "Fejl ved opret af patient!", "Fejl", 1);
+
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Fejl!");
+                alert.setHeaderText(null);
+                alert.setContentText("Fejl ved opret af patient!");
+                alert.showAndWait();
+
             }
         }
     }

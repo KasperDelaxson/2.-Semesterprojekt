@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -111,7 +113,12 @@ public class JournalFXMLController extends ParentController implements Initializ
         if (sql.getPermissionNumber() > 0) {
             changeFXML("/homescreen/journal/viewJournal/ViewJournalFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
 
     }
@@ -123,7 +130,12 @@ public class JournalFXMLController extends ParentController implements Initializ
         if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/journal/writeJournal/WriteJournalFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 
@@ -134,7 +146,12 @@ public class JournalFXMLController extends ParentController implements Initializ
         if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/journal/editJournal/EditJournalFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
 
     }

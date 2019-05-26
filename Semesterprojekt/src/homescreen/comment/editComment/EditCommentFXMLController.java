@@ -22,6 +22,7 @@ import mainAndParent.ParentController;
  * @author Kasper
  */
 public class EditCommentFXMLController extends ParentController implements Initializable {
+
     @FXML
     private Label dateTimeLabel;
     @FXML
@@ -38,7 +39,7 @@ public class EditCommentFXMLController extends ParentController implements Initi
     public void initialize(URL url, ResourceBundle rb) {
         timeAndDate();
         dateTimeLabel.setText(getDatoTid());
-    }    
+    }
 
     @FXML
     private void goBackToComment(ActionEvent event) {
@@ -63,5 +64,5 @@ public class EditCommentFXMLController extends ParentController implements Initi
     @FXML
     private void attachFile(ActionEvent event) {
     }
-    
+
 }

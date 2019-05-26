@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +28,7 @@ import semesterprojekt.SQLConnection;
  * @author Kasper
  */
 public class CommentFXMLController extends ParentController implements Initializable {
+
     @FXML
     private Label dateTimeLabel;
     @FXML
@@ -40,7 +43,7 @@ public class CommentFXMLController extends ParentController implements Initializ
     private Label seeComentLabel;
     @FXML
     private Label editComentLabel;
-    
+
     ImageSecond img = new ImageSecond();
     Description des = new Description();
     SQLConnection sql = new SQLConnection();
@@ -55,7 +58,7 @@ public class CommentFXMLController extends ParentController implements Initializ
         writeComentLabel.setText(des.features.get("Skriv Kommentar"));
         seeComentLabel.setText(des.features.get("Se Kommentar"));
         editComentLabel.setText(des.features.get("Rediger Kommentar"));
-    }    
+    }
 
     @FXML
     private void updateTime(MouseEvent event) {
@@ -77,12 +80,17 @@ public class CommentFXMLController extends ParentController implements Initializ
     private void changeToWriteComent(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 1){
+        if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/comment/writeComment/WriteCommentFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
-        
+
     }
 
     @FXML
@@ -99,10 +107,15 @@ public class CommentFXMLController extends ParentController implements Initializ
     private void changeToEditComent(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 1){
+        if (sql.getPermissionNumber() > 1) {
             changeFXML("/homescreen/comment/editComment/EditCommentFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 
@@ -120,10 +133,15 @@ public class CommentFXMLController extends ParentController implements Initializ
     private void changeToSeeComent(MouseEvent event) {
         String username = Employee.getEmployee().getUsername();
         sql.getPermission(username);
-        if (sql.getPermissionNumber() > 0){
+        if (sql.getPermissionNumber() > 0) {
             changeFXML("/homescreen/comment/viewComment/ViewCommentFXML.fxml", event);
         } else {
-            JOptionPane.showMessageDialog(null, "Du har ikke tilladelse til at tilgå dette!", "Tilladelse er ikke eksisterende", 1);
+
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Tilladelse er ikke eksisterende");
+            alert.setHeaderText(null);
+            alert.setContentText("Du har ikke tilladelse til at tilgå dette!");
+            alert.showAndWait();
         }
     }
 
@@ -141,5 +159,5 @@ public class CommentFXMLController extends ParentController implements Initializ
     private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
-    
+
 }

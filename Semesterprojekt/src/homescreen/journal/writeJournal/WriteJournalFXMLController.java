@@ -113,35 +113,35 @@ public class WriteJournalFXMLController extends ParentController implements Init
 //            Logger.getLogger(WriteJournalFXMLController.class.getNameForList()).log(Level.SEVERE, null, ex);
 //            System.err.println("Couldn't create file.");
 //        }
- 
-        sql.saveNote(selectedPatient,(String)noteArea.getText());
-  
-        if (selectedPatient != null && !noteArea.getText().isEmpty() ) {
-            
+
+        sql.saveNote(selectedPatient, (String) noteArea.getText());
+
+        if (selectedPatient != null && !noteArea.getText().isEmpty()) {
+
             sql.saveNote(selectedPatient, selectedPatient);
-            
-                   Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Journal gemt");
-                alert.setHeaderText(null);
-                alert.setContentText("Journal gemt");
-                alert.showAndWait(); 
-                
-    } else {
-             Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("FEJL!");
-                alert.setHeaderText(null);
-                alert.setContentText("Patient skal vælges og note skal skrives!");
-                alert.showAndWait();
-        
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Journal gemt");
+            alert.setHeaderText(null);
+            alert.setContentText("Journal gemt");
+            alert.showAndWait();
+
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("FEJL!");
+            alert.setHeaderText(null);
+            alert.setContentText("Patient skal vælges og note skal skrives!");
+            alert.showAndWait();
+
         }
     }
-    
 
     @FXML
     private void attachFile(ActionEvent event) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             File file = null;
             String text;
+
             public void run() {
                 JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
                 jfc.setDialogTitle("Select a file");
@@ -150,12 +150,12 @@ public class WriteJournalFXMLController extends ParentController implements Init
                 jfc.addChoosableFileFilter(filter);
 
                 int returnValue = jfc.showOpenDialog(null);
-                
+
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     file = jfc.getSelectedFile();
                 }
 
-                BufferedReader br=null;
+                BufferedReader br = null;
                 try {
                     br = new BufferedReader(new FileReader(file));
                 } catch (FileNotFoundException ex) {
@@ -165,7 +165,7 @@ public class WriteJournalFXMLController extends ParentController implements Init
                 String st;
                 try {
                     while ((st = br.readLine()) != null) {
-                        text=text+st;
+                        text = text + st;
                     }
                     sql.saveNote(selectedPatient, (String) text);
                 } catch (IOException ex) {
@@ -175,10 +175,12 @@ public class WriteJournalFXMLController extends ParentController implements Init
         });
 
     }
-@FXML
+
+    @FXML
     private void exitButton(ActionEvent event) {
         closeWindow(event);
     }
+
     @FXML
     private void updateTime(MouseEvent event) {
         timeAndDate();

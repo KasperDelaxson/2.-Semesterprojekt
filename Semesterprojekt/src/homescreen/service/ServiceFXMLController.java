@@ -38,7 +38,6 @@ public class ServiceFXMLController extends ParentController implements Initializ
     private ArrayList<String> HandoutAList = new ArrayList<String>();
     private ObservableList<String> HandoutOList = FXCollections.observableArrayList();
 
-
     /**
      * Initializes the controller class.
      */

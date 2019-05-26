@@ -69,8 +69,8 @@ public class LoginPAGEController extends ParentController implements Initializab
     @FXML
     private void logIn(ActionEvent event) {
         if (usernameLabel.getText().isEmpty() || passwordLabel.getText().isEmpty()) {
-                fejlBox.setVisible(true);
-                fejlLabel.setText("Ikke tilstrækkelig information givet!");
+            fejlBox.setVisible(true);
+            fejlLabel.setText("Ikke tilstrækkelig information givet!");
         } else {
             try {
                 boolean login = sql.checkLogin(usernameLabel.getText(), passwordLabel.getText());
